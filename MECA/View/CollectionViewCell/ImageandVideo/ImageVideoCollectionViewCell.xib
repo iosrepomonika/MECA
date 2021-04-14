@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageVideoCollectionViewCell" id="gTV-IL-0wX" customClass="ImageVideoCollectionViewCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="194" height="149"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="194" height="149"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDP-WC-Yoy" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="10" y="10" width="174" height="129"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download document" translatesAutoresizingMaskIntoConstraints="NO" id="XWw-yM-hjr" customClass="RCustomImageView" customModule="MECA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="174" height="129"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="2" height="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8n-vS-y4C">
+                                <rect key="frame" x="69" y="54" width="36" height="21"/>
+                                <state key="normal" image="Video ion"/>
+                                <connections>
+                                    <action selector="onClickPlay:" destination="gTV-IL-0wX" eventType="touchUpInside" id="CGT-TJ-YZj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z8n-vS-y4C" secondAttribute="trailing" constant="69" id="0kZ-24-MKK"/>
+                            <constraint firstItem="Z8n-vS-y4C" firstAttribute="top" secondItem="BDP-WC-Yoy" secondAttribute="top" constant="54" id="9tj-Af-bM7"/>
+                            <constraint firstItem="XWw-yM-hjr" firstAttribute="leading" secondItem="BDP-WC-Yoy" secondAttribute="leading" id="NqA-U0-Ubh"/>
+                            <constraint firstItem="XWw-yM-hjr" firstAttribute="top" secondItem="BDP-WC-Yoy" secondAttribute="top" id="NwN-Ww-qy5"/>
+                            <constraint firstItem="Z8n-vS-y4C" firstAttribute="leading" secondItem="BDP-WC-Yoy" secondAttribute="leading" constant="69" id="W2V-qA-xNB"/>
+                            <constraint firstAttribute="bottom" secondItem="XWw-yM-hjr" secondAttribute="bottom" id="aXa-vP-OtF"/>
+                            <constraint firstAttribute="trailing" secondItem="XWw-yM-hjr" secondAttribute="trailing" id="dvF-fw-ISU"/>
+                            <constraint firstAttribute="bottom" secondItem="Z8n-vS-y4C" secondAttribute="bottom" constant="54" id="xgg-2F-YYD"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="2" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="BDP-WC-Yoy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="0Ep-r4-rkq"/>
+                <constraint firstAttribute="trailing" secondItem="BDP-WC-Yoy" secondAttribute="trailing" constant="10" id="2DS-Gf-aq1"/>
+                <constraint firstAttribute="bottom" secondItem="BDP-WC-Yoy" secondAttribute="bottom" constant="10" id="4fs-A4-bEk"/>
+                <constraint firstItem="BDP-WC-Yoy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="79J-yO-IRy"/>
+            </constraints>
+            <size key="customSize" width="194" height="149"/>
+            <connections>
+                <outlet property="baseView" destination="BDP-WC-Yoy" id="2ca-TG-s58"/>
+                <outlet property="myImageView" destination="XWw-yM-hjr" id="xDB-pW-1fW"/>
+                <outlet property="playBtnRef" destination="Z8n-vS-y4C" id="boG-pX-1St"/>
+            </connections>
+            <point key="canvasLocation" x="28.985507246376812" y="77.34375"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="XWw-yM-hjr">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Video ion" width="35" height="22"/>
+        <image name="download document" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
