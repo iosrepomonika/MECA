@@ -6,7 +6,6 @@ import MobileCoreServices
 import AVFoundation
 import Alamofire
 import PDFKit
-
 class CategoryCommonViewController: UIViewController {
     
     @IBOutlet weak var baseView: UIView!
@@ -48,6 +47,46 @@ class CategoryCommonViewController: UIViewController {
     @IBOutlet weak var videoCollectionView: UICollectionView!
     @IBOutlet weak var heightConstarint4: NSLayoutConstraint!
     
+    @IBOutlet weak var externalLinkVIewOne: RCustomView!
+    @IBOutlet weak var externalLinkViewTwo: RCustomView!
+    @IBOutlet weak var rxternalLinkStackTOpContraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var externalLinkTitle1: UILabel!
+    @IBOutlet weak var externalLinkInfo1: UILabel!
+    @IBOutlet weak var externalLink1: UILabel!
+    
+    @IBOutlet weak var externalLinkTitle2: UILabel!
+    @IBOutlet weak var externalLinkInfo2: UILabel!
+    @IBOutlet weak var externalLink2: UILabel!
+
+  
+    
+    @IBOutlet weak var videoLinkVIewOne: RCustomView!
+    @IBOutlet weak var videoLinkViewTwo: RCustomView!
+    @IBOutlet weak var videoLinkStackTOpContraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var videoLinkTitle1: UILabel!
+    @IBOutlet weak var videoLinkInfo1: UILabel!
+    @IBOutlet weak var videoLink1: UILabel!
+    @IBOutlet weak var videoLinkImg1: UIImageView!
+    
+    @IBOutlet weak var videoLinkTitle2: UILabel!
+    @IBOutlet weak var videoLinkInfo2: UILabel!
+    @IBOutlet weak var videoLink2: UILabel!
+    @IBOutlet weak var videoLinkImg2: UIImageView!
+
+   
+    
+    @IBOutlet weak var externalbtnOutletSeeMore: UIButton!
+   
+    @IBOutlet weak var externalLinkStackviewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoLinkbtnOutletSeeMore: UIButton!
+    @IBOutlet weak var videoLinkStackviewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewAlertAddLinks: UIView!
+    @IBOutlet weak var txtviewPopopInfo: UITextView!
+    @IBOutlet weak var txtPopupTitle: UITextField!
+  
+ 
     
     var screenSize: CGRect!
     var screenWidth: CGFloat!
@@ -70,6 +109,11 @@ class CategoryCommonViewController: UIViewController {
     var arrCoverimage : [Data] = []
     let datePicker = UIDatePicker()
     let thePicker = UIPickerView()
+    var isAddLink = ""
+    var videoLinkArr = [[String:Any]]()
+    var docLinkArr = [[String:Any]]()
+
+    
     let typePickerData = [String](arrayLiteral: "New Car Sales", "After Sales", "Trade In", "BIT Foundation")
 
     
@@ -168,10 +212,10 @@ class CategoryCommonViewController: UIViewController {
         chooseTypeTextField.layer.borderColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         chooseTypeTextField.layer.cornerRadius = 8
         externalLinkTextField.layer.borderWidth = 1
-        externalLinkTextField.layer.borderColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
+        externalLinkTextField.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
         externalLinkTextField.layer.cornerRadius = 8
         VideoLinkTextField.layer.borderWidth = 1
-        VideoLinkTextField.layer.borderColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
+        VideoLinkTextField.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
         VideoLinkTextField.layer.cornerRadius = 8
         DescriptionView.layer.cornerRadius = 8
         descriptionTextView.layer.cornerRadius = 8
@@ -223,6 +267,21 @@ class CategoryCommonViewController: UIViewController {
         layout4.minimumLineSpacing = 0
         layout4.scrollDirection = .horizontal
         documentCollectionView!.collectionViewLayout = layout4
+        
+        
+      
+         rxternalLinkStackTOpContraint.constant = 0
+        externalLinkVIewOne.isHidden = true
+        externalLinkViewTwo.isHidden = true
+        externalbtnOutletSeeMore.isHidden = true
+        externalLinkStackviewHeightConstraint.constant = 0
+        videoLinkViewTwo.isHidden = true
+        videoLinkVIewOne.isHidden = true
+        videoLinkStackTOpContraint.constant = 0
+        videoLinkbtnOutletSeeMore.isHidden = true
+        videoLinkStackviewHeightConstraint.constant = 0
+        viewAlertAddLinks.isHidden = true
+        
         
     }
     
@@ -385,7 +444,181 @@ class CategoryCommonViewController: UIViewController {
         photoCollectionView.reloadData()
         
     }
+    @IBAction func btnAddLinksAction(_ sender: UIButton) {
+        if sender.tag == 10 {
+            if externalLinkTextField.text.unsafelyUnwrapped.isEmpty {
+                let alert1 = UIAlertController(title: "Alert!", message: "External Link Cant be empty", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alert1.addAction(dismiss)
+                present(alert1, animated: true, completion: nil)
+            }
+            
+            
+         else  if externalLinkTextField.text.unsafelyUnwrapped.contains("http") {
+                print("exists")
+            isAddLink = "External"
+            viewAlertAddLinks.isHidden = false
+
+
+            }else  {
+                print("INValid Youtube URL")
+                let alert1 = UIAlertController(title: "Invalid URL!", message: "Please Check Enter URL", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alert1.addAction(dismiss)
+                present(alert1, animated: true, completion: nil)
+            }
+
+        }else{
+            
+            if VideoLinkTextField.text.unsafelyUnwrapped.isEmpty {
+                let alert1 = UIAlertController(title: "Alert!", message: "Video Link Cant be empty", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alert1.addAction(dismiss)
+                present(alert1, animated: true, completion: nil)
+            }
+            
+            
+         else  if VideoLinkTextField.text.unsafelyUnwrapped.contains("https://www.youtube.com/") ||   VideoLinkTextField.text.unsafelyUnwrapped.contains("https://youtu") {
+                print("exists")
+            isAddLink = "Video"
+            viewAlertAddLinks.isHidden = false
+
+           
+            }
+            else  {
+                print("INValid Youtube URL")
+                let alert1 = UIAlertController(title: "Invalid URL", message: "Please Check Enter URL", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                alert1.addAction(dismiss)
+                present(alert1, animated: true, completion: nil)
+            }
+
+        }
+    }
+    @IBAction func btnSeeMoreAction(_ sender: UIButton) {
+        if sender.tag == 10 {
+            //external link
+        }else{
+           //video link
+        }
+    }
+ 
+    @IBAction func popUpbtnAction(_ sender: UIButton) {
+        if sender.tag == 10 {
+            viewAlertAddLinks.isHidden = true
+            //Close
+        }else{
+            //Submit
+            if isAddLink == "Video"{
+                //video
+                if txtPopupTitle.text == "" && txtviewPopopInfo.text == "" {
+                    let alert1 = UIAlertController(title: "Alert!", message: "Please Enter all Details", preferredStyle: .alert)
+                    let dismiss = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                    alert1.addAction(dismiss)
+                    present(alert1, animated: true, completion: nil)
+                }
+                else {
+                    let dict:[String:Any] = ["link": "\(VideoLinkTextField.text.unsafelyUnwrapped)",
+                                             "Title": "\(txtPopupTitle.text.unsafelyUnwrapped)",
+                                             "Info":"\(txtviewPopopInfo.text.unsafelyUnwrapped)"]
+                    videoLinkArr.append(dict)
+                    print("Data Added \(videoLinkArr)")
+                    for i in 0..<videoLinkArr.count {
+                        let obj = videoLinkArr[i]
+                        if i == 0{
+                            videoLinkStackTOpContraint.constant = 16
+                           videoLinkVIewOne.isHidden = false
+                           videoLinkStackviewHeightConstraint.constant = 130
+                            videoLinkTitle1.text = obj["Title"] as? String
+                            videoLinkInfo1.text = obj["Info"] as? String
+                            videoLink1.text = obj["link"] as? String
+
+                            let urlYoutube = obj["link"] as? String
+                            let urlID = urlYoutube?.youtubeID
+                            let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+                            let url = URL(string: urlStr)!
+                            videoLinkImg1.sd_setImage(with: url, completed: nil)
+                            
+
+                        }else if i == 1 {
+                            videoLinkStackTOpContraint.constant = 16
+                           videoLinkViewTwo.isHidden = false
+                           videoLinkStackviewHeightConstraint.constant = 250
+                            videoLinkTitle2.text = obj["Title"] as? String
+                            videoLinkInfo2.text = obj["Info"] as? String
+                            videoLink2.text = obj["link"] as? String
+                            let urlYoutube = obj["link"] as? String
+                            let urlID = urlYoutube?.youtubeID
+                            let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+                            let url = URL(string: urlStr)!
+                            videoLinkImg2.sd_setImage(with: url, completed: nil)
+                            
+                        }
+                    }
+                    if videoLinkArr.count>2{
+                        videoLinkbtnOutletSeeMore.isHidden = false
+                    }
+                    viewAlertAddLinks.isHidden = true
+
+                    
+                }
+            }else{
+                //external
+                if txtPopupTitle.text == "" && txtviewPopopInfo.text == "" {
+                    let alert1 = UIAlertController(title: "Alert!", message: "Please Enter all Details", preferredStyle: .alert)
+                    let dismiss = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                    alert1.addAction(dismiss)
+                    present(alert1, animated: true, completion: nil)
+                }
+                else {
+
+                    let dict:[String:Any] = ["link": "\(externalLinkTextField.text.unsafelyUnwrapped)",
+                            "Title": "\(txtPopupTitle.text.unsafelyUnwrapped)",
+                            "Info":"\(txtviewPopopInfo.text.unsafelyUnwrapped)"]
+                    docLinkArr.append(dict)
+                    print("Data Added")
+                    print("The Count is :\(docLinkArr)")
+                    
+                    for i in 0..<docLinkArr.count {
+                        let obj = docLinkArr[i]
+                        if i == 0{
+                            
+                            print(obj)
+                            rxternalLinkStackTOpContraint.constant = 16
+                           externalLinkVIewOne.isHidden = false
+                            externalLinkStackviewHeightConstraint.constant = 130
+                            externalLinkTitle1.text = obj["Title"] as? String
+                            externalLinkInfo1.text = obj["Info"] as? String
+                            externalLink1.text = obj["link"] as? String
+                        
+                        }else if i == 1 {
+                            print(obj)
+                            rxternalLinkStackTOpContraint.constant = 16
+                            externalLinkViewTwo.isHidden = false
+                            externalLinkStackviewHeightConstraint.constant = 250
+                            externalLinkTitle2.text = obj["Title"] as? String
+                            externalLinkInfo2.text = obj["Info"] as? String
+                            externalLink2.text = obj["link"] as? String
+                        }
+                    }
+                    if docLinkArr.count>2{
+                        externalbtnOutletSeeMore.isHidden = false
+                    }
+                    viewAlertAddLinks.isHidden = true
+
+                }
+                
+                
+            viewAlertAddLinks.isHidden = true
+
+                
+            }
+
+        }
+    }
+    
 }
+
 extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if (collectionView == photoCollectionView) {
@@ -455,7 +688,7 @@ extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionV
     
 }
 extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+  
     
     func presentPhotoActionSheet() {
         
@@ -716,23 +949,23 @@ extension CategoryCommonViewController{
         headers = ["Authorization":"Bearer \(accessToken ?? "")"	]
 
         
-        var videoLinkArr = [[String:Any]]()
-        var docLinkArr = [[String:Any]]()
-
-        var  dict = [String:Any]()
-        var docDict = [String:Any]()
         
-        dict = ["link":"https://www.youtube.com/watch?v=6zgm0cN8CQg",
-                "title":"video1","info":"video1 info"]
-        videoLinkArr.append(dict)
-
-        dict = ["link":"https://www.youtube.com/watch?v=6zgm0cN8CQg",
-                "title":"video2","info":"video2 info"]
-        videoLinkArr.append(dict)
+//        var  dict = [String:Any]()
+//        var docDict = [String:Any]()
+//
+//        dict = ["link":"https://www.youtube.com/watch?v=6zgm0cN8CQg",
+//                "title":"video1","info":"video1 info"]
+//        videoLinkArr.append(dict)
+//
+//        dict = ["link":"https://www.youtube.com/watch?v=6zgm0cN8CQg",
+//                "title":"video2","info":"video2 info"]
+//        videoLinkArr.append(dict)
+//        print(videoLinkArr)
+//        docDict = ["link":"https://drive.google.com/file/d/1k07NiURpG7SE2EFXSEm3sGe9_kGxuI6D/view",
+//                "title":"link1","info":"Doc1 info"]
+//        docLinkArr.append(docDict)
         print(videoLinkArr)
-        docDict = ["link":"https://drive.google.com/file/d/1k07NiURpG7SE2EFXSEm3sGe9_kGxuI6D/view",
-                "title":"link1","info":"Doc1 info"]
-        docLinkArr.append(docDict)
+        print(docLinkArr)
         let parameters: [String: Any] = [
             "video_links" : videoLinkArr,
             "document_links" : docLinkArr,
@@ -766,10 +999,11 @@ extension CategoryCommonViewController{
             for i in 0..<self.arrimages.count{
                 let name = "event_images[\(i)]"
                 let img = self.arrimages[i]
-                let timestamp = NSDate().timeIntervalSince1970
-                multipartFormData.append(img, withName: name , fileName: "\(timestamp).jpeg", mimeType: "image/jpeg")
-                                
+//                multipartFormData.append(img, withName: name , fileName: "\(timestamp).jpeg", mimeType: "image/jpeg")
+                multipartFormData.append(img, withName: name , fileName: "file.jpeg", mimeType: "image/jpeg")
+
             }
+            //event_documents
           
             for i in 0..<self.arrvideos.count{
                 let name = "event_videos[\(i)]"
@@ -840,7 +1074,7 @@ extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPicker
         guard let myURL = urls.first else {
             return
         }
-    //    print("import result : \(myURL)")
+     print("import result : \(myURL)")
         drawPDFfromURL(url: myURL) { (img) in
             if img != nil{
             self.DocumentArray.append(img!)
