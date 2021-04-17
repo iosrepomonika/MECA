@@ -51,7 +51,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var presentation2TextField: UITextField!
     @IBOutlet weak var downloadDoc2RefBtn: UIButton!
     @IBOutlet weak var videoLinklabel: UILabel!
-    @IBOutlet weak var videoLinkRefBtn: UIButton!
+    @IBOutlet weak var videoLinkRefBtn1: UIButton!
+    @IBOutlet weak var videoLinkRefBtn2: UIButton!
+    @IBOutlet weak var videoLinkSeeMoreBtn: UIButton!
+    @IBOutlet weak var viewVideoLink: UIView!
+    @IBOutlet weak var viewVideoLinkHeightConstraint: NSLayoutConstraint!
+  
+    @IBOutlet weak var viewVideoLinkTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var documentLinkRefBtn1: UIButton!
+    @IBOutlet weak var documentLinkRefBtn2: UIButton!
+    @IBOutlet weak var documentLinkSeeMoreBtn1: UIButton!
+    @IBOutlet weak var viewDocumentLinkTOpConstrainrt: NSLayoutConstraint!
+    @IBOutlet weak var viewDocumentLinkHeightConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var viewDocumentLink: UIView!
+    
     @IBOutlet weak var CommentsLikeView: UIView!
     @IBOutlet weak var likeIcon: UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
@@ -77,6 +91,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var viewImgTopConstrint: NSLayoutConstraint!
     @IBOutlet weak var viewVideoTopCOnstrint: NSLayoutConstraint!
     
+    @IBOutlet weak var viewImgPreview: UIView!
+ 
+    @IBOutlet weak var imgPreview: UIImageView!
+    @IBOutlet weak var viewEventContent: UIView!
+    @IBOutlet weak var viewEventContentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewEvenContentOne: UIView!
+    @IBOutlet weak var viewEvenContentTwo: UIView!
+    @IBOutlet weak var seeMoreEventContentOutlet: UIButton!
+    @IBOutlet weak var viewEventTopConstraint: NSLayoutConstraint!
+  
+    
+    
     var navValue = ""
     
     var screenSize: CGRect!
@@ -96,23 +122,19 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
-//        imageCollectionView.dataSource = self
-//        imageCollectionView.delegate = self
-       
-//        self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
-//        videoCollectionView.dataSource = self
-//        videoCollectionView.delegate = self
-        
+    
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
         screenHeight = screenSize.height
-        setupUI()
+        viewImgPreview.isHidden = true
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+        self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
         if navValue == "0" {
             //rootVC : Home vc
             print("From Home VC")
@@ -132,9 +154,6 @@ class DetailViewController: UIViewController {
                 viewModel1.callKaizenInfoWebservice { (info) in
                     if info == true{
                         if self.viewModel1.arrEventImg.count>0{
-                            self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
-                            
-                            self.setupUI()
                             self.imageCollectionView.delegate = self
                             self.imageCollectionView.dataSource = self
                             self.imageCollectionView.reloadData()
@@ -171,7 +190,7 @@ class DetailViewController: UIViewController {
                 viewModel1.callKaizenInfoWebservice { (info) in
                     if info == true{
                         if self.viewModel1.arrEventImg.count>0{
-                            self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                          //  self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
 
                             self.imageCollectionView.delegate = self
                             self.imageCollectionView.dataSource = self
@@ -179,7 +198,7 @@ class DetailViewController: UIViewController {
                         }
                         
                         if self.viewModel1.arrEventVideos.count>0{
-                            self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                          //  self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
 
                             self.videoCollectionView.delegate = self
                             self.videoCollectionView.dataSource = self
@@ -211,6 +230,8 @@ class DetailViewController: UIViewController {
             
             
         }
+        setupUI()
+
     }
 
     func setupUI() {
@@ -223,21 +244,34 @@ class DetailViewController: UIViewController {
         likeBtnRef.layer.cornerRadius = 15
         commentBtnRef.layer.cornerRadius = 15
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let layoutImg: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     
-        layout.itemSize = CGSize(width: screenWidth/2, height: 120)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
-        layout.scrollDirection = .horizontal
-        imageCollectionView!.collectionViewLayout = layout
-        videoCollectionView!.collectionViewLayout = layout
-
-        videoCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        layoutImg.itemSize = CGSize(width: screenWidth/2, height: 120)
+        layoutImg.minimumInteritemSpacing = 0
+        layoutImg.minimumLineSpacing = 0
+        layoutImg.scrollDirection = .horizontal
+        imageCollectionView!.collectionViewLayout = layoutImg
+        imageCollectionView.reloadData()
+        
+        let layoutVideo: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    
+        layoutVideo.itemSize = CGSize(width: screenWidth/2, height: 120)
+        layoutVideo.minimumInteritemSpacing = 0
+        layoutVideo.minimumLineSpacing = 0
+        layoutVideo.scrollDirection = .horizontal
+        videoCollectionView!.collectionViewLayout = layoutVideo
+        videoCollectionView.reloadData()
     }
    
 
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+        {
+            let touch = touches.first
+            if touch?.view != self.imgPreview
+            {
+                self.viewImgPreview.isHidden = true
+            }
+        }
     
     @IBAction func onClickDismissVC(_ sender: UIButton) {
        // self.dismiss(animated: true, completion: nil)
@@ -458,14 +492,27 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 
                 if (collectionView == imageCollectionView) {
                     let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
-                    // cell.myImageView.image = arrcatImg[indexPath.row]
-                    cell.myImageView.image = UIImage(named: "image 1")
+                    let objImage = viewModel1.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        cell.myImageView.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        cell.myImageView.image = UIImage(named: "image 1")
+                    }
                     cell.playBtnRef.isHidden = true
                     return cell
                 }
                 else if (collectionView == videoCollectionView) {
                     let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
-                    cell1.myImageView.image = UIImage(named: "image 2")
+                    let objImage = viewModel1.arrEventVideos[indexPath.row]
+                    if objImage.file != ""{
+                        let urlimg = BaseURL + (objImage.file)!
+                        let url = URL(string: urlimg)!
+                        
+                        if let thumbnailImage = getThumbnailImage(forUrl: url) {
+                            cell1.myImageView.image = thumbnailImage
+                        }
+                    }
                     cell1.playBtnRef.isHidden = false
                     cell1.playVideo = {
                         print("Video is atpped")
@@ -477,8 +524,13 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             
             if (collectionView == imageCollectionView) {
                 let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
-                // cell.myImageView.image = arrcatImg[indexPath.row]
-                cell.myImageView.image = UIImage(named: "image 1")
+                let objImage = viewModel1.arrEventImg[indexPath.row]
+                if objImage.file != ""{
+                    let url = BaseURL + (objImage.file)!
+                    cell.myImageView.sd_setImage(with: URL(string:url), completed: nil)
+                }else{
+                    cell.myImageView.image = UIImage(named: "image 1")
+                }
                 cell.playBtnRef.isHidden = true
                 return cell
             }
@@ -510,7 +562,15 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if isEvent{
                 
                 if (collectionView == imageCollectionView) {
-                  
+                    let objImage = viewModel.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        viewImgPreview.isHidden = false
+                        imgPreview.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        imgPreview.image = UIImage(named: "image 1")
+                    }
+
                 }
                 else if (collectionView == videoCollectionView) {
                     let obj = viewModel.arrEventVideos[indexPath.row]
@@ -532,7 +592,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }else{
                 
                 if (collectionView == imageCollectionView) {
-                    
+                    let objImage = viewModel1.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        viewImgPreview.isHidden = false
+                        imgPreview.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        imgPreview.image = UIImage(named: "image 1")
+                    }
                 }
                 else if (collectionView == videoCollectionView) {
                     let obj = viewModel1.arrEventVideos[indexPath.row]
@@ -555,7 +622,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             if isEvent{
                 
                 if (collectionView == imageCollectionView) {
-                    
+                    let objImage = viewModel.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        viewImgPreview.isHidden = false
+                        imgPreview.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        imgPreview.image = UIImage(named: "image 1")
+                    }
                 }
                 else if (collectionView == videoCollectionView) {
                     let obj = viewModel.arrEventVideos[indexPath.row]
@@ -577,7 +651,14 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             }else{
                 
                 if (collectionView == imageCollectionView) {
-                   
+                    let objImage = viewModel1.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        viewImgPreview.isHidden = false
+                        imgPreview.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        imgPreview.image = UIImage(named: "image 1")
+                    }
                 }
                 else if (collectionView == videoCollectionView) {
                     let obj = viewModel1.arrEventVideos[indexPath.row]
@@ -599,19 +680,13 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }else{
             
             if (collectionView == imageCollectionView) {
-                let obj = viewModel1.arrEventVideos[indexPath.row]
-                if obj.file != ""{
-                    let urlimg = BaseURL + (obj.file)!
-
-                guard let videoURL = URL(string: urlimg) else {
-                          return
-                    }
-                    let player = AVPlayer(url: videoURL)
-                    let playerViewController = AVPlayerViewController()
-                    playerViewController.player = player
-                    self.present(playerViewController, animated: true) {
-                      playerViewController.player?.play()
-                    }
+                let objImage = viewModel1.arrEventImg[indexPath.row]
+                if objImage.file != ""{
+                    let url = BaseURL + (objImage.file)!
+                    viewImgPreview.isHidden = false
+                    imgPreview.sd_setImage(with: URL(string:url), completed: nil)
+                }else{
+                    imgPreview.image = UIImage(named: "image 1")
                 }
                
             }

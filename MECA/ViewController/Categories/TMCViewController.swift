@@ -24,7 +24,10 @@ class TMCViewController: UIViewController {
             vc.isFromTab = "Overall"
                     self.navigationController?.pushViewController(vc, animated: true)
         }else if sender.tag == 30 {
-            
+            let story = UIStoryboard(name: "Category", bundle:nil)
+                        let vc = story.instantiateViewController(withIdentifier: "MEBITEventVC") as! MEBITEventVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+
         }else if sender.tag == 40 {
             let story = UIStoryboard(name: "Category", bundle:nil)
                         let vc = story.instantiateViewController(withIdentifier: "NewCarSalesViewController") as! NewCarSalesViewController

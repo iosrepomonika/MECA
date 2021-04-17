@@ -16,6 +16,21 @@ class EventInfoVM: NSObject {
         
         (actualController as! DetailViewController).locationviewHeightConstraint.constant = 0
         (actualController as! DetailViewController).locationView.isHidden = true
+        
+        (actualController as! DetailViewController).viewEventContent.isHidden = true
+        (actualController as! DetailViewController).viewEventContentHeightConstraint.constant = 0
+        (actualController as! DetailViewController).viewEventTopConstraint.constant = 0
+        
+        (self.actualController as! DetailViewController).viewDocumentLink.isHidden = true
+        (self.actualController as! DetailViewController).viewDocumentLinkTOpConstrainrt.constant = 0
+        (self.actualController as! DetailViewController).viewDocumentLinkHeightConstraint.constant = 0
+        (self.actualController as! DetailViewController).documentLinkSeeMoreBtn1.isHidden = true
+
+        (self.actualController as! DetailViewController).viewVideoLink.isHidden = true
+        (self.actualController as! DetailViewController).viewVideoLinkTopConstraint.constant = 0
+        (self.actualController as! DetailViewController).viewVideoLinkHeightConstraint.constant = 0
+        
+
     }
    
     func callEventInfoWebservice() {
@@ -171,7 +186,37 @@ class EventInfoVM: NSObject {
                             (self.actualController as! DetailViewController).videoCollectionView.reloadData()
 
                         }
-                        
+//                        if objDate.event_documents?.count == 0{
+//                            (self.actualController as! DetailViewController).viewEventContent.isHidden = true
+//                            (self.actualController as! DetailViewController).viewEventTopConstraint.constant = 0
+//                            (self.actualController as! DetailViewController).viewEventContentHeightConstraint.constant = 0
+//                            (self.actualController as! DetailViewController).seeMoreEventContentOutlet.isHidden = true
+//
+//                        }else{
+//                            for i in 0..<objDate.event_documents!.count {
+//                                let obj = objDate.event_documents![i]
+//                                if i == 0 {
+//                                    (self.actualController as! DetailViewController).viewEventContent.isHidden = true
+//                                    (self.actualController as! DetailViewController).viewEventTopConstraint.constant = 0
+//                                    (self.actualController as! DetailViewController).viewEventContentHeightConstraint.constant = 0
+//                                    (self.actualController as! DetailViewController).seeMoreEventContentOutlet.isHidden = true
+//
+//                                }else if i == 1 {
+//                                    (self.actualController as! DetailViewController).viewEventContent.isHidden = true
+//                                    (self.actualController as! DetailViewController).viewEventTopConstraint.constant = 0
+//                                    (self.actualController as! DetailViewController).viewEventContentHeightConstraint.constant = 0
+//                                    (self.actualController as! DetailViewController).seeMoreEventContentOutlet.isHidden = true
+//
+//                                }
+//
+//
+//                            }
+//                            if objDate.event_documents!.count>2{
+//                                (self.actualController as! DetailViewController).videoLinkSeeMoreBtn.isHidden = false
+//                            }
+//
+                            
+                     //   }
                         GlobalObj.displayLoader(true, show: false)
 
                     }else{

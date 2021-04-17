@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -33,10 +32,6 @@
                                     <constraint firstAttribute="height" constant="160" id="yd6-10-oZT"/>
                                 </constraints>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZkI-Fs-m25">
-                                <rect key="frame" x="0.0" y="0.0" width="288" height="160"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEBIT Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afg-JY-OMg">
                                 <rect key="frame" x="15" y="175" width="258" height="17"/>
                                 <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
@@ -90,21 +85,17 @@
                             <constraint firstItem="e9I-Do-dER" firstAttribute="trailing" secondItem="gbv-Bs-PEO" secondAttribute="trailing" id="M1e-3v-Llg"/>
                             <constraint firstItem="vZ6-jC-nuc" firstAttribute="centerY" secondItem="9Gn-QE-xG2" secondAttribute="centerY" id="TYi-bK-O1L"/>
                             <constraint firstItem="vZ6-jC-nuc" firstAttribute="leading" secondItem="afg-JY-OMg" secondAttribute="leading" id="Y73-p8-TRA"/>
-                            <constraint firstItem="ZkI-Fs-m25" firstAttribute="height" secondItem="xH0-qQ-AR4" secondAttribute="height" id="Z6Y-1j-k9k"/>
                             <constraint firstItem="gbv-Bs-PEO" firstAttribute="top" secondItem="afg-JY-OMg" secondAttribute="bottom" constant="6" id="axZ-he-Wjx"/>
                             <constraint firstItem="9Gn-QE-xG2" firstAttribute="leading" secondItem="vZ6-jC-nuc" secondAttribute="trailing" constant="10" id="bsy-Nu-rRZ"/>
                             <constraint firstAttribute="trailing" secondItem="RPV-Tp-Zcj" secondAttribute="trailing" constant="-1" id="ccG-HG-pgv"/>
                             <constraint firstAttribute="trailing" secondItem="9Gn-QE-xG2" secondAttribute="trailing" constant="14" id="dP6-dE-FsC"/>
-                            <constraint firstItem="ZkI-Fs-m25" firstAttribute="trailing" secondItem="xH0-qQ-AR4" secondAttribute="trailing" id="eiU-y0-jxI"/>
                             <constraint firstItem="e9I-Do-dER" firstAttribute="top" secondItem="gbv-Bs-PEO" secondAttribute="bottom" constant="6" id="fuW-XJ-Xc0"/>
                             <constraint firstItem="gbv-Bs-PEO" firstAttribute="trailing" secondItem="afg-JY-OMg" secondAttribute="trailing" id="gyM-Gr-NAj"/>
                             <constraint firstItem="gbv-Bs-PEO" firstAttribute="leading" secondItem="afg-JY-OMg" secondAttribute="leading" id="h8Y-i5-6R6"/>
                             <constraint firstItem="afg-JY-OMg" firstAttribute="top" secondItem="xH0-qQ-AR4" secondAttribute="bottom" constant="15" id="lL9-Qc-EYk"/>
-                            <constraint firstItem="ZkI-Fs-m25" firstAttribute="leading" secondItem="xH0-qQ-AR4" secondAttribute="leading" id="lj8-JI-O2D"/>
                             <constraint firstItem="9Gn-QE-xG2" firstAttribute="top" secondItem="e9I-Do-dER" secondAttribute="bottom" constant="9" id="nBa-fK-lc3"/>
                             <constraint firstItem="RPV-Tp-Zcj" firstAttribute="top" secondItem="sdE-ba-tTg" secondAttribute="top" constant="-1" id="ofx-LZ-dXJ"/>
                             <constraint firstItem="afg-JY-OMg" firstAttribute="leading" secondItem="sdE-ba-tTg" secondAttribute="leading" constant="15" id="rrN-Zh-rlA"/>
-                            <constraint firstItem="ZkI-Fs-m25" firstAttribute="top" secondItem="xH0-qQ-AR4" secondAttribute="top" id="tsm-d2-hpf"/>
                             <constraint firstItem="xH0-qQ-AR4" firstAttribute="leading" secondItem="sdE-ba-tTg" secondAttribute="leading" id="xep-sV-2O4"/>
                             <constraint firstItem="e9I-Do-dER" firstAttribute="leading" secondItem="gbv-Bs-PEO" secondAttribute="leading" id="yoc-pt-xtO"/>
                         </constraints>
@@ -144,7 +135,6 @@
                 <outlet property="lblTitle" destination="gbv-Bs-PEO" id="hIn-AH-gML"/>
                 <outlet property="lblWritternBy" destination="vZ6-jC-nuc" id="ZmL-Kt-Fkn"/>
                 <outlet property="newImage" destination="RPV-Tp-Zcj" id="VfY-Ob-MHO"/>
-                <outlet property="viewIMG" destination="ZkI-Fs-m25" id="nxb-yJ-mjU"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="70.3125"/>
         </tableViewCell>
@@ -152,8 +142,5 @@
     <resources>
         <image name="image_1" width="361" height="178"/>
         <image name="new" width="50" height="50"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

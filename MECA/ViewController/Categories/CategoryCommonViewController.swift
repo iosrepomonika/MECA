@@ -456,6 +456,8 @@ class CategoryCommonViewController: UIViewController {
             
          else  if externalLinkTextField.text.unsafelyUnwrapped.contains("http") {
                 print("exists")
+            txtPopupTitle.text = ""
+            txtviewPopopInfo.text = ""
             isAddLink = "External"
             viewAlertAddLinks.isHidden = false
 
@@ -480,6 +482,8 @@ class CategoryCommonViewController: UIViewController {
             
          else  if VideoLinkTextField.text.unsafelyUnwrapped.contains("https://www.youtube.com/") ||   VideoLinkTextField.text.unsafelyUnwrapped.contains("https://youtu") {
                 print("exists")
+            txtPopupTitle.text = ""
+            txtviewPopopInfo.text = ""
             isAddLink = "Video"
             viewAlertAddLinks.isHidden = false
 
@@ -498,8 +502,19 @@ class CategoryCommonViewController: UIViewController {
     @IBAction func btnSeeMoreAction(_ sender: UIButton) {
         if sender.tag == 10 {
             //external link
+            let VC = FlowController().instantiateViewController(identifier: "VideoLinkVC", storyBoard: "Home") as!  VideoLinkVC
+            VC.videoLinkValue = "0"
+            VC.docLinkArr1 = docLinkArr
+            VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: true, completion: nil)
+        
         }else{
            //video link
+            let VC = FlowController().instantiateViewController(identifier: "VideoLinkVC", storyBoard: "Home") as! VideoLinkVC
+            VC.videoLinkValue = "1"
+            VC.videoLinkArr1 = videoLinkArr
+            VC.modalPresentationStyle = .fullScreen
+            self.present(VC, animated: true, completion: nil)
         }
     }
  
@@ -1003,8 +1018,15 @@ extension CategoryCommonViewController{
                 multipartFormData.append(img, withName: name , fileName: "file.jpeg", mimeType: "image/jpeg")
 
             }
-            //event_documents
-          
+            
+          //  for i in 0..<self.arrDoc.count{
+//                let name = "event_documents[\(i)]"
+//                let doc = self.arrDoc[i]
+//                let timestamp = NSDate().timeIntervalSince1970
+//                multipartFormData.append(doc, withName: name , fileName: "\(timestamp).pdf", mimeType: "application/pdf")
+//            }
+
+
             for i in 0..<self.arrvideos.count{
                 let name = "event_videos[\(i)]"
                 let img = self.arrvideos[i]
@@ -1075,6 +1097,13 @@ extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPicker
             return
         }
      print("import result : \(myURL)")
+        do {
+            let docData = try Data(contentsOf: myURL as URL)
+            arrDoc.append(docData)
+        } catch {
+            print("Unable to load data: \(error)")
+        }
+        
         drawPDFfromURL(url: myURL) { (img) in
             if img != nil{
             self.DocumentArray.append(img!)
@@ -1085,11 +1114,6 @@ extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPicker
         }
     }
           
-
-//    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
-//        documentPicker.delegate = self
-//        present(documentPicker, animated: true, completion: nil)
-//    }
 
 
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
