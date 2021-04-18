@@ -224,7 +224,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vag-aM-iEK">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1870"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="2070"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-Nr-F4X">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="440"/>
@@ -595,7 +595,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pL-e7-gyW">
-                                                        <rect key="frame" x="0.0" y="836" width="414" height="864"/>
+                                                        <rect key="frame" x="0.0" y="836" width="414" height="1064"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiF-Yh-xoI">
                                                                 <rect key="frame" x="16" y="23" width="382" height="63"/>
@@ -811,7 +811,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0g-iL-Ync">
-                                                                <rect key="frame" x="16" y="624" width="382" height="110"/>
+                                                                <rect key="frame" x="16" y="624" width="382" height="310"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Link" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odM-Lo-TyJ">
                                                                         <rect key="frame" x="0.0" y="0.0" width="67.5" height="16"/>
@@ -819,57 +819,268 @@
                                                                         <color key="textColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb1-ub-WMP">
-                                                                        <rect key="frame" x="0.0" y="26" width="382" height="21"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="21" id="ojw-Hp-KuX"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
-                                                                        <state key="normal">
-                                                                            <color key="titleColor" red="0.23921568630000001" green="0.4823529412" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="onClickVideoLink:" destination="hP2-jb-V6O" eventType="touchUpInside" id="ziH-kW-OM9"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWz-aG-KDO">
-                                                                        <rect key="frame" x="0.0" y="57" width="382" height="21"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2JO-Mw-sFf">
+                                                                        <rect key="frame" x="0.0" y="26" width="382" height="250"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bwy-Ys-GUE" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="120"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpB-fs-ii5">
+                                                                                        <rect key="frame" x="115" y="22" width="31" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="31" id="2JB-Nt-5aT"/>
+                                                                                            <constraint firstAttribute="height" constant="16" id="KaF-mk-lJZ"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v70-DX-iNS">
+                                                                                        <rect key="frame" x="154" y="22" width="220" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="inx-Ni-LRw"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3Y-p7-MAb">
+                                                                                        <rect key="frame" x="115" y="86" width="29" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="2iz-my-KLB"/>
+                                                                                            <constraint firstAttribute="width" constant="29" id="PTp-7f-sCc"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH3-n0-hhN">
+                                                                                        <rect key="frame" x="154" y="86" width="220" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="MvP-wE-LoG"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" red="0.23921568630000001" green="0.4823529412" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIw-4k-JwT">
+                                                                                        <rect key="frame" x="115" y="54" width="27" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="Or7-ru-2Pb"/>
+                                                                                            <constraint firstAttribute="width" constant="27" id="VLl-dE-EUG"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weE-ZX-qkN">
+                                                                                        <rect key="frame" x="154" y="54" width="220" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="rpB-dd-SWr"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mCv-Fr-Ihk">
+                                                                                        <rect key="frame" x="5" y="10" width="100" height="100"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="100" id="LV4-fJ-YQ1"/>
+                                                                                            <constraint firstAttribute="height" constant="100" id="QgG-xE-lpG"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="v70-DX-iNS" firstAttribute="leading" secondItem="jpB-fs-ii5" secondAttribute="trailing" constant="8" id="2en-hr-GWo"/>
+                                                                                    <constraint firstItem="mCv-Fr-Ihk" firstAttribute="centerY" secondItem="Bwy-Ys-GUE" secondAttribute="centerY" id="7hl-YH-5Xa"/>
+                                                                                    <constraint firstItem="weE-ZX-qkN" firstAttribute="top" secondItem="v70-DX-iNS" secondAttribute="bottom" constant="16" id="8Ry-lI-0qK"/>
+                                                                                    <constraint firstItem="v70-DX-iNS" firstAttribute="top" secondItem="Bwy-Ys-GUE" secondAttribute="top" constant="22" id="9hT-KL-OmA"/>
+                                                                                    <constraint firstItem="RIw-4k-JwT" firstAttribute="top" secondItem="jpB-fs-ii5" secondAttribute="bottom" constant="16" id="Ax0-XH-2ke"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="weE-ZX-qkN" secondAttribute="trailing" constant="8" id="E5U-ls-bLJ"/>
+                                                                                    <constraint firstItem="g3Y-p7-MAb" firstAttribute="leading" secondItem="jpB-fs-ii5" secondAttribute="leading" id="IDk-cq-V6g"/>
+                                                                                    <constraint firstItem="g3Y-p7-MAb" firstAttribute="top" secondItem="RIw-4k-JwT" secondAttribute="bottom" constant="16" id="IeM-Qc-n6e"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="UH3-n0-hhN" secondAttribute="trailing" constant="8" id="QHe-bc-hGv"/>
+                                                                                    <constraint firstItem="jpB-fs-ii5" firstAttribute="leading" secondItem="mCv-Fr-Ihk" secondAttribute="trailing" constant="10" id="SNd-S5-emg"/>
+                                                                                    <constraint firstItem="jpB-fs-ii5" firstAttribute="top" secondItem="Bwy-Ys-GUE" secondAttribute="top" constant="22" id="bNd-3F-GsD"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="v70-DX-iNS" secondAttribute="trailing" constant="8" id="cCX-dV-4jY"/>
+                                                                                    <constraint firstItem="UH3-n0-hhN" firstAttribute="leading" secondItem="v70-DX-iNS" secondAttribute="leading" id="csm-tk-sKi"/>
+                                                                                    <constraint firstAttribute="height" constant="120" id="mhd-0P-VUP"/>
+                                                                                    <constraint firstItem="RIw-4k-JwT" firstAttribute="leading" secondItem="jpB-fs-ii5" secondAttribute="leading" id="sda-aV-srx"/>
+                                                                                    <constraint firstItem="weE-ZX-qkN" firstAttribute="leading" secondItem="v70-DX-iNS" secondAttribute="leading" id="uFl-gz-7HQ"/>
+                                                                                    <constraint firstItem="mCv-Fr-Ihk" firstAttribute="leading" secondItem="Bwy-Ys-GUE" secondAttribute="leading" constant="5" id="ygN-kG-IPF"/>
+                                                                                    <constraint firstItem="UH3-n0-hhN" firstAttribute="top" secondItem="weE-ZX-qkN" secondAttribute="bottom" constant="16" id="zRb-Yg-bJO"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="12"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                        <real key="value" value="0.5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                        <size key="value" width="2" height="2"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                        <real key="value" value="6"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                                        <color key="value" systemColor="systemGray4Color"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                        <real key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                        <color key="value" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLO-Y8-k8q" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="130" width="382" height="120"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwR-Ta-1eE">
+                                                                                        <rect key="frame" x="115" y="22" width="31" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="Pbe-t7-J59"/>
+                                                                                            <constraint firstAttribute="width" constant="31" id="aRD-hF-2u3"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0B-Wz-VvG">
+                                                                                        <rect key="frame" x="154" y="22" width="220" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="Dpf-p5-dk3"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM6-sL-ZQB">
+                                                                                        <rect key="frame" x="115" y="86" width="29" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="ALD-R4-V7E"/>
+                                                                                            <constraint firstAttribute="width" constant="29" id="rhR-vY-1jY"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTd-eE-q2R">
+                                                                                        <rect key="frame" x="154" y="86" width="220" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="la0-GJ-bRb"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" red="0.23921568630000001" green="0.4823529412" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YK-z8-D5k">
+                                                                                        <rect key="frame" x="115" y="54" width="27" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="wcp-xe-TFL"/>
+                                                                                            <constraint firstAttribute="width" constant="27" id="zXh-Jo-sAM"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5p-LG-YiC">
+                                                                                        <rect key="frame" x="154" y="54" width="220" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="16" id="259-U4-LG4"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huG-mM-gSC">
+                                                                                        <rect key="frame" x="5" y="10" width="100" height="100"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="100" id="HVi-Pg-RI6"/>
+                                                                                            <constraint firstAttribute="height" constant="100" id="cFf-Cb-Yz2"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="6YK-z8-D5k" firstAttribute="leading" secondItem="wwR-Ta-1eE" secondAttribute="leading" id="2Pe-1O-JQN"/>
+                                                                                    <constraint firstItem="wwR-Ta-1eE" firstAttribute="leading" secondItem="huG-mM-gSC" secondAttribute="trailing" constant="10" id="3i5-Rn-nE6"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="R5p-LG-YiC" secondAttribute="trailing" constant="8" id="6Uq-6Z-rAE"/>
+                                                                                    <constraint firstItem="wwR-Ta-1eE" firstAttribute="top" secondItem="sLO-Y8-k8q" secondAttribute="top" constant="22" id="8iN-uF-0Bn"/>
+                                                                                    <constraint firstItem="R5p-LG-YiC" firstAttribute="top" secondItem="u0B-Wz-VvG" secondAttribute="bottom" constant="16" id="9rA-XZ-MUf"/>
+                                                                                    <constraint firstItem="6YK-z8-D5k" firstAttribute="top" secondItem="wwR-Ta-1eE" secondAttribute="bottom" constant="16" id="CTz-gh-nR0"/>
+                                                                                    <constraint firstItem="kM6-sL-ZQB" firstAttribute="leading" secondItem="wwR-Ta-1eE" secondAttribute="leading" id="EzO-Y5-bqH"/>
+                                                                                    <constraint firstItem="huG-mM-gSC" firstAttribute="leading" secondItem="sLO-Y8-k8q" secondAttribute="leading" constant="5" id="FKl-Ka-uVl"/>
+                                                                                    <constraint firstItem="huG-mM-gSC" firstAttribute="centerY" secondItem="sLO-Y8-k8q" secondAttribute="centerY" id="I81-Tc-iul"/>
+                                                                                    <constraint firstItem="u0B-Wz-VvG" firstAttribute="top" secondItem="sLO-Y8-k8q" secondAttribute="top" constant="22" id="Lau-rI-gKO"/>
+                                                                                    <constraint firstItem="u0B-Wz-VvG" firstAttribute="leading" secondItem="wwR-Ta-1eE" secondAttribute="trailing" constant="8" id="PIO-bY-Nlz"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="u0B-Wz-VvG" secondAttribute="trailing" constant="8" id="WKl-kh-tFJ"/>
+                                                                                    <constraint firstItem="QTd-eE-q2R" firstAttribute="leading" secondItem="u0B-Wz-VvG" secondAttribute="leading" id="cAt-ch-uaT"/>
+                                                                                    <constraint firstItem="R5p-LG-YiC" firstAttribute="leading" secondItem="u0B-Wz-VvG" secondAttribute="leading" id="iC2-cs-H9w"/>
+                                                                                    <constraint firstItem="QTd-eE-q2R" firstAttribute="top" secondItem="R5p-LG-YiC" secondAttribute="bottom" constant="16" id="nuj-LT-5WR"/>
+                                                                                    <constraint firstItem="kM6-sL-ZQB" firstAttribute="top" secondItem="6YK-z8-D5k" secondAttribute="bottom" constant="16" id="qgF-bm-SS3"/>
+                                                                                    <constraint firstAttribute="height" constant="120" id="ucr-tr-h5h"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="QTd-eE-q2R" secondAttribute="trailing" constant="8" id="wUD-Hk-iY9"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                        <real key="value" value="12"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                        <real key="value" value="0.5"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                        <size key="value" width="2" height="2"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                        <real key="value" value="6"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                                        <color key="value" systemColor="systemGray4Color"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                        <real key="value" value="1"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                        <color key="value" red="0.67450980390000004" green="0.67450980390000004" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    </userDefinedRuntimeAttribute>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                        </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="21" id="dim-bH-4WH"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="sLO-Y8-k8q" secondAttribute="trailing" id="0h2-t2-zHs"/>
+                                                                            <constraint firstItem="Bwy-Ys-GUE" firstAttribute="top" secondItem="2JO-Mw-sFf" secondAttribute="top" id="2xa-e8-DwN"/>
+                                                                            <constraint firstItem="sLO-Y8-k8q" firstAttribute="top" secondItem="Bwy-Ys-GUE" secondAttribute="bottom" constant="10" id="OSR-ua-yk8"/>
+                                                                            <constraint firstItem="Bwy-Ys-GUE" firstAttribute="leading" secondItem="2JO-Mw-sFf" secondAttribute="leading" id="cTX-zx-tjo"/>
+                                                                            <constraint firstAttribute="height" constant="250" id="fsQ-3v-2eh"/>
+                                                                            <constraint firstItem="sLO-Y8-k8q" firstAttribute="leading" secondItem="2JO-Mw-sFf" secondAttribute="leading" id="jfR-r8-mxQ"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Bwy-Ys-GUE" secondAttribute="trailing" id="wDR-Yg-xM8"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
-                                                                        <state key="normal">
-                                                                            <color key="titleColor" red="0.23921568630000001" green="0.4823529412" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="onClickVideoLink:" destination="hP2-jb-V6O" eventType="touchUpInside" id="noo-nc-TBa"/>
-                                                                        </connections>
-                                                                    </button>
+                                                                    </stackView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaU-JH-bHp">
-                                                                        <rect key="frame" x="320" y="78" width="62" height="32"/>
+                                                                        <rect key="frame" x="320" y="276" width="62" height="34"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                                                         <state key="normal" title="See More"/>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="uWz-aG-KDO" firstAttribute="leading" secondItem="F0g-iL-Ync" secondAttribute="leading" id="3JC-r1-oYq"/>
+                                                                    <constraint firstItem="JaU-JH-bHp" firstAttribute="top" secondItem="2JO-Mw-sFf" secondAttribute="bottom" id="3LU-Gu-jgJ"/>
                                                                     <constraint firstItem="odM-Lo-TyJ" firstAttribute="top" secondItem="F0g-iL-Ync" secondAttribute="top" id="6Or-KW-JQk"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="2JO-Mw-sFf" secondAttribute="trailing" id="9WR-yn-7Pj"/>
                                                                     <constraint firstAttribute="bottom" secondItem="JaU-JH-bHp" secondAttribute="bottom" id="E5b-by-W2l"/>
+                                                                    <constraint firstItem="2JO-Mw-sFf" firstAttribute="leading" secondItem="F0g-iL-Ync" secondAttribute="leading" id="F23-t1-y9y"/>
                                                                     <constraint firstAttribute="trailing" secondItem="JaU-JH-bHp" secondAttribute="trailing" id="GXM-5e-1fk"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Jb1-ub-WMP" secondAttribute="trailing" id="GkZ-Cg-qLI"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="uWz-aG-KDO" secondAttribute="trailing" id="IBw-6e-2qm"/>
-                                                                    <constraint firstItem="Jb1-ub-WMP" firstAttribute="leading" secondItem="F0g-iL-Ync" secondAttribute="leading" id="QjZ-vd-cWH"/>
-                                                                    <constraint firstItem="uWz-aG-KDO" firstAttribute="top" secondItem="Jb1-ub-WMP" secondAttribute="bottom" constant="10" id="Vc7-yx-iHK"/>
-                                                                    <constraint firstItem="JaU-JH-bHp" firstAttribute="top" secondItem="uWz-aG-KDO" secondAttribute="bottom" id="Z4o-o0-LkC"/>
-                                                                    <constraint firstAttribute="height" constant="110" id="ezd-wC-KXX"/>
-                                                                    <constraint firstItem="Jb1-ub-WMP" firstAttribute="top" secondItem="odM-Lo-TyJ" secondAttribute="bottom" constant="10" id="h7D-eK-5YN"/>
+                                                                    <constraint firstAttribute="height" constant="310" id="ezd-wC-KXX"/>
                                                                     <constraint firstItem="odM-Lo-TyJ" firstAttribute="leading" secondItem="F0g-iL-Ync" secondAttribute="leading" id="hki-2F-XXv"/>
+                                                                    <constraint firstItem="2JO-Mw-sFf" firstAttribute="top" secondItem="odM-Lo-TyJ" secondAttribute="bottom" constant="10" id="nCM-uc-WQl"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IY-Ex-LnA">
-                                                                <rect key="frame" x="16" y="754" width="382" height="110"/>
+                                                                <rect key="frame" x="16" y="954" width="382" height="110"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document Link" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxs-te-OMe">
                                                                         <rect key="frame" x="0.0" y="0.0" width="97" height="16"/>
@@ -951,7 +1162,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tph-g6-Xkg">
-                                                        <rect key="frame" x="0.0" y="1720" width="414" height="140"/>
+                                                        <rect key="frame" x="0.0" y="1920" width="414" height="140"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Likes" translatesAutoresizingMaskIntoConstraints="NO" id="jFl-Dy-oK9">
                                                                 <rect key="frame" x="24" y="20" width="22" height="22"/>
@@ -1017,7 +1228,7 @@
                                                                     <constraint firstAttribute="height" constant="30" id="6T5-qb-Rpv"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qk6-UM-DqU">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qk6-UM-DqU">
                                                                 <rect key="frame" x="207" y="66" width="0.0" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="SHe-gs-TVA"/>
@@ -1030,9 +1241,11 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="qk6-UM-DqU" firstAttribute="top" secondItem="jAC-IP-As1" secondAttribute="top" id="1gn-AV-7KO"/>
                                                             <constraint firstItem="jFl-Dy-oK9" firstAttribute="leading" secondItem="tph-g6-Xkg" secondAttribute="leading" constant="24" id="53w-26-FKV"/>
                                                             <constraint firstAttribute="trailing" secondItem="jAC-IP-As1" secondAttribute="trailing" constant="16" id="5wx-QA-kkb"/>
                                                             <constraint firstItem="qcC-On-ax7" firstAttribute="centerY" secondItem="jFl-Dy-oK9" secondAttribute="centerY" id="5zA-6J-cSS"/>
+                                                            <constraint firstItem="qk6-UM-DqU" firstAttribute="centerX" secondItem="jAC-IP-As1" secondAttribute="centerX" id="LaO-lD-T4V"/>
                                                             <constraint firstItem="dXn-WS-5yc" firstAttribute="centerY" secondItem="jFl-Dy-oK9" secondAttribute="centerY" id="Phr-Oa-Rmd"/>
                                                             <constraint firstAttribute="height" constant="140" id="XFq-gr-BKv"/>
                                                             <constraint firstItem="jFl-Dy-oK9" firstAttribute="top" secondItem="tph-g6-Xkg" secondAttribute="top" constant="20" symbolic="YES" id="XQJ-CE-PEf"/>
@@ -1172,9 +1385,15 @@
                         <outlet property="timeIcon" destination="ZN0-b7-dz6" id="zK6-yu-Tv6"/>
                         <outlet property="toyota2021TitleLabel" destination="Ttd-yx-tzb" id="Yv3-zb-AEy"/>
                         <outlet property="videoCollectionView" destination="XRU-mg-mKX" id="0pc-6m-L3G"/>
-                        <outlet property="videoLinkRefBtn1" destination="Jb1-ub-WMP" id="T5b-wx-yGc"/>
-                        <outlet property="videoLinkRefBtn2" destination="uWz-aG-KDO" id="qPB-OY-Klf"/>
+                        <outlet property="videoLink1" destination="UH3-n0-hhN" id="gyb-Pn-mw1"/>
+                        <outlet property="videoLink2" destination="QTd-eE-q2R" id="FLJ-4C-NQj"/>
+                        <outlet property="videoLinkImg1" destination="mCv-Fr-Ihk" id="iao-L3-oR1"/>
+                        <outlet property="videoLinkImg2" destination="huG-mM-gSC" id="HkP-X2-SNv"/>
+                        <outlet property="videoLinkInfo1" destination="weE-ZX-qkN" id="WZ5-hc-Y5z"/>
+                        <outlet property="videoLinkInfo2" destination="R5p-LG-YiC" id="g2F-Cs-ire"/>
                         <outlet property="videoLinkSeeMoreBtn" destination="JaU-JH-bHp" id="tvB-0Y-ocw"/>
+                        <outlet property="videoLinkTitle1" destination="v70-DX-iNS" id="7cI-m3-EMS"/>
+                        <outlet property="videoLinkTitle2" destination="u0B-Wz-VvG" id="4ey-lh-3tZ"/>
                         <outlet property="videoLinklabel" destination="odM-Lo-TyJ" id="ljq-n2-Deu"/>
                         <outlet property="videoTitleRef" destination="uXh-0o-mIm" id="VxV-gJ-Zof"/>
                         <outlet property="view1" destination="Dvq-Nr-F4X" id="SKh-dv-dCo"/>
@@ -1192,8 +1411,10 @@
                         <outlet property="viewImgTopConstrint" destination="gfh-gs-LgE" id="aN2-Em-saU"/>
                         <outlet property="viewLinkTopContraint" destination="HbL-JI-kqb" id="W9k-K0-TGo"/>
                         <outlet property="viewSurvayLinkHeightConstraint" destination="xfs-gz-bpa" id="Mtv-Y2-JO4"/>
+                        <outlet property="viewVedioLink1" destination="Bwy-Ys-GUE" id="tWf-5J-ywn"/>
                         <outlet property="viewVideoCollection" destination="9mZ-Hu-x7M" id="7kc-EN-lgR"/>
                         <outlet property="viewVideoLink" destination="F0g-iL-Ync" id="NJC-Be-aeT"/>
+                        <outlet property="viewVideoLink2" destination="sLO-Y8-k8q" id="Pdf-U4-WoB"/>
                         <outlet property="viewVideoLinkHeightConstraint" destination="ezd-wC-KXX" id="LCf-PS-C9a"/>
                         <outlet property="viewVideoLinkTopConstraint" destination="SgY-7G-Nq6" id="Uq5-2J-2qa"/>
                         <outlet property="viewVideoTopCOnstrint" destination="9em-fc-E0g" id="aeH-L6-CZd"/>
@@ -1396,7 +1617,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Distributor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BB-49-3QT">
-                                                                <rect key="frame" x="16" y="27.5" width="168.5" height="26.5"/>
+                                                                <rect key="frame" x="16" y="27.5" width="160" height="26.5"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1411,7 +1632,7 @@
                                                                                 <rect key="frame" x="2" y="2" width="369" height="130"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGV-nb-4eR">
-                                                                                        <rect key="frame" x="15" y="54.5" width="123.5" height="21.5"/>
+                                                                                        <rect key="frame" x="15" y="54.5" width="119" height="21"/>
                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1501,7 +1722,7 @@
                                                                                                 <rect key="frame" x="3" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oY-rm-aNn">
-                                                                                                        <rect key="frame" x="15" y="27" width="69" height="21.5"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="64" height="21"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -1586,7 +1807,7 @@
                                                                                                 <rect key="frame" x="20" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-4o-Esw">
-                                                                                                        <rect key="frame" x="15" y="27" width="93" height="21.5"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="85" height="21"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -1888,7 +2109,7 @@
                                                                         <rect key="frame" x="3" y="3" width="100" height="144"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vG-j9-fQg">
-                                                                                <rect key="frame" x="0.0" y="45.5" width="100" height="53"/>
+                                                                                <rect key="frame" x="0.0" y="46.5" width="100" height="51.5"/>
                                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1954,7 +2175,7 @@
                                                                         <rect key="frame" x="10" y="3" width="100" height="144"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After  Sales" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15n-Se-zRS">
-                                                                                <rect key="frame" x="0.0" y="45.5" width="100" height="53"/>
+                                                                                <rect key="frame" x="0.0" y="46.5" width="100" height="51.5"/>
                                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2020,7 +2241,7 @@
                                                                         <rect key="frame" x="15" y="3" width="100" height="144"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krW-KN-3aZ">
-                                                                                <rect key="frame" x="0.0" y="59" width="100" height="26.5"/>
+                                                                                <rect key="frame" x="0.0" y="59" width="100" height="26"/>
                                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -2076,7 +2297,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is MEBIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3a-1e-5pb">
-                                                                        <rect key="frame" x="129" y="23.5" width="124" height="21.5"/>
+                                                                        <rect key="frame" x="131.5" y="23.5" width="119.5" height="21"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -2107,7 +2328,7 @@
                                                                 <rect key="frame" x="0.0" y="83" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poF-iz-JmJ">
-                                                                        <rect key="frame" x="118.5" y="23.5" width="145" height="21.5"/>
+                                                                        <rect key="frame" x="123" y="23.5" width="136.5" height="21"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -2138,7 +2359,7 @@
                                                                 <rect key="frame" x="0.0" y="166" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEBIT Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zft-Eg-cnr">
-                                                                        <rect key="frame" x="132.5" y="23.5" width="117.5" height="21.5"/>
+                                                                        <rect key="frame" x="134.5" y="23.5" width="113.5" height="21"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -2169,7 +2390,7 @@
                                                                 <rect key="frame" x="0.0" y="249" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bit Foundation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s15-ln-wbI">
-                                                                        <rect key="frame" x="128.5" y="23.5" width="125" height="21.5"/>
+                                                                        <rect key="frame" x="132" y="23.5" width="118.5" height="21"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -2200,7 +2421,7 @@
                                                                 <rect key="frame" x="0.0" y="332" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-HI-gEQ">
-                                                                        <rect key="frame" x="135.5" y="23.5" width="111" height="21.5"/>
+                                                                        <rect key="frame" x="140" y="23.5" width="102" height="21"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -2785,6 +3006,9 @@
         <image name="time" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

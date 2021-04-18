@@ -51,8 +51,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var presentation2TextField: UITextField!
     @IBOutlet weak var downloadDoc2RefBtn: UIButton!
     @IBOutlet weak var videoLinklabel: UILabel!
-    @IBOutlet weak var videoLinkRefBtn1: UIButton!
-    @IBOutlet weak var videoLinkRefBtn2: UIButton!
+   // @IBOutlet weak var videoLinkRefBtn1: UIButton!
+   // @IBOutlet weak var videoLinkRefBtn2: UIButton!
+    @IBOutlet weak var videoLinkImg1: UIImageView!
+    @IBOutlet weak var videoLinkImg2: UIImageView!
+    @IBOutlet weak var videoLinkTitle1: UILabel!
+    @IBOutlet weak var videoLinkTitle2: UILabel!
+    @IBOutlet weak var videoLinkInfo1: UILabel!
+    @IBOutlet weak var videoLinkInfo2: UILabel!
+    @IBOutlet weak var videoLink1: UILabel!
+    @IBOutlet weak var videoLink2: UILabel!
+    @IBOutlet weak var viewVedioLink1: RCustomView!
+    @IBOutlet weak var viewVideoLink2: RCustomView!
+    
     @IBOutlet weak var videoLinkSeeMoreBtn: UIButton!
     @IBOutlet weak var viewVideoLink: UIView!
     @IBOutlet weak var viewVideoLinkHeightConstraint: NSLayoutConstraint!

@@ -167,32 +167,45 @@ class KaizenVM: NSObject {
                         }else{
                             for i in 0..<objDate.video_links!.count {
                                 let obj = objDate.video_links![i]
+                                print(obj)
                                 if i == 0 {
                                     (self.actualController as! DetailViewController).viewVideoLink.isHidden = false
                                     (self.actualController as! DetailViewController).viewVideoLinkTopConstraint.constant = 20
-                                    (self.actualController as! DetailViewController).viewVideoLinkHeightConstraint.constant = 80
-                                    (self.actualController as! DetailViewController).videoLinkRefBtn1.setTitle(obj.link, for: .normal)
+                                    (self.actualController as! DetailViewController).viewVideoLinkHeightConstraint.constant = 155
+                                    (self.actualController as! DetailViewController).videoLinkTitle1.text = obj.title
+                                    (self.actualController as! DetailViewController).videoLinkInfo1.text = obj.info
+                                    (self.actualController as! DetailViewController).videoLink1.text = obj.link
                                     (self.actualController as! DetailViewController).videoLinkSeeMoreBtn.isHidden = true
+                                    (self.actualController as! DetailViewController).viewVideoLink2.isHidden = true
+                                    
+                                    let urlYoutube = obj.link
+                                    let urlID = urlYoutube?.youtubeID
+                                    let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+                                    let url = URL(string: urlStr)!
+                                    (self.actualController as! DetailViewController).videoLinkImg1.sd_setImage(with: url, completed: nil)
+
 
                                 }else if i == 1 {
                                     (self.actualController as! DetailViewController).viewDocumentLink.isHidden = false
                                     (self.actualController as! DetailViewController).viewDocumentLinkTOpConstrainrt.constant = 20
-                                    (self.actualController as! DetailViewController).viewDocumentLinkHeightConstraint.constant = 110
-                                    (self.actualController as! DetailViewController).videoLinkRefBtn2.setTitle(obj.link, for: .normal)
+                                    (self.actualController as! DetailViewController).viewDocumentLinkHeightConstraint.constant = 310
+                                    (self.actualController as! DetailViewController).videoLinkTitle2.text = obj.title
+                                    (self.actualController as! DetailViewController).videoLinkInfo2.text = obj.info
+                                    (self.actualController as! DetailViewController).videoLink2.text = obj.link
+                                    (self.actualController as! DetailViewController).viewVideoLink2.isHidden = false
+
                                     (self.actualController as! DetailViewController).videoLinkSeeMoreBtn.isHidden = true
-
+                                    let urlYoutube = obj.link
+                                    let urlID = urlYoutube?.youtubeID
+                                    let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+                                    let url = URL(string: urlStr)!
+                                    (self.actualController as! DetailViewController).videoLinkImg2.sd_setImage(with: url, completed: nil)
                                 }
-                                
-
                             }
-//                            (self.actualController as! DetailViewController).viewVideoLink.isHidden = false
-//                            (self.actualController as! DetailViewController).viewVideoLinkTopConstraint.constant = 20
-//                            (self.actualController as! DetailViewController).viewVideoLinkHeightConstraint.constant = 110
+
                             if objDate.video_links!.count>2{
                                 (self.actualController as! DetailViewController).videoLinkSeeMoreBtn.isHidden = false
-
                             }
-                            
                         }
                        
                         if objDate.document_links?.count == 0{

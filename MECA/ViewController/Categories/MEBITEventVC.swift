@@ -75,7 +75,9 @@ class MEBITEventVC: UIViewController{
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
     }
     
-    
+    func callWebserviceEvent() {
+        //https://mecacampus.com/API/mobile/user/event/list/{limit}/{pageno}
+    }
     
     
     
