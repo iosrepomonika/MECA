@@ -304,15 +304,18 @@ class CategoryCommonViewController: UIViewController {
         
         if mutipleImageArr.isEmpty  {
             heightConstarint2.constant = 0
-            imageandVideoCollectionView.reloadData()
             print("No multiple iamges")
             
         }
         else {
             heightConstarint2.constant = 70
-            imageandVideoCollectionView.reloadData()
             print(" having multiple iamges")
         }
+
+		DispatchQueue.main.async {
+			self.imageandVideoCollectionView.reloadData()
+
+		}
         
     }
     func setupCollectionView2() {
@@ -427,12 +430,15 @@ class CategoryCommonViewController: UIViewController {
                 let data = thumbnail.jpegData(compressionQuality: 0.7)
                 arrimages.append(data!)
                 let newImage = UIImage(data: data!)
-                
+
                 
                 self.mutipleImageArr.append(newImage! as UIImage)
                 setupCollectionView1()
-                imageandVideoCollectionView.reloadData()
-                
+
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
+					self.imageandVideoCollectionView.reloadData()
+				}
+
             }
             
         }
@@ -442,6 +448,10 @@ class CategoryCommonViewController: UIViewController {
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         photoCollectionView.reloadData()
+
+		DispatchQueue.main.async {
+			self.imageandVideoCollectionView.reloadData()
+		}
         
     }
     @IBAction func btnAddLinksAction(_ sender: UIButton) {
@@ -534,8 +544,8 @@ class CategoryCommonViewController: UIViewController {
                 }
                 else {
                     let dict:[String:Any] = ["link": "\(VideoLinkTextField.text.unsafelyUnwrapped)",
-                                             "Title": "\(txtPopupTitle.text.unsafelyUnwrapped)",
-                                             "Info":"\(txtviewPopopInfo.text.unsafelyUnwrapped)"]
+                                             "title": "\(txtPopupTitle.text.unsafelyUnwrapped)",
+                                             "info":"\(txtviewPopopInfo.text.unsafelyUnwrapped)"]
                     videoLinkArr.append(dict)
                     print("Data Added \(videoLinkArr)")
                     for i in 0..<videoLinkArr.count {
@@ -544,8 +554,8 @@ class CategoryCommonViewController: UIViewController {
                             videoLinkStackTOpContraint.constant = 16
                            videoLinkVIewOne.isHidden = false
                            videoLinkStackviewHeightConstraint.constant = 130
-                            videoLinkTitle1.text = obj["Title"] as? String
-                            videoLinkInfo1.text = obj["Info"] as? String
+                            videoLinkTitle1.text = obj["title"] as? String
+                            videoLinkInfo1.text = obj["info"] as? String
                             videoLink1.text = obj["link"] as? String
 
                             let urlYoutube = obj["link"] as? String
@@ -559,8 +569,8 @@ class CategoryCommonViewController: UIViewController {
                             videoLinkStackTOpContraint.constant = 16
                            videoLinkViewTwo.isHidden = false
                            videoLinkStackviewHeightConstraint.constant = 250
-                            videoLinkTitle2.text = obj["Title"] as? String
-                            videoLinkInfo2.text = obj["Info"] as? String
+                            videoLinkTitle2.text = obj["title"] as? String
+                            videoLinkInfo2.text = obj["info"] as? String
                             videoLink2.text = obj["link"] as? String
                             let urlYoutube = obj["link"] as? String
                             let urlID = urlYoutube?.youtubeID
@@ -588,8 +598,8 @@ class CategoryCommonViewController: UIViewController {
                 else {
 
                     let dict:[String:Any] = ["link": "\(externalLinkTextField.text.unsafelyUnwrapped)",
-                            "Title": "\(txtPopupTitle.text.unsafelyUnwrapped)",
-                            "Info":"\(txtviewPopopInfo.text.unsafelyUnwrapped)"]
+                            "title": "\(txtPopupTitle.text.unsafelyUnwrapped)",
+                            "info":"\(txtviewPopopInfo.text.unsafelyUnwrapped)"]
                     docLinkArr.append(dict)
                     print("Data Added")
                     print("The Count is :\(docLinkArr)")
@@ -602,8 +612,8 @@ class CategoryCommonViewController: UIViewController {
                             rxternalLinkStackTOpContraint.constant = 16
                            externalLinkVIewOne.isHidden = false
                             externalLinkStackviewHeightConstraint.constant = 130
-                            externalLinkTitle1.text = obj["Title"] as? String
-                            externalLinkInfo1.text = obj["Info"] as? String
+                            externalLinkTitle1.text = obj["title"] as? String
+                            externalLinkInfo1.text = obj["info"] as? String
                             externalLink1.text = obj["link"] as? String
                         
                         }else if i == 1 {
@@ -611,8 +621,8 @@ class CategoryCommonViewController: UIViewController {
                             rxternalLinkStackTOpContraint.constant = 16
                             externalLinkViewTwo.isHidden = false
                             externalLinkStackviewHeightConstraint.constant = 250
-                            externalLinkTitle2.text = obj["Title"] as? String
-                            externalLinkInfo2.text = obj["Info"] as? String
+                            externalLinkTitle2.text = obj["title"] as? String
+                            externalLinkInfo2.text = obj["info"] as? String
                             externalLink2.text = obj["link"] as? String
                         }
                     }
@@ -631,6 +641,33 @@ class CategoryCommonViewController: UIViewController {
 
         }
     }
+
+	@objc func removeCoverImage(sender: UIButton)
+	{
+		self.coverImageArr.remove(at: sender.tag)
+		self.arrCoverimage.remove(at: sender.tag)
+		self.setupCollectionView()
+	}
+	@objc func removeImages(sender: UIButton)
+	{
+		self.mutipleImageArr.remove(at: sender.tag)
+		self.arrimages.remove(at: sender.tag)
+		self.SelectedAssests.remove(at: sender.tag)
+		self.setupCollectionView1()
+	}
+	@objc func removeVideos(sender: UIButton)
+	{
+		self.thumbNailImageArr.remove(at: sender.tag)
+		self.videoArr.remove(at: sender.tag)
+		self.setupCollectionView5()
+	}
+
+	@objc func removeDocuments(sender: UIButton)
+	{
+		self.DocumentArray.remove(at: sender.tag)
+		self.arrDoc.remove(at: sender.tag)
+		self.setupCollectionView2()
+	}
     
 }
 
@@ -650,7 +687,6 @@ extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionV
         }
         
         return 2
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -659,22 +695,35 @@ extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionV
             let cell  = photoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
             cell.myImage.image = coverImageArr[indexPath.row]
             cell.playBtnRef.isHidden = true
+			cell.removeButton.tag = indexPath.row
+			cell.removeButton.removeTarget(self, action: #selector(self.removeCoverImage), for: .touchUpInside)
+			cell.removeButton.addTarget(self, action: #selector(self.removeCoverImage), for: .touchUpInside)
             return cell
         }
         else if (collectionView == imageandVideoCollectionView) {
             
             let cell  = imageandVideoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
+			cell.removeButton.tag = indexPath.row
+			cell.removeButton.removeTarget(self, action: #selector(self.removeImages), for: .touchUpInside)
+			cell.removeButton.addTarget(self, action: #selector(self.removeImages), for: .touchUpInside)
             if imageValue == "0" {
+				cell.removeButton.isHidden = false
                 cell.myImage.image = mutipleImageArr[indexPath.row]
                 cell.playBtnRef.isHidden = true
             }
+			else
+			{
+				cell.removeButton.isHidden = true
+			}
             
             return cell
         }
         else if (collectionView == videoCollectionView) {
             
             let cell  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-            
+			cell.removeButton.tag = indexPath.row
+			cell.removeButton.removeTarget(self, action: #selector(self.removeVideos), for: .touchUpInside)
+			cell.removeButton.addTarget(self, action: #selector(self.removeVideos), for: .touchUpInside)
             cell.myImage.image = thumbNailImageArr[indexPath.row]
             
             cell.playBtnRef.isHidden = false
@@ -684,6 +733,9 @@ extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionV
         }
         else if (collectionView == documentCollectionView) {
             let cell  = documentCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
+			cell.removeButton.tag = indexPath.row
+			cell.removeButton.removeTarget(self, action: #selector(self.removeDocuments), for: .touchUpInside)
+			cell.removeButton.addTarget(self, action: #selector(self.removeDocuments), for: .touchUpInside)
             cell.myImage.image = DocumentArray[indexPath.row]
             
             cell.playBtnRef.isHidden = true
@@ -833,6 +885,7 @@ extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavig
         }, cancel: { (assets) in
             // User canceled selection.
         }, finish: { (assets) in
+			self.dismiss(animated: true, completion: nil)
             for i in 0..<assets.count
             {
                 self.SelectedAssests.append(assets[i])
@@ -842,6 +895,7 @@ extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavig
             self.convertAssetToImages()
             // User finished selection assets.
         })
+
     }
     func pickVideos() {
         let picker = UIImagePickerController()
@@ -877,6 +931,10 @@ extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavig
                     self?.thumbNailImageArr.append(image)
                     self?.videoCollectionView.reloadData()
                     self?.setupCollectionView5()
+
+					DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
+						self?.videoCollectionView.reloadData()
+					}
                     
                 }
             }
@@ -896,8 +954,9 @@ extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavig
             
             dismiss(animated: true, completion: nil)
             setupCollectionView()
-            self.photoCollectionView.reloadData()
-            
+			DispatchQueue.main.async {
+				self.photoCollectionView.reloadData()
+			}
         }
         
         
@@ -1111,6 +1170,10 @@ extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPicker
             if self.DocumentArray.count>0{
                 self.setupCollectionView2()
             }
+
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
+				self.documentCollectionView.reloadData()
+			}
         }
     }
           

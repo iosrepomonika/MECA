@@ -75,11 +75,14 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = UIStoryboard(name: "Category", bundle:nil)
         let obj = arrList[indexPath.row]
-        let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        vc.navValue = "3"
+        let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
+     //   vc.navValue = "3"
         vc.eventID = String(obj.id ?? 0)
-       vc.isEvent =  "kaizen" == "kaizen" ? true : false
+       vc.isEvent =  false
         self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+        
     }
     
     func callNewCarSaleWebservice(adminId: Int, type: Int) {

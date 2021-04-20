@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MEBITEventVC: UIViewController{
     
@@ -21,7 +22,12 @@ class MEBITEventVC: UIViewController{
     @IBOutlet weak var upcomingBtnRef: UIButton!
     @IBOutlet weak var pastBtnRef: UIButton!
     @IBOutlet weak var MebitTblView: UITableView!
-    let categoryArr = ["All","TBP","WorkShop","Seminar","HR","Others"]
+    var categoryArr = [Event_MEBITCat]()
+    var arrAllData = [Data_CatList]()
+    
+    var catID = ""
+    var allEvent = ""
+    
     
     
     var index = 0
@@ -35,6 +41,8 @@ class MEBITEventVC: UIViewController{
         MebitTblView.register(MEBITEventTableViewCell.nib(), forCellReuseIdentifier: "MEBITEventTableViewCell")
         MebitTblView.delegate = self
         MebitTblView.dataSource = self
+        callWebserviceEventCategory()
+        CallWebserviceEventList()
     }
     func setupUI() {
         filterationBtnRef.layer.cornerRadius = 8
@@ -61,37 +69,108 @@ class MEBITEventVC: UIViewController{
         EventsBtnRef.backgroundColor = #colorLiteral(red: 0.9617725015, green: 0.4417187572, blue: 0.2027035654, alpha: 1)
         pastBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
+        allEvent = ""
+        CallWebserviceEventList()
+
         
     }
     @IBAction func upcomingBtnAction(_ sender: UIButton) {
         EventsBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         pastBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.9617725015, green: 0.4417187572, blue: 0.2027035654, alpha: 1)
+        allEvent = "2"
+        CallWebserviceEventList()
+
     }
     
     @IBAction func pastBtnAction(_ sender: UIButton) {
         EventsBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         pastBtnRef.backgroundColor = #colorLiteral(red: 0.9617725015, green: 0.4417187572, blue: 0.2027035654, alpha: 1)
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
+        allEvent = "1"
+        CallWebserviceEventList()
+
     }
     
-    func callWebserviceEvent() {
-        //https://mecacampus.com/API/mobile/user/event/list/{limit}/{pageno}
+    func callWebserviceEventCategory() {
+        APIClient.webserviceForCategoryList { (result) in
+            
+            if let respCode = result.resp_code{
+             
+                if respCode == 200{
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if let arrDate = result.data{
+                        if self.categoryArr.count>0{
+                            self.categoryArr.removeAll()
+                        }
+                        if arrDate.event!.count>0{
+                            self.categoryArr = arrDate.event!
+                        }
+                    }
+                    self.CategoryCollectionView.reloadData()
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+            
+            GlobalObj.displayLoader(true, show: false)
+
+        }
+        
+    }
+    func CallWebserviceEventList() {
+        GlobalObj.displayLoader(true, show: true)
+
+        let param : [String:Any] = ["status":allEvent,
+                                    "category":catID]
+        print(param)
+        APIClient.webserviceForCategory(params: param) { (result) in
+            
+            if let respCode = result.resp_code{
+             
+                if respCode == 200{
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if let arrDate = result.data{
+                        if self.arrAllData.count>0{
+                            self.arrAllData.removeAll()
+                        }
+                        for obj in arrDate {
+                            self.arrAllData.append(obj)
+                        }
+                        
+                    }
+                    self.MebitTblView.reloadData()
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+            
+            GlobalObj.displayLoader(true, show: false)
+
+        }
+        }
     }
     
     
     
-    
-}
+
 extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categoryArr.count
+        return categoryArr.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CategoryCollectionView.dequeueReusableCell(withReuseIdentifier: "MEBITCollectionViewCell", for: indexPath) as! MEBITCollectionViewCell
         cell.baseView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
-        cell.titleLabel.text = categoryArr[indexPath.row]
+        if indexPath.row == 0{
+            cell.titleLabel.text = "All"
+        }else{
+        cell.titleLabel.text = categoryArr[indexPath.row - 1].lable
+        }
         if indexPath.row == index {
             cell.bottomlabel.isHidden = false
             cell.titleLabel.font = UIFont.init(name: "SF Pro Text, Bold", size: 14)
@@ -109,25 +188,54 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
 
         CategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         index = indexPath.row
+        if indexPath.row == 0{
+            catID = ""
+        }else{
+            catID = categoryArr[indexPath.row - 1].id ?? ""
+            
+            
+        }
+        CallWebserviceEventList()
         CategoryCollectionView.reloadData()
 
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.row == 0{
+            return CGSize(width: 60, height: 35)
+        }else{
             return CGSize(width: 100, height: 35)
+        }
+            
         }
     
     
 }
 extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return arrAllData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MebitTblView.dequeueReusableCell(withIdentifier: "MEBITEventTableViewCell", for: indexPath) as! MEBITEventTableViewCell
+        cell.mebitTitlelbl.text = arrAllData[indexPath.row].title
+        cell.mebitDatelbl.text = arrAllData[indexPath.row].created_at
+        if arrAllData[indexPath.row].cover_image != ""{
+            let url = BaseURL + arrAllData[indexPath.row].cover_image!
+            cell.MebitImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cell.MebitImage.sd_setImage(with: URL.init(string: url), completed: nil)
+
+        }
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let story = UIStoryboard(name: "Category", bundle:nil)
+        let obj = arrAllData[indexPath.row]
+        let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
+        vc.eventID = String(obj.id ?? 0)
+        vc.isEvent = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 280

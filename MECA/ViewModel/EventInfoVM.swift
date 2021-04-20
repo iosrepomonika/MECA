@@ -4,16 +4,17 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class EventInfoVM: NSObject {
-    var actualController:UIViewController?
+class EventInfoVM: BaseTableViewVM {
 
     var strdescription = ""
     var arrEventImg = [Event_videos]()
     var arrEventVideos = [Event_videos]()
-    
-    init(controller:UIViewController?) {
-        self.actualController = controller
-        
+    var arrVideoLink = [Video_links]()
+    let identifierItemCell = "VideoLinkTableViewCell"
+
+    override init(controller: UIViewController?) {
+        super.init(controller: controller)
+
         (actualController as! DetailViewController).locationviewHeightConstraint.constant = 0
         (actualController as! DetailViewController).locationView.isHidden = true
         
@@ -28,7 +29,7 @@ class EventInfoVM: NSObject {
 
         (self.actualController as! DetailViewController).viewVideoLink.isHidden = true
         (self.actualController as! DetailViewController).viewVideoLinkTopConstraint.constant = 0
-        (self.actualController as! DetailViewController).viewVideoLinkHeightConstraint.constant = 0
+        //(self.actualController as! DetailViewController).viewVideoLinkHeightConstraint.constant = 0
         
 
     }
@@ -42,6 +43,7 @@ class EventInfoVM: NSObject {
                 if respCode == 200{
 
                     if let objDate = result.data {
+                        
                         if objDate.cover_image != ""{
                             let imgURl = BaseURL + objDate.cover_image!
                             (actualController as! DetailViewController).mainImageView.sd_setImage(with: URL.init(string: imgURl), completed: nil)
@@ -160,7 +162,6 @@ class EventInfoVM: NSObject {
                             (actualController as! DetailViewController).viewImgCollectHeightConstraint.constant = 0
                             (actualController as! DetailViewController).viewImgTopConstrint.constant = 0
                         }else{
-
                             (actualController as! DetailViewController).viewImagCollection.isHidden = false
                             (actualController as! DetailViewController).viewImgCollectHeightConstraint.constant = 159
                             (actualController as! DetailViewController).viewImgTopConstrint.constant = 20
@@ -186,6 +187,33 @@ class EventInfoVM: NSObject {
                             (self.actualController as! DetailViewController).videoCollectionView.reloadData()
 
                         }
+                        
+                        
+                        if objDate.video_links?.count == 0{
+                            (self.actualController as! DetailViewController).viewVideoLink.isHidden = true
+                            (self.actualController as! DetailViewController).viewVideoLinkTopConstraint.constant = 0
+                            (self.actualController as! DetailViewController).tblVideoLinkHeightConstraint.constant = 0
+                                                        
+                        }else{
+                            for i in 0..<objDate.video_links!.count {
+                                let objVideoLink = objDate.video_links![i]
+                                print(objVideoLink)
+                                self.arrVideoLink.append(objVideoLink)
+                                
+                            }
+                            (self.actualController as! DetailViewController).tblVideoLink.reloadData()
+
+                            DispatchQueue.main.async {
+                                (self.actualController as! DetailViewController).tblVideoLink.reloadData()
+                                (self.actualController as! DetailViewController).view.layoutIfNeeded()
+                                
+                                (self.actualController as! DetailViewController).tblVideoLinkHeightConstraint.constant = CGFloat(154 * self.arrVideoLink.count) //(self.actualController as! DetailViewController).tblVideoLink.contentSize.height
+                                                                
+                                (self.actualController as! DetailViewController).view.layoutIfNeeded()
+                             }
+                        }
+                        
+                        
 //                        if objDate.event_documents?.count == 0{
 //                            (self.actualController as! DetailViewController).viewEventContent.isHidden = true
 //                            (self.actualController as! DetailViewController).viewEventTopConstraint.constant = 0
@@ -243,28 +271,32 @@ class EventInfoVM: NSObject {
         let weekDay = myCalendar.component(.weekday, from: todayDate)
         return weekDay
     }
-    
+    override func getNumbersOfRows(in section: Int) -> Int {
+        return arrVideoLink.count
+    }
+   
+    override func getCellForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifierItemCell, for: indexPath) as! VideoLinkTableViewCell
+        cell.videoTitleLbl.text = arrVideoLink[indexPath.row].title
+        cell.videoInfoLbl.text = arrVideoLink[indexPath.row].info
+        cell.videoLinkLbl.text = arrVideoLink[indexPath.row].link
+        let urlYoutube = arrVideoLink[indexPath.row].link
+        let urlID = urlYoutube?.youtubeID
+        let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+        let url = URL(string: urlStr)!
+        
+        cell.videoImg.sd_setImage(with: url, completed: nil)
+
+        
+        return cell
+
+    }
+    override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
+
+       
+    }
+    override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
+        return 154
+    }
 }
 
-extension NSString {
-
-class func convertFormatOfDate(date: String, originalFormat: String, destinationFormat: String) -> String! {
-
-    // Orginal format :
-    let dateOriginalFormat = DateFormatter()
-    dateOriginalFormat.dateFormat = originalFormat      // in the example it'll take "yy MM dd" (from our call)
-
-    // Destination format :
-    let dateDestinationFormat = DateFormatter()
-    dateDestinationFormat.dateFormat = destinationFormat // in the example it'll take "EEEE dd MMMM yyyy" (from our call)
-
-    // Convert current String Date to NSDate
-    let dateFromString = dateOriginalFormat.date(from: date)
-
-    // Convert new NSDate created above to String with the good format
-    let dateFormated = dateDestinationFormat.string(from: dateFromString!)
-
-    return dateFormated
-
-}
-}

@@ -34,15 +34,15 @@ class VideoLinkVM: BaseTableViewVM {
         if (self.actualController as! VideoLinkVC).videoLinkValue == "0" {
             let obj = (self.actualController as! VideoLinkVC).docLinkArr1[indexPath.row]
             cell.videoView.isHidden = true
-            cell.externalTitleLbl.text = obj["Title"] as? String
-            cell.externalInfoLbl.text = obj["Info"] as? String
+            cell.externalTitleLbl.text = obj["title"] as? String
+            cell.externalInfoLbl.text = obj["info"] as? String
             cell.externalLinkLbl.text = obj["link"] as? String
         }
         else {
             let obj1 = (self.actualController as! VideoLinkVC).videoLinkArr1[indexPath.row]
             cell.externalView.isHidden = true
-            cell.videoTitleLbl.text = obj1["Title"] as? String
-            cell.videoInfoLbl.text = obj1["Info"] as? String
+            cell.videoTitleLbl.text = obj1["title"] as? String
+            cell.videoInfoLbl.text = obj1["info"] as? String
             cell.videoLinkLbl.text = obj1["link"] as? String
             let urlYoutube = obj1["link"] as? String
             let urlID = urlYoutube?.youtubeID

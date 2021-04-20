@@ -344,4 +344,85 @@ class APIClient {
                 }
             }
     }
+    
+    //Category list
+    static func webserviceForCategoryList(completion:@escaping(MEBITCat_Model) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + categories
+       
+      //  var headers = HTTPHeaders()
+       // let accessToken = userDef.string(forKey: UserDefaultKey.token)
+        // headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: [:])
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: MEBITCat_Model = try JSONDecoder().decode(MEBITCat_Model.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+    }
+    
+    
+   // CategoryList Bottom
+    static func webserviceForCategory(params:[String:Any],completion:@escaping(CatListModel) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + eventList
+          
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                       return }
+
+                   do{
+                       let objRes: CatListModel = try JSONDecoder().decode(CatListModel.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
 }
+
+

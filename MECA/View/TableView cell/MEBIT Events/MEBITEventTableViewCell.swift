@@ -23,6 +23,8 @@ class MEBITEventTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        MebitImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        MebitImage.layer.cornerRadius = 16
     }
     static func nib() -> UINib {
         return UINib(nibName: "MEBITEventTableViewCell", bundle: nil)

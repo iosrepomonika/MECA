@@ -10,13 +10,18 @@ class PDFReaderVC: UIViewController, WKNavigationDelegate {
     
     @IBOutlet weak var webVIew: WKWebView!
 var isFromTab = ""
+    var isFromDetailPage = false
+    var detailPageurl = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         webVIew.navigationDelegate = self
         // Do any additional setup after loading the view.
-
+        if isFromDetailPage{
+            setURL(url: detailPageurl)
+        }else{
         callMEBITFeedWebservice()
-        
+        }
     }
     func setURL(url : String) {
 

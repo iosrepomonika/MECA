@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "callEventInfoWebservice()"
+            landmarkName = "init(controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -64,7 +64,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "callKaizenInfoWebservice()"
+            landmarkName = "init(controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -80,23 +80,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "callKaizenInfoWebservice()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "46EDB9B4-9617-4204-AD1B-707C7BBA60E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/Categories/DetailViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "viewDidLoad()"
+            landmarkName = "init(controller:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -112,8 +96,40 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "223"
             endingLineNumber = "223"
-            landmarkName = "webserviceForKaizenInfo(eventId:completion:)"
+            landmarkName = "webserviceForEventInfo(eventID:isEvent:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2837B7C8-0231-4FB6-916E-9FCC7F12952B - 83b23ab88eea9823"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static MECA.APIClient.webserviceForEventInfo(eventID: Swift.String, isEvent: Swift.Bool, completion: (MECA.EventInfoModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MECA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prakhargupta/Downloads/MECA-main/MECA/Utility/Webservices/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "1308">
+               </Location>
+               <Location
+                  uuid = "2837B7C8-0231-4FB6-916E-9FCC7F12952B - 83b23ab88eea9823"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in static MECA.APIClient.webserviceForEventInfo(eventID: Swift.String, isEvent: Swift.Bool, completion: (MECA.EventInfoModel) -&gt; ()) -&gt; ()"
+                  moduleName = "MECA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prakhargupta/Downloads/MECA-main/MECA/Utility/Webservices/APIClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "1442">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -145,6 +161,102 @@
             startingLineNumber = "237"
             endingLineNumber = "237"
             landmarkName = "webserviceForKaizenInfo(eventId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4AAD1394-6025-4363-A979-5F25DEE659E2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MECA/ViewController/Categories/CategoryCommonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "723"
+            endingLineNumber = "723"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B20A890-0B08-4729-AA5A-305F11C16256"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MECA/ViewController/Categories/CategoryCommonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "745"
+            endingLineNumber = "745"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49247173-DEF5-496E-8EE6-600BF6D90C75"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MECA/ViewController/Categories/CategoryCommonViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1048"
+            endingLineNumber = "1048"
+            landmarkName = "callWebserviceForAdddEvent()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "49247173-DEF5-496E-8EE6-600BF6D90C75 - 7df0cdca756d3353"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MECA.CategoryCommonViewController.callWebserviceForAdddEvent() -&gt; ()"
+                  moduleName = "MECA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prakhargupta/Downloads/MECA-main/MECA/ViewController/Categories/CategoryCommonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1048"
+                  endingLineNumber = "1048"
+                  offsetFromSymbolStart = "5027">
+               </Location>
+               <Location
+                  uuid = "49247173-DEF5-496E-8EE6-600BF6D90C75 - 7262fa663a335107"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[3] = Value Promoted from Box&gt; of closure #1 (Alamofire.MultipartFormData) -&gt; () in MECA.CategoryCommonViewController.callWebserviceForAdddEvent() -&gt; ()"
+                  moduleName = "MECA"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prakhargupta/Downloads/MECA-main/MECA/ViewController/Categories/CategoryCommonViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1051"
+                  endingLineNumber = "1051"
+                  offsetFromSymbolStart = "389">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "727CC23A-9D2B-4ECF-A24E-30FDD5098474"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MECA/ViewController/Categories/DetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "572"
+            endingLineNumber = "572"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

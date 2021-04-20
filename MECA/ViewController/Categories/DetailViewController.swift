@@ -51,8 +51,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var presentation2TextField: UITextField!
     @IBOutlet weak var downloadDoc2RefBtn: UIButton!
     @IBOutlet weak var videoLinklabel: UILabel!
-   // @IBOutlet weak var videoLinkRefBtn1: UIButton!
-   // @IBOutlet weak var videoLinkRefBtn2: UIButton!
+ 
     @IBOutlet weak var videoLinkImg1: UIImageView!
     @IBOutlet weak var videoLinkImg2: UIImageView!
     @IBOutlet weak var videoLinkTitle1: UILabel!
@@ -112,8 +111,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var seeMoreEventContentOutlet: UIButton!
     @IBOutlet weak var viewEventTopConstraint: NSLayoutConstraint!
   
-    
-    
+    @IBOutlet weak var tblVideoLink: UITableView!
+    @IBOutlet weak var tblVideoLinkHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tblDocumentLink: UITableView!
+    @IBOutlet weak var tblDocumentLinkHeightConstraint: NSLayoutConstraint!
     var navValue = ""
     
     var screenSize: CGRect!
@@ -138,6 +139,18 @@ class DetailViewController: UIViewController {
         screenWidth = screenSize.width
         screenHeight = screenSize.height
         viewImgPreview.isHidden = true
+        
+        tblVideoLink.register(VideoLinkTableViewCell.nib(), forCellReuseIdentifier: "VideoLinkTableViewCell")
+      
+        tblDocumentLink.register(DetailDocumentLinkTVCell.nib(), forCellReuseIdentifier: "DetailDocumentLinkTVCell")
+
+        
+        tblVideoLink.delegate = self
+        tblVideoLink.dataSource = self
+        tblDocumentLink.delegate = self
+        tblDocumentLink.dataSource = self
+
+
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -749,4 +762,66 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
         return nil
     }
+}
+
+//MARK:- Tableview Delegate
+extension DetailViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == tblDocumentLink{
+            return viewModel1.arrDocumentLink.count
+        }else{
+            if isEvent{
+                return viewModel.arrVideoLink.count
+            }else{
+                return viewModel1.arrVideoLink.count
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == tblDocumentLink{
+            let cell = tblDocumentLink.dequeueReusableCell(withIdentifier: "DetailDocumentLinkTVCell", for: indexPath) as! DetailDocumentLinkTVCell
+          cell.lblDocumentLink.text = viewModel1.arrDocumentLink[indexPath.row].link
+            return cell
+        }else{
+            if isEvent{
+                let cell = tblVideoLink.dequeueReusableCell(withIdentifier: viewModel.identifierItemCell, for: indexPath) as! VideoLinkTableViewCell
+                cell.videoTitleLbl.text = viewModel.arrVideoLink[indexPath.row].title
+                cell.videoInfoLbl.text = viewModel.arrVideoLink[indexPath.row].info
+                cell.videoLinkLbl.text = viewModel.arrVideoLink[indexPath.row].link
+                let urlYoutube = viewModel.arrVideoLink[indexPath.row].link
+                let urlID = urlYoutube?.youtubeID
+                let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+                let url = URL(string: urlStr)!
+                
+                cell.videoImg.sd_setImage(with: url, completed: nil)
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: viewModel1.identifierItemCell, for: indexPath) as! VideoLinkTableViewCell
+                cell.videoTitleLbl.text = viewModel1.arrVideoLink[indexPath.row].title
+                cell.videoInfoLbl.text = viewModel1.arrVideoLink[indexPath.row].info
+                cell.videoLinkLbl.text = viewModel1.arrVideoLink[indexPath.row].link
+                let urlYoutube = viewModel1.arrVideoLink[indexPath.row].link
+                let urlID = urlYoutube?.youtubeID
+                let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
+                let url = URL(string: urlStr)!
+                
+                cell.videoImg.sd_setImage(with: url, completed: nil)
+                return cell
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == tblDocumentLink{
+            return 40
+        }else{
+            if isEvent{
+                return 154
+            }else{
+                return 154
+            }
+        }
+    }
+
 }

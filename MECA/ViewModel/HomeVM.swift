@@ -25,16 +25,14 @@ class HomeVM: BaseTableViewVM {
 
     }
     override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
-
+        
+        
         let story = UIStoryboard(name: "Category", bundle:nil)
         let obj = arrHomeFeed[indexPath.row]
-        let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        vc.navValue = "0"
+        let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         vc.eventID = String(obj.id ?? 0)
-		vc.isEvent =  obj.whatsnew_type == "event" ? true : false
+        vc.isEvent =  obj.whatsnew_type == "event" ? true : false
         (actualController as! HomeVC).navigationController?.pushViewController(vc, animated: true)
-        
-       
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
         return 50
