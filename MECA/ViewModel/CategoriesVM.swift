@@ -35,8 +35,8 @@ class CategoriesVM: BaseCollectionViewVM {
         }
         else if indexPath.row == 2{
             let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "2"
+                       let vc = story.instantiateViewController(withIdentifier: "MaasVC") as! MaasViewController
+            
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 3{
@@ -47,8 +47,8 @@ class CategoriesVM: BaseCollectionViewVM {
         }
         else if indexPath.row == 4{
             let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "4"
+                       let vc = story.instantiateViewController(withIdentifier: "SDGSvc") as! SDGSVC
+            
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 5{

@@ -54,7 +54,8 @@ extension DetailDocLinkTVCell : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblDocument.dequeueReusableCell(withIdentifier: "DetailDocumentLinkTVCell", for: indexPath) as! DetailDocumentLinkTVCell
-        cell.lblDocumentLink.text = arrDocumentLink[indexPath.row].link
+        print("arrDocumentLink ..\(arrDocumentLink)")
+        cell.lblDocumentLink.text = arrDocumentLink[indexPath.row].name
         return cell
         
     }

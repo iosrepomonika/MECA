@@ -32,8 +32,11 @@ class HomeTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setCell(feed:Data_Home) {
+        print("feed\(feed)")
         lblTitle.text = feed.title
         lblEventName.text = feed.whatsnew_type_lable
+        let convertedFormat =  GlobalObj.convertToString(dateString: feed.created_at!)
+        lblDate.text = convertedFormat
         let writerName = feed.writer_name!
         lblWritternBy.text = "Written by: \(writerName)"
         if feed.cover_image != "" {
@@ -43,10 +46,36 @@ class HomeTVCell: UITableViewCell {
         }
     }
     
+    
+    func setCellSdgs(feed:DataMaas) {
+        print(feed)
+        lblTitle.text = feed.title!
+        let convertedFormat = GlobalObj.convertToString(dateString: feed.created_at!)
+       
+        
+        lblDate.text = convertedFormat
+        print("\(String(describing: feed.writername))")
+        lblWritternBy.text = feed.writername
+        if let ownerprofile = feed.ownerprofile {
+           // lblAdmin.text = ownerprofile.username
+        }
+        
+        if feed.cover_image != "" {
+            let imgUrl = BaseURL + feed.cover_image!
+            imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
+        }
+        
+    }
+
+    
     func setCell2(feed:MEBITDataModel) {
         lblTitle.text = feed.title
         lblEventName.text = feed.whatsnew_type_lable
         let writerName = feed.writer_name!
+        let convertedFormat = GlobalObj.convertToString(dateString: feed.created_at!)
+     
+        lblDate.text = convertedFormat
         lblWritternBy.text = "Written by: \(writerName)"
         if feed.cover_image != "" {
             let imgUrl = BaseURL + feed.cover_image!

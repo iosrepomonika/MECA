@@ -166,6 +166,7 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = CategoryCollectionView.dequeueReusableCell(withReuseIdentifier: "MEBITCollectionViewCell", for: indexPath) as! MEBITCollectionViewCell
         cell.baseView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
+        
         if indexPath.row == 0{
             cell.titleLabel.text = "All"
         }else{
@@ -235,6 +236,7 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
         let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = true
+        vc.Maasview = false
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

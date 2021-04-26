@@ -21,3 +21,8 @@ let kaizenList = "mobile/user/kaizen/list/10/1"
 let kaizenInfoForHome = "mobile/user/kaizen/"
 let eventList = "mobile/user/event/list/10/1"
 let categories = "mobile/user/module/categories"
+let MaasList = "mobile/user/maas/list/10/1"
+let SdgsList = "mobile/user/sdgs/list/10/1"
+let MaasInfo = "mobile/user/maas/"
+let SdgsInfo = "mobile/user/sdgs/"
+

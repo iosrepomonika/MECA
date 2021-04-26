@@ -2,20 +2,20 @@
 
 import Foundation
 struct Document_links : Codable {
-	let title : String?
+	let name : String?
 	let info : String?
 	let link : String?
 
 	enum CodingKeys: String, CodingKey {
 
-		case title = "title"
+		case name = "name"
 		case info = "info"
 		case link = "link"
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		title = try values.decodeIfPresent(String.self, forKey: .title)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
 		info = try values.decodeIfPresent(String.self, forKey: .info)
 		link = try values.decodeIfPresent(String.self, forKey: .link)
 	}

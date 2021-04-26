@@ -129,6 +129,7 @@ extension MEBITViewController:UITableViewDelegate,UITableViewDataSource{
         vc.isEvent =  obj.whatsnew_type == "event" ? true : false
 //vc.navValue = "1"
         // self.present(vc, animated: true)
+        vc.Maasview = false
         self.navigationController?.pushViewController(vc, animated: true)
    
     }

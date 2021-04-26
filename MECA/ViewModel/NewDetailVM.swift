@@ -130,16 +130,16 @@ class NewDetailVM: BaseTableViewVM {
 
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierCommentLikeCell, for: indexPath) as! DetailCommentLikeTVCell
-//            if (actualController as! NewDetailVC).isEvent{
-//                if eventData != nil{
-//                    cell.setEventData(dataEvent: eventData!)
-//                }
-//            }else{
-//
-//                if kaizenData != nil{
-//                    cell.setKaizenData(dataKaizen: kaizenData!)
-//                }
-//            }
+            if (actualController as! NewDetailVC).isEvent{
+                if eventData != nil{
+                    cell.setEventData(dataEvent: eventData!)
+                }
+            }else{
+
+                if kaizenData != nil{
+                    cell.setKaizenData(dataKaizen: kaizenData!)
+                }
+            }
             return cell
         }
         
@@ -283,7 +283,7 @@ class NewDetailVM: BaseTableViewVM {
     func callEventInfoWebservice() {
         GlobalObj.displayLoader(true, show: true)
         APIClient.webserviceForEventInfo(eventID: (actualController as! NewDetailVC).eventID, isEvent: (actualController as! NewDetailVC).isEvent) { [self] (result) in
-            
+            print("eventinforesult \(result)")
             if let respCode = result.resp_code{
                 
                 if respCode == 200{
@@ -305,6 +305,53 @@ class NewDetailVM: BaseTableViewVM {
                 }
             }
         }
+   
+    
+    func callMaasInfoWebservice(completion:@escaping(Bool) -> Void) {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.webserviceForMaasInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in
+            if let respCode = result.resp_code{
+                if respCode == 200{
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if let objDate = result.data {
+                        print(objDate)
+                        self.kaizenData = objDate
+                        (self.actualController as! NewDetailVC).tblDetailView.reloadData()
+
+                      
+                        completion(true)
+                    }else{
+                        GlobalObj.displayLoader(true, show: false)
+                    }
+                }
+
+            }
+        }
+    }
+    
+    func callSdgsInfoWebservice(completion:@escaping(Bool) -> Void) {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.webserviceForSdgsInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in
+            if let respCode = result.resp_code{
+                if respCode == 200{
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if let objDate = result.data {
+                        print(objDate)
+                        self.kaizenData = objDate
+                        (self.actualController as! NewDetailVC).tblDetailView.reloadData()
+
+                      
+                        completion(true)
+                    }else{
+                        GlobalObj.displayLoader(true, show: false)
+                    }
+                }
+
+            }
+        }
+    }
     func callKaizenInfoWebservice(completion:@escaping(Bool) -> Void) {
         GlobalObj.displayLoader(true, show: true)
         APIClient.webserviceForKaizenInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in

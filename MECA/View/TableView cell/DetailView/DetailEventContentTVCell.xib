@@ -64,6 +64,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="Titledocument" destination="gHg-Nx-i1Z" id="VTU-HP-D2U"/>
                 <outlet property="tblDocument" destination="idh-s2-inv" id="cEb-lE-0SI"/>
                 <outlet property="tblHeightConstraint" destination="uaO-AT-Trb" id="qJT-uK-ELx"/>
             </connections>

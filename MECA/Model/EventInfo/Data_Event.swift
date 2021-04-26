@@ -18,6 +18,8 @@ struct Data_Event : Codable {
 	let event_files : [String]?
 	let video_links : [Video_links]?
 	let event_documents : [Event_documents]?
+    let checkdocument_link : [Documents_links]?
+    
 	let likes : Int?
 	let is_public : Int?
 	let created_at : String?
@@ -47,6 +49,7 @@ struct Data_Event : Codable {
 		case event_files = "event_files"
 		case video_links = "video_links"
 		case event_documents = "event_documents"
+        case checkdocument_link = "document_links"
 		case likes = "likes"
 		case is_public = "is_public"
 		case created_at = "created_at"
@@ -77,6 +80,7 @@ struct Data_Event : Codable {
 		event_files = try values.decodeIfPresent([String].self, forKey: .event_files)
 		video_links = try values.decodeIfPresent([Video_links].self, forKey: .video_links)
 		event_documents = try values.decodeIfPresent([Event_documents].self, forKey: .event_documents)
+        checkdocument_link = try values.decodeIfPresent([Documents_links].self, forKey: .checkdocument_link)
 		likes = try values.decodeIfPresent(Int.self, forKey: .likes)
 		is_public = try values.decodeIfPresent(Int.self, forKey: .is_public)
 		created_at = try values.decodeIfPresent(String.self, forKey: .created_at)

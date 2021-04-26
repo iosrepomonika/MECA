@@ -10,6 +10,7 @@ import UIKit
 class DetailEventContentTVCell: UITableViewCell {
 
     @IBOutlet weak var tblDocument: UITableView!
+    @IBOutlet weak var Titledocument: UILabel!
     @IBOutlet weak var tblHeightConstraint: NSLayoutConstraint!
     var arrEventDocument = [Event_documents]()
     
@@ -44,21 +45,22 @@ class DetailEventContentTVCell: UITableViewCell {
         }
     }
     func setKaizenData(dataKaizen:KaizenInfoDataModel) {
-       // if dataKaizen.kaizen_documents?.count == 0{
+        if dataKaizen.kaizen_documents?.count == 0{
             tblHeightConstraint.constant = 0
 
-//        }else{
-//            if dataKaizen.kaizen_documents!.count > 0 {
-//                arrEventDocument.removeAll()
-//            }
-//            print(dataKaizen.kaizen_documents?.count)
-//            arrEventDocument = dataKaizen.kaizen_documents!
-//        tblDocument.register(DocumentContentCell.nib(), forCellReuseIdentifier: "DocumentContentCell")
-//        tblDocument.delegate = self
-//        tblDocument.dataSource = self
-//        tblDocument.reloadData()
-//        tblHeightConstraint.constant = CGFloat(43 * dataKaizen.kaizen_documents!.count)
-//        }
+        }else{
+            print("dataKaizen.kaizen_documents?.count\(dataKaizen.kaizen_documents?.count)")
+            if dataKaizen.kaizen_documents!.count > 0 {
+               arrEventDocument.removeAll()
+            }
+            print(dataKaizen.kaizen_documents?.count)
+            arrEventDocument = dataKaizen.kaizen_documents!
+        tblDocument.register(DocumentContentCell.nib(), forCellReuseIdentifier: "DocumentContentCell")
+        tblDocument.delegate = self
+        tblDocument.dataSource = self
+        tblDocument.reloadData()
+        tblHeightConstraint.constant = CGFloat(43 * dataKaizen.kaizen_documents!.count)
+        }
     }
 }
 
@@ -70,6 +72,16 @@ extension DetailEventContentTVCell:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblDocument.dequeueReusableCell(withIdentifier: "DocumentContentCell", for: indexPath) as! DocumentContentCell
+        if detailVC.isEvent{
+            
+        }else{
+            cell.txtPresentation.layer.borderWidth = 1
+            cell.txtPresentation.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
+            cell.txtPresentation.layer.cornerRadius = 4
+            cell.txtPresentation.textColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
+            cell.btnDownloadOutlet.setImage(UIImage(named: "download BlueDocuments"), for: UIControl.State.normal)
+                
+        }
         cell.txtPresentation.isUserInteractionEnabled = false
         cell.txtPresentation.text = arrEventDocument[indexPath.row].name
         return cell

@@ -40,7 +40,7 @@ struct KaizenInfoDataModel : Codable {
         case cover_image = "cover_image"
         case kaizen_files = "kaizen_files"
         case video_links = "video_links"
-        case kaizen_documents = "kaizen_documents"
+        case kaizen_documents = "event_documents"
         case document_links = "document_links"
         case status = "status"
         case is_admin = "is_admin"
