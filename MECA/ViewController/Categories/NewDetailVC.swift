@@ -33,18 +33,9 @@ class NewDetailVC: UIViewController {
         tblDetailView.register(DetailCommentLikeTVCell.nib(), forCellReuseIdentifier: viewModel.identifierCommentLikeCell)
 
         viewImgPreview.isHidden = true
-        print("isEvent ..\(isEvent)")
+       
         if isEvent{
-//            print("Maasview ..\(Maasview)")
-//            if Maasview {
-//                if ComingfromVC == "Sdgs" {
-//                    viewModel.callSdgsInfoWebservice()
-//                }else{
-//                    viewModel.callMaasInfoWebservice()
-//                }
-//
-//            }else{
-//                print("else Maasview ..\(Maasview)")
+
                 viewModel.callEventInfoWebservice()
 //            }
             
@@ -62,7 +53,7 @@ class NewDetailVC: UIViewController {
                     print("else Maasview ..\(Maasview)")
                     viewModel.callMaasInfoWebservice{ (result) in
                         if result{
-                            //self.tblDetailView.reloadData()
+                            
                         }
                     }
                 }
@@ -70,7 +61,7 @@ class NewDetailVC: UIViewController {
             }else {
                 viewModel.callKaizenInfoWebservice { (result) in
                     if result{
-                        //self.tblDetailView.reloadData()
+                       
                     }
                 }
             }
