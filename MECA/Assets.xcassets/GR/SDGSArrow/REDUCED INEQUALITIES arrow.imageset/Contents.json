@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "REDUCED INEQUALITIES arrow.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "REDUCED INEQUALITIES arrow@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "REDUCED INEQUALITIES arrow@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

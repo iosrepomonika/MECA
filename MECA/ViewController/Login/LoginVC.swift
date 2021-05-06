@@ -39,15 +39,7 @@ class LoginVC: UIViewController {
 //MARK:- Custom Methord
 extension LoginVC{
     func validation(){
-//        
-//        if GlobalObj.isValidEmail(testStr: txtEmail.text!){
-//            print("Validate EmailID")
-//      
-//        }else{
-//            KRProgressHUD.dismiss()
-//            print("invalid EmailID")
-//            GlobalObj.showAlert(title: "Invalid Data", message: "Please Enter Valid EmailID", controller: self)
-//        }
+
         if txtEmail.text == "" && txtPassword.text == ""{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Email Id and Password", controller: self)
             

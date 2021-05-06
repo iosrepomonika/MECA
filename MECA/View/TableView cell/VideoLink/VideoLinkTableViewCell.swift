@@ -24,6 +24,11 @@ class VideoLinkTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if GlobalValue.tabCategory == "GR"{
+            videoLinkLbl.textColor = #colorLiteral(red: 1, green: 0.1473276019, blue: 0, alpha: 1)
+        }else{
+            videoLinkLbl.textColor = #colorLiteral(red: 0.2972462177, green: 0.5657805204, blue: 0.8644942045, alpha: 1)
+        }
     }
     static func nib() -> UINib {
         return UINib(nibName: "VideoLinkTableViewCell", bundle: nil)

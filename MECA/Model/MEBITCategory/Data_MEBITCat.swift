@@ -21,6 +21,7 @@ struct Data_MEBITCat : Codable {
 	let news : [News_MEBITCat]?
 	let tags : [String]?
 	let videos : [String]?
+    let sorting_options : [Sorting_options]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -32,6 +33,7 @@ struct Data_MEBITCat : Codable {
 		case news = "news"
 		case tags = "tags"
 		case videos = "videos"
+        case sorting_options = "sorting_options"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -44,6 +46,7 @@ struct Data_MEBITCat : Codable {
 		news = try values.decodeIfPresent([News_MEBITCat].self, forKey: .news)
 		tags = try values.decodeIfPresent([String].self, forKey: .tags)
 		videos = try values.decodeIfPresent([String].self, forKey: .videos)
+        sorting_options = try values.decodeIfPresent([Sorting_options].self, forKey: .sorting_options)
 	}
 
 }

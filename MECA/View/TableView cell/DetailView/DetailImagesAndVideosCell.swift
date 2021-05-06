@@ -9,8 +9,7 @@ import UIKit
 import SDWebImage
 import AVFoundation
 import AVKit
-class DetailImagesAndVideosCell: UITableViewCell{
-    @IBOutlet weak var title:UILabel!
+class DetailImagesAndVideosCell: UITableViewCell {
     @IBOutlet weak var btnSurveyLinkOutlet: UIButton!
     @IBOutlet weak var viewSurveyLink: UIView!
     @IBOutlet weak var videosCollectionView: UICollectionView!
@@ -23,16 +22,8 @@ class DetailImagesAndVideosCell: UITableViewCell{
     var screenHeight: CGFloat!
     var arrEventImg = [Event_videos]()
     var arrEventVideos = [Event_videos]()
-    
     var detailVC : NewDetailVC!
-    
-    
-    //External link
-    @IBOutlet weak var linktbl: UITableView!
-    @IBOutlet weak var tblHeightConstraint: NSLayoutConstraint!
-    var arrEventDocumentlink = [Documents_links]()
-    var sitename  = ""
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -107,54 +98,13 @@ class DetailImagesAndVideosCell: UITableViewCell{
             imagesCollectionVIew.reloadData()
         }
     }
-    @IBAction func Linkaction(_ sender: Any) {
-        if arrEventDocumentlink.count == 0 {
-            sitename = btnSurveyLinkOutlet.currentTitle!
-        }else{
-            sitename = arrEventDocumentlink[0].link!
-        }
-        
-        print("button tapped")
-        UIApplication.shared.openURL(NSURL(string: sitename)! as URL)
-    }
-    
-    
-    
-    
-    
     func setEventData(dataEvent:Data_Event) {
-        arrEventDocumentlink.removeAll()
-        if dataEvent.survey_link == nil || dataEvent.survey_link == "" {
-          
-                viewSurveyLink.isHidden = true
-            
-//            //Maas And Sdgs Arun
-//            if  dataEvent.checkdocument_link == nil || dataEvent.checkdocument_link!.count == 0 {
-//
-//            }else{
-//                if dataEvent.checkdocument_link!.count > 0 {
-//                    arrEventDocumentlink.removeAll()
-//                    viewSurveyLink.isHidden = false
-//                    arrEventDocumentlink = dataEvent.checkdocument_link!
-//                    btnSurveyLinkOutlet.setTitle(arrEventDocumentlink[0].name, for: .normal)
-//                }
-//            }
-            
-                
-                
-           
-
-            
-            
+        if dataEvent.survey_link == ""{
+            viewSurveyLink.isHidden = true
         }else{
-           // print("dataEvent.checkdocument_link!.count \(dataEvent.checkdocument_link!.count)")
             viewSurveyLink.isHidden = false
             btnSurveyLinkOutlet.setTitle(dataEvent.survey_link, for: .normal)
-
-            
         }
-        
-
         
             if dataEvent.event_videos?.count == 0{
                 viewVIdeos.isHidden = true
@@ -183,8 +133,36 @@ class DetailImagesAndVideosCell: UITableViewCell{
                 imagesCollectionVIew.reloadData()
             }
         }
-    
-   
+    func setGRData(grData:GRDetail_Data){
+            viewSurveyLink.isHidden = true
+
+            if grData.event_videos?.count == 0{
+                viewVIdeos.isHidden = true
+                
+            }else{
+                self.videosCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                setUpUI()
+                viewVIdeos.isHidden = false
+                if arrEventVideos.count>0{
+                    arrEventVideos.removeAll()
+                }
+                arrEventVideos = grData.event_videos!
+                videosCollectionView.reloadData()
+                
+            }
+            if grData.event_images?.count == 0{
+                viewImages.isHidden = true
+            }else{
+                self.imagesCollectionVIew.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                setUpUI()
+                viewImages.isHidden = false
+                if arrEventImg.count>0{
+                    arrEventImg.removeAll()
+                }
+                arrEventImg = grData.event_images!
+                imagesCollectionVIew.reloadData()
+            }
+        }
     }
 
 extension DetailImagesAndVideosCell:  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

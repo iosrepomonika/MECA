@@ -3,17 +3,16 @@
 import UIKit
 protocol SignUpListViewDelgate {
     func distributorListData(distributor: String,distributorId:Int)
-    func divisionListData(division: String,disionId:Int)  //data: string is an example parameter
+    func divisionListData(division: String,disionId:Int)  
 }
 
 class SignUpListViewVC: UIViewController {
     
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblList: UITableView!
+   
     var viewModel : SignUpListViewVM!
-    
     var Distributor_Id = ""
-
     var signUpListViewDelgate : SignUpListViewDelgate!
     var tableFilterDistributorData:[DistributorModel] = []
     var tableFilterDivisionData:[DivisionModel] = []
@@ -24,6 +23,11 @@ class SignUpListViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SignUpListViewVM.init(controller: self)
+        setView()
+      
+    }
+
+    func setView() {
         tblList.register(SignUpListTVCell.nib(), forCellReuseIdentifier: viewModel.identifierItemCell)
         txtSearch.delegate = self
         if BoolValue.isFromDistributor{
@@ -31,16 +35,18 @@ class SignUpListViewVC: UIViewController {
         }else{
             viewModel.callWebserviceForDivision()
         }
-      
     }
-
+    
+}
+//MARK:- UIButton Action
+extension SignUpListViewVC{
     @IBAction func btnBackAction(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
         
     }
 }
-
+//MARK:- Tableview Delegate
 extension SignUpListViewVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getNumbersOfRows(in: section)

@@ -31,30 +31,35 @@ class CategoriesVM: BaseCollectionViewVM {
             let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
             vc.headerImageValue  = "1"
+            GlobalValue.tabCategory = "MEBIT"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 2{
+
             let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "MaasVC") as! MaasViewController
-            
+            GlobalValue.tabCategory = "Maas"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
+
         }
         else if indexPath.row == 3{
             let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "3"
+                       let vc = story.instantiateViewController(withIdentifier: "Hydrogenvc") as! HydrogenVC
+            GlobalValue.tabCategory = "Hydrogen"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 4{
             let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "SDGSvc") as! SDGSVC
-            
+            GlobalValue.tabCategory = "SDGS"
+
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 5{
             let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
             vc.headerImageValue  = "5"
+            GlobalValue.tabCategory = "GR"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         

@@ -1,17 +1,13 @@
-//
-//  DetailEventContentTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 20/04/21.
-//
 
 import UIKit
 
 class DetailEventContentTVCell: UITableViewCell {
-
+    
     @IBOutlet weak var tblDocument: UITableView!
-    @IBOutlet weak var Titledocument: UILabel!
     @IBOutlet weak var tblHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnSeeMoreOutlet: UIButton!
+    @IBOutlet weak var seeMoreHeightConstraint: NSLayoutConstraint!
+    
     var arrEventDocument = [Event_documents]()
     
     var detailVC : NewDetailVC!
@@ -19,6 +15,16 @@ class DetailEventContentTVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        if GlobalValue.tabCategory == "GR"{
+            btnSeeMoreOutlet.setTitleColor(#colorLiteral(red: 1, green: 0.1473276019, blue: 0, alpha: 1), for: .normal)
+        }else if  GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS"{
+            btnSeeMoreOutlet.setTitleColor(#colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1), for: .normal)
+        }else{
+            btnSeeMoreOutlet.setTitleColor(#colorLiteral(red: 0.9803921569, green: 0.6235294118, blue: 0.2039215686, alpha: 1), for: .normal)
+        }
+        seeMoreHeightConstraint.constant = 0
+        btnSeeMoreOutlet.isHidden = true
         
     }
     static func nib() -> UINib {
@@ -30,6 +36,7 @@ class DetailEventContentTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setEventData(dataEvent:Data_Event) {
+        
         if dataEvent.event_documents?.count == 0{
             tblHeightConstraint.constant = 0
         }else{
@@ -37,29 +44,77 @@ class DetailEventContentTVCell: UITableViewCell {
                 arrEventDocument.removeAll()
             }
             arrEventDocument = dataEvent.event_documents!
+            if arrEventDocument.count > 3{
+                seeMoreHeightConstraint.constant = 30
+                btnSeeMoreOutlet.isHidden = false
+               btnSeeMoreOutlet.addTarget(self, action: #selector(self.SeeMoreAction), for: .touchUpInside)
+                tblHeightConstraint.constant = CGFloat(43 * 3)
+
+            }else{
+                seeMoreHeightConstraint.constant = 0
+                btnSeeMoreOutlet.isHidden = true
+                tblHeightConstraint.constant = CGFloat(43 * dataEvent.event_documents!.count)
+
+            }
+           
+
         tblDocument.register(DocumentContentCell.nib(), forCellReuseIdentifier: "DocumentContentCell")
         tblDocument.delegate = self
         tblDocument.dataSource = self
         tblDocument.reloadData()
-        tblHeightConstraint.constant = CGFloat(43 * dataEvent.event_documents!.count)
+        detailVC.tblDetailView.beginUpdates()
+        detailVC.tblDetailView.endUpdates()
         }
     }
     func setKaizenData(dataKaizen:KaizenInfoDataModel) {
-        if dataKaizen.kaizen_documents?.count == 0{
+       // if dataKaizen.kaizen_documents?.count == 0{
             tblHeightConstraint.constant = 0
 
+//        }else{
+//            if dataKaizen.kaizen_documents!.count > 0 {
+//                arrEventDocument.removeAll()
+//            }
+//            print(dataKaizen.kaizen_documents?.count)
+//            arrEventDocument = dataKaizen.kaizen_documents!
+//        tblDocument.register(DocumentContentCell.nib(), forCellReuseIdentifier: "DocumentContentCell")
+//        tblDocument.delegate = self
+//        tblDocument.dataSource = self
+//        tblDocument.reloadData()
+//        tblHeightConstraint.constant = CGFloat(43 * dataKaizen.kaizen_documents!.count)
+//        }
+    }
+    @objc func SeeMoreAction(sender: UIButton){
+        if sender.isSelected{
+            sender.isSelected = false
+            sender.setTitle("See More", for: .normal)
+            tblHeightConstraint.constant = CGFloat(43 * 3)
+            tblDocument.reloadData()
+            detailVC.tblDetailView.beginUpdates()
+            detailVC.tblDetailView.endUpdates()
+        }else {
+            sender.isSelected = true
+            sender.setTitle("Less", for: .normal)
+            tblHeightConstraint.constant = CGFloat(43 * arrEventDocument.count)
+            tblDocument.reloadData()
+            detailVC.tblDetailView.beginUpdates()
+            detailVC.tblDetailView.endUpdates()
+
+        }
+
+    }
+    func setGRData(grData:GRDetail_Data){
+        if grData.event_documents?.count == 0{
+            tblHeightConstraint.constant = 0
         }else{
-            print("dataKaizen.kaizen_documents?.count\(dataKaizen.kaizen_documents?.count)")
-            if dataKaizen.kaizen_documents!.count > 0 {
-               arrEventDocument.removeAll()
+            if grData.event_documents!.count > 0 {
+                arrEventDocument.removeAll()
             }
-            print(dataKaizen.kaizen_documents?.count)
-            arrEventDocument = dataKaizen.kaizen_documents!
+            arrEventDocument = grData.event_documents!
         tblDocument.register(DocumentContentCell.nib(), forCellReuseIdentifier: "DocumentContentCell")
         tblDocument.delegate = self
         tblDocument.dataSource = self
         tblDocument.reloadData()
-        tblHeightConstraint.constant = CGFloat(43 * dataKaizen.kaizen_documents!.count)
+        tblHeightConstraint.constant = CGFloat(43 * grData.event_documents!.count)
         }
     }
 }
@@ -72,18 +127,11 @@ extension DetailEventContentTVCell:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblDocument.dequeueReusableCell(withIdentifier: "DocumentContentCell", for: indexPath) as! DocumentContentCell
-        if detailVC.isEvent{
-            
-        }else{
-            cell.txtPresentation.layer.borderWidth = 1
-            cell.txtPresentation.layer.borderColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
-            cell.txtPresentation.layer.cornerRadius = 4
-            cell.txtPresentation.textColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
-            cell.btnDownloadOutlet.setImage(UIImage(named: "download BlueDocuments"), for: UIControl.State.normal)
-                
-        }
         cell.txtPresentation.isUserInteractionEnabled = false
         cell.txtPresentation.text = arrEventDocument[indexPath.row].name
+        cell.btnDownloadOutlet.tag = indexPath.row
+        cell.btnDownloadOutlet.addTarget(self, action: #selector(self.DownloadDocument), for: .touchUpInside)
+
         return cell
         
     }
@@ -93,7 +141,7 @@ extension DetailEventContentTVCell:UITableViewDelegate,UITableViewDataSource{
         let vc = FlowController().instantiateViewController(identifier: "PDFReaderVC", storyBoard: "Category") as! PDFReaderVC
         vc.isFromDetailPage = true
         if objUrl != ""{
-        vc.detailPageurl = BaseURL + objUrl!
+            vc.detailPageurl = BaseURL + objUrl!
         }
         detailVC.navigationController?.pushViewController(vc, animated: true)
     }
@@ -101,5 +149,23 @@ extension DetailEventContentTVCell:UITableViewDelegate,UITableViewDataSource{
         return 43
     }
     
-    
+    @objc func DownloadDocument(sender: UIButton){
+        GlobalObj.displayLoader(true, show: true)
+        let objUrl = arrEventDocument[sender.tag].file
+      
+        if let url = URL(string: BaseURL + objUrl!){
+            GlobalObj.run(after: 2) {
+                
+                FileDownloader.loadFileAsync(url: url) { (path, error) in
+                    print("PDF File downloaded to : \(path!)")
+                    OperationQueue.main.addOperation {
+
+                    GlobalObj.displayLoader(true, show: false)
+                    self.detailVC.showToast(message: "PDF File downloaded")
+                    }
+
+                }
+            }
+        }
+    }
 }

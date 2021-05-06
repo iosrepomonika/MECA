@@ -121,26 +121,7 @@ class CategoryCommonViewController: UIViewController {
         super.viewDidLoad()
         viewModel = CreateKaizenVM.init(controller: self)
         
-        self.photoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
-        // Do any additional setup after loading the view.
-        photoCollectionView.dataSource = self
-        photoCollectionView.delegate = self
-        
-        self.imageandVideoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
-        // Do any additional setup after loading the view.
-        imageandVideoCollectionView.dataSource = self
-        imageandVideoCollectionView.delegate = self
-        
-        self.documentCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
-        // Do any additional setup after loading the view.
-        documentCollectionView.dataSource = self
-        documentCollectionView.delegate = self
-        
-        self.videoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
-        // Do any additional setup after loading the view.
-        videoCollectionView.dataSource = self
-        videoCollectionView.delegate = self
-        
+        registerNib()
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
         screenHeight = screenSize.height
@@ -154,41 +135,27 @@ class CategoryCommonViewController: UIViewController {
         thePicker.delegate = self
         startDateTextField.setInputViewDatePicker(target: self, selector: #selector(startDatetapDone)) //1
         endDateTextField.setInputViewDatePicker(target: self, selector: #selector(endDatetapDone)) //1
-
-      
     }
     
-    //2
-       @objc func startDatetapDone() {
-           if let datePicker = self.startDateTextField.inputView as? UIDatePicker {
-            // 2-1
-            if #available(iOS 13.4, *) {
-                      datePicker.preferredDatePickerStyle = .wheels
-                  } else {
-                      // Fallback on earlier versions
-                  }
-               let dateformatter = DateFormatter() // 2-2
-            dateformatter.dateFormat = "yyyy-MM-dd"// 2-3
-               self.startDateTextField.text = dateformatter.string(from: datePicker.date) //2-4
-           }
-           self.startDateTextField.resignFirstResponder() // 2-5
-       }
-    @objc func endDatetapDone() {
-        if let datePicker = self.endDateTextField.inputView as? UIDatePicker {
-         // 2-1
-         if #available(iOS 13.4, *) {
-                   datePicker.preferredDatePickerStyle = .wheels
-               } else {
-                   // Fallback on earlier versions
-               }
-            let dateformatter = DateFormatter()
-            // 2-2
-            dateformatter.dateFormat = "yyyy-MM-dd"
-         //   dateformatter.dateStyle = .none // 2-3
-            self.endDateTextField.text = dateformatter.string(from: datePicker.date) //2-4
-        }
-        self.endDateTextField.resignFirstResponder() // 2-5
+    func registerNib() {
+        
+        self.photoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
+        photoCollectionView.dataSource = self
+        photoCollectionView.delegate = self
+        
+        self.imageandVideoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
+        imageandVideoCollectionView.dataSource = self
+        imageandVideoCollectionView.delegate = self
+        
+        self.documentCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
+        documentCollectionView.dataSource = self
+        documentCollectionView.delegate = self
+        
+        self.videoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
+        videoCollectionView.dataSource = self
+        videoCollectionView.delegate = self
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -642,326 +609,70 @@ class CategoryCommonViewController: UIViewController {
         }
     }
 
-	@objc func removeCoverImage(sender: UIButton)
-	{
-		self.coverImageArr.remove(at: sender.tag)
-		self.arrCoverimage.remove(at: sender.tag)
-		self.setupCollectionView()
-	}
-	@objc func removeImages(sender: UIButton)
-	{
-		self.mutipleImageArr.remove(at: sender.tag)
-		self.arrimages.remove(at: sender.tag)
-		self.SelectedAssests.remove(at: sender.tag)
-		self.setupCollectionView1()
-	}
-	@objc func removeVideos(sender: UIButton)
-	{
-		self.thumbNailImageArr.remove(at: sender.tag)
-		self.videoArr.remove(at: sender.tag)
-		self.setupCollectionView5()
-	}
-
-	@objc func removeDocuments(sender: UIButton)
-	{
-		self.DocumentArray.remove(at: sender.tag)
-		self.arrDoc.remove(at: sender.tag)
-		self.setupCollectionView2()
-	}
+	
     
 }
 
-extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (collectionView == photoCollectionView) {
-            return coverImageArr.count
-        }
-        else if (collectionView == imageandVideoCollectionView) {
-            return mutipleImageArr.count
-        }
-        else if (collectionView == documentCollectionView) {
-            return DocumentArray.count
-        }
-        else if (collectionView == videoCollectionView) {
-            return thumbNailImageArr.count
-        }
-        
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if (collectionView == photoCollectionView) {
-            let cell  = photoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-            cell.myImage.image = coverImageArr[indexPath.row]
-            cell.playBtnRef.isHidden = true
-			cell.removeButton.tag = indexPath.row
-			cell.removeButton.removeTarget(self, action: #selector(self.removeCoverImage), for: .touchUpInside)
-			cell.removeButton.addTarget(self, action: #selector(self.removeCoverImage), for: .touchUpInside)
-            return cell
-        }
-        else if (collectionView == imageandVideoCollectionView) {
-            
-            let cell  = imageandVideoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-			cell.removeButton.tag = indexPath.row
-			cell.removeButton.removeTarget(self, action: #selector(self.removeImages), for: .touchUpInside)
-			cell.removeButton.addTarget(self, action: #selector(self.removeImages), for: .touchUpInside)
-            if imageValue == "0" {
-				cell.removeButton.isHidden = false
-                cell.myImage.image = mutipleImageArr[indexPath.row]
-                cell.playBtnRef.isHidden = true
-            }
-			else
-			{
-				cell.removeButton.isHidden = true
-			}
-            
-            return cell
-        }
-        else if (collectionView == videoCollectionView) {
-            
-            let cell  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-			cell.removeButton.tag = indexPath.row
-			cell.removeButton.removeTarget(self, action: #selector(self.removeVideos), for: .touchUpInside)
-			cell.removeButton.addTarget(self, action: #selector(self.removeVideos), for: .touchUpInside)
-            cell.myImage.image = thumbNailImageArr[indexPath.row]
-            
-            cell.playBtnRef.isHidden = false
-            
-            
-            return cell
-        }
-        else if (collectionView == documentCollectionView) {
-            let cell  = documentCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-			cell.removeButton.tag = indexPath.row
-			cell.removeButton.removeTarget(self, action: #selector(self.removeDocuments), for: .touchUpInside)
-			cell.removeButton.addTarget(self, action: #selector(self.removeDocuments), for: .touchUpInside)
-            cell.myImage.image = DocumentArray[indexPath.row]
-            
-            cell.playBtnRef.isHidden = true
-
-            return cell
-        }
-        return UICollectionViewCell()
-        
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 70, height: 70)
-        
-    }
-    
-}
-extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-  
-    
-    func presentPhotoActionSheet() {
-        
-        let alert = UIAlertController(title: "Add Cover Image", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
-        let cameraAlert = UIAlertAction(title: "Camera",
-                                        style: .default,
-                                        handler:{ [weak self] _ in
-                                            self?.presentCamera()
-                                           
-                                            
-                                            
-                                        })
-        let galleryAlert = UIAlertAction(title: "Gallery",
-                                         style: .default,
-                                         handler:{ [weak self] _ in
-                                            
-                                            self?.presentPhotoPicker()
-                                         })
-        let dismiss = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(dismiss)
-        alert.addAction(cameraAlert)
-        alert.addAction(galleryAlert)
-        self.present(alert, animated: true)
-        alert.view.superview?.isUserInteractionEnabled = true
-        alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
-        
-    }
-    @objc func dismissOnTapOutside(){
-        self.dismiss(animated: true, completion: nil)
-    }
-    func presentCamera() {
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
-    }
-    
-    func presentPhotoPicker() {
-        let vc = UIImagePickerController()
-        vc.sourceType = .photoLibrary
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
-    }
-    
-    
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
-    
-    //Images and videos
-    func pickImageandVideo()
+//MARK:- Remove object From Array
+extension CategoryCommonViewController{
+    @objc func removeCoverImage(sender: UIButton)
     {
-        let alert =  UIAlertController(title: "Add Images or Videos", message: "What yoyu Would like to" , preferredStyle: .alert)
-        
-        
-        let images = UIAlertAction(title: "Images", style: .default,handler:{ [weak self] _ in
-            self?.presentPhotoPicker1()
-            self?.imageAndVideoValue = "0"
-            self?.imageValue = "0"
-            
-        })
-        let videos = UIAlertAction(title: "Videos", style: .default,handler:{ [weak self] _ in
-            
-            self?.imageAndVideoValue = "1"
-            self?.imageValue = "1"
-            self?.pickVideos()
-            
-        })
-        let dismiss = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(dismiss)
-        alert.addAction(images)
-        alert.addAction(videos)
-        self.present(alert, animated: true)
-        alert.view.superview?.isUserInteractionEnabled = true
-        alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
-        
+        self.coverImageArr.remove(at: sender.tag)
+        self.arrCoverimage.remove(at: sender.tag)
+        self.setupCollectionView()
     }
-    
-    func presentPhoto() {
-        let actionSheet = UIAlertController(title: "Add Image",
-                                            message: "How would you like to select a picture?",
-                                            preferredStyle: .alert)
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
-                                            style: .cancel,
-                                            handler: nil))
-        actionSheet.addAction(UIAlertAction(title: "Take Photo",
-                                            style: .default,
-                                            handler: { [weak self] _ in
-                                                
-                                                self?.presentCamera1()
-                                                
-                                            }))
-        actionSheet.addAction(UIAlertAction(title: "Choose Photo",
-                                            style: .default,
-                                            handler: { [weak self] _ in
-                                                
-                                                self?.presentPhotoPicker1()
-                                                
-                                            }))
-        let dismiss = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        actionSheet.addAction(dismiss)
-        self.present(actionSheet, animated: true)
-        actionSheet.view.superview?.isUserInteractionEnabled = true
-        actionSheet.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
+    @objc func removeImages(sender: UIButton)
+    {
+        self.mutipleImageArr.remove(at: sender.tag)
+        self.arrimages.remove(at: sender.tag)
+        self.SelectedAssests.remove(at: sender.tag)
+        self.setupCollectionView1()
     }
-    
-    func presentCamera1() {
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.delegate = self
-        vc.allowsEditing = true
-        present(vc, animated: true)
+    @objc func removeVideos(sender: UIButton)
+    {
+        self.thumbNailImageArr.remove(at: sender.tag)
+        self.videoArr.remove(at: sender.tag)
+        self.setupCollectionView5()
     }
-    
-    func presentPhotoPicker1() {
-        
-        let imagePicker = ImagePickerController()
-        
-        presentImagePicker(imagePicker, select: { (asset:PHAsset)  -> Void in
-            // User selected an asset. Do something with it. Perhaps begin processing/upload?
-            
-        }, deselect: { (asset) in
-            // User deselected an asset. Cancel whatever you did when asset was selected.
-        }, cancel: { (assets) in
-            // User canceled selection.
-        }, finish: { (assets) in
-			self.dismiss(animated: true, completion: nil)
-            for i in 0..<assets.count
-            {
-                self.SelectedAssests.append(assets[i])
-                
-            }
-            
-            self.convertAssetToImages()
-            // User finished selection assets.
-        })
 
-    }
-    func pickVideos() {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .photoLibrary
-        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) ?? []
-        picker.mediaTypes = ["public.movie"]
-        picker.videoQuality = .typeMedium
-        picker.allowsEditing = true
-        present(picker, animated: true, completion: nil)
-    }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if imageAndVideoValue == "1" {
-            dismiss(animated: true, completion: nil)
-            guard let movieUrl = info[.mediaURL] as? URL else { return }
-            print(movieUrl)
-            videoArr.append(movieUrl)
-            ///
-            
-                do {
-                    let videoData = try Data(contentsOf: movieUrl as URL)
-                    arrvideos.append(videoData)
-                } catch {
-                    print("Unable to load data: \(error)")
-                }
-            
-            
-            AVAsset(url: movieUrl).generateThumbnail { [weak self] (image) in
-                DispatchQueue.main.async { [self] in
-                    guard let image = image else { return }
-                    print(image)
-                    
-                    self?.thumbNailImageArr.append(image)
-                    self?.videoCollectionView.reloadData()
-                    self?.setupCollectionView5()
-
-					DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
-						self?.videoCollectionView.reloadData()
-					}
-                    
-                }
-            }
-        }else {
-            var selectedImageFromPicker: UIImage?
-            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-                selectedImageFromPicker = editedImage
-            } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                selectedImageFromPicker = originalImage
-            }
-            
-            if let selectedImage = selectedImageFromPicker {
-                coverImageArr.append(selectedImage)
-                arrCoverimage.append(selectedImage.jpegData(compressionQuality: 0.5)!)
-                
-            }
-            
-            dismiss(animated: true, completion: nil)
-            setupCollectionView()
-			DispatchQueue.main.async {
-				self.photoCollectionView.reloadData()
-			}
-        }
-        
-        
+    @objc func removeDocuments(sender: UIButton)
+    {
+        self.DocumentArray.remove(at: sender.tag)
+        self.arrDoc.remove(at: sender.tag)
+        self.setupCollectionView2()
     }
 }
+//MARK:- DatePicker Action
+extension CategoryCommonViewController{
+    
+       @objc func startDatetapDone() {
+           if let datePicker = self.startDateTextField.inputView as? UIDatePicker {
+            if #available(iOS 13.4, *) {
+                      datePicker.preferredDatePickerStyle = .wheels
+                  } else {
+                      // Fallback on earlier versions
+                  }
+               let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy-MM-dd"
+               self.startDateTextField.text = dateformatter.string(from: datePicker.date) //2-4
+           }
+           self.startDateTextField.resignFirstResponder() // 2-5
+       }
+    @objc func endDatetapDone() {
+        if let datePicker = self.endDateTextField.inputView as? UIDatePicker {
+         if #available(iOS 13.4, *) {
+                   datePicker.preferredDatePickerStyle = .wheels
+               } else {
+                   // Fallback on earlier versions
+               }
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy-MM-dd"
+            self.endDateTextField.text = dateformatter.string(from: datePicker.date) //2-4
+        }
+        self.endDateTextField.resignFirstResponder() // 2-5
+    }
+}
+
 
 
 extension CategoryCommonViewController{
@@ -984,243 +695,8 @@ extension CategoryCommonViewController{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
             
         }else{
-            callWebserviceForAdddEvent()
-            //viewModel.webServiceForCreateKaizen(param: param)
+            viewModel.callWebserviceForAdddEvent()
         }
     }
 }
-//MARK:- Webservice
-extension CategoryCommonViewController{
-    
-    func callWebserviceForAdddEvent()
-    
-    {
-    var strType = ""
-        if chooseTypeTextField.text == "New Car Sales"{
-            strType = "1"
-        }else if chooseTypeTextField.text == "After Sales"{
-            strType = "2"
-        }else if chooseTypeTextField.text == "Trade In"{
-            strType = "3"
-        }else if chooseTypeTextField.text == "BIT Foundation"{
-            strType = "4"
-        }
-        
-        if !NetworkReachabilityManager()!.isReachable{
-            GlobalObj.displayLoader(true, show: false)
 
-                  GlobalObj.showNetworkAlert()
-                  return
-        }
-        GlobalObj.displayLoader(true, show: true)
-
-        let url = BaseURL + add_event
-       
-        var headers = HTTPHeaders()
-
-        let accessToken = userDef.string(forKey: UserDefaultKey.token)
-
-        headers = ["Authorization":"Bearer \(accessToken ?? "")"	]
-
-        
-        
-//        var  dict = [String:Any]()
-//        var docDict = [String:Any]()
-//
-//        dict = ["link":"https://www.youtube.com/watch?v=6zgm0cN8CQg",
-//                "title":"video1","info":"video1 info"]
-//        videoLinkArr.append(dict)
-//
-//        dict = ["link":"https://www.youtube.com/watch?v=6zgm0cN8CQg",
-//                "title":"video2","info":"video2 info"]
-//        videoLinkArr.append(dict)
-//        print(videoLinkArr)
-//        docDict = ["link":"https://drive.google.com/file/d/1k07NiURpG7SE2EFXSEm3sGe9_kGxuI6D/view",
-//                "title":"link1","info":"Doc1 info"]
-//        docLinkArr.append(docDict)
-        print(videoLinkArr)
-        print(docLinkArr)
-        let parameters: [String: Any] = [
-            "video_links" : videoLinkArr,
-            "document_links" : docLinkArr,
-        ]
-       
-        AF.upload(multipartFormData: { (multipartFormData) in
-           
-
-            for (key, value) in parameters {
-                
-                if let jsonData = try? JSONSerialization.data(withJSONObject: value, options:[]) {
-//                    multipartFormData.append(jsonData, withName: key as String)
-                    let data = (String(data: jsonData, encoding: String.Encoding.utf8) ?? "") as String
-                    let somedata = data.data(using: String.Encoding.utf8)
-                    multipartFormData.append(somedata ?? Data(), withName: key as String)
-
-                }
-            }
-                               
-            multipartFormData.append(self.titleInputTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"title")
-
-            multipartFormData.append(self.descriptionTextView.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"description")
-         
-            multipartFormData.append(strType.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"type")
-         
-            multipartFormData.append(self.startDateTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"start_date")
-            
-            multipartFormData.append(self.endDateTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"end_date")
-
-           
-            for i in 0..<self.arrimages.count{
-                let name = "event_images[\(i)]"
-                let img = self.arrimages[i]
-//                multipartFormData.append(img, withName: name , fileName: "\(timestamp).jpeg", mimeType: "image/jpeg")
-                multipartFormData.append(img, withName: name , fileName: "file.jpeg", mimeType: "image/jpeg")
-
-            }
-            
-          //  for i in 0..<self.arrDoc.count{
-//                let name = "event_documents[\(i)]"
-//                let doc = self.arrDoc[i]
-//                let timestamp = NSDate().timeIntervalSince1970
-//                multipartFormData.append(doc, withName: name , fileName: "\(timestamp).pdf", mimeType: "application/pdf")
-//            }
-
-
-            for i in 0..<self.arrvideos.count{
-                let name = "event_videos[\(i)]"
-                let img = self.arrvideos[i]
-                let timestamp = NSDate().timeIntervalSince1970
-                multipartFormData.append(img, withName: name , fileName: "\(timestamp).mp4", mimeType: "\(timestamp)/mp4")
-                                
-            }
-            
-            for img in self.arrCoverimage{
-                
-                multipartFormData.append(img, withName: "newcover" , fileName: "file.jpeg", mimeType: "image/jpeg")
-                                
-            }
-
-        }, to: url, method: .post,headers:headers).responseJSON(completionHandler: { (response) in
-            print(response.value as Any)
-            GlobalObj.displayLoader(true, show: false)
-
-            if let objData = response.value as? [String:Any]{
-                let msg = objData["message"] as! String
-            if msg == "Kaizen Added successfully"{
-                self.navigationController?.popViewController(animated: true)
-            }
-            }else{
-            print(response.error as Any)
-                GlobalObj.displayLoader(true, show: false)
-
-                self.showToast(message: response.error.debugDescription)
-            }
-        })
-print("error")
-    }
-   
-
-  
-}
-// MARK: UIPickerView Delegation
-
-extension CategoryCommonViewController : UIPickerViewDelegate, UIPickerViewDataSource{
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return typePickerData.count
-    }
-
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-     return typePickerData[row]
-    }
-
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        chooseTypeTextField.text = typePickerData[row]
-    }
-}
-//MARK:- Document picker
-
-extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPickerDelegate{
-    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
-        documentPicker.delegate = self
-        present(documentPicker, animated: true, completion: nil)
-
-    }
-    
-    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        guard let myURL = urls.first else {
-            return
-        }
-     print("import result : \(myURL)")
-        do {
-            let docData = try Data(contentsOf: myURL as URL)
-            arrDoc.append(docData)
-        } catch {
-            print("Unable to load data: \(error)")
-        }
-        
-        drawPDFfromURL(url: myURL) { (img) in
-            if img != nil{
-            self.DocumentArray.append(img!)
-            }
-            if self.DocumentArray.count>0{
-                self.setupCollectionView2()
-            }
-
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
-				self.documentCollectionView.reloadData()
-			}
-        }
-    }
-          
-
-
-    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        print("view was cancelled")
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func drawPDFfromURL(url: URL,completion: @escaping (UIImage?) -> Void) -> UIImage? {
-        guard let document = CGPDFDocument(url as CFURL) else { return nil }
-        guard let page = document.page(at: 1) else { return nil }
-        
-        let pageRect = page.getBoxRect(.cropBox)
-        let renderer = UIGraphicsImageRenderer(size: pageRect.size)
-        let img = renderer.image { ctx in
-            UIColor.white.set()
-            //ctx.fill(pageRect)
-            ctx.fill(CGRect.init(x: 0, y: 0, width: 70, height: 70))
-            ctx.cgContext.translateBy(x: 0.0, y: pageRect.size.height)
-            ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
-            
-            ctx.cgContext.drawPDFPage(page)
-            
-        }
-        completion(img)
-        return img
-    }
-}
-//Generating Thumbnail
-import AVKit
-
-extension AVAsset {
-    
-    func generateThumbnail(completion: @escaping (UIImage?) -> Void) {
-        DispatchQueue.global().async {
-            let imageGenerator = AVAssetImageGenerator(asset: self)
-            let time = CMTime(seconds: 0.0, preferredTimescale: 600)
-            let times = [NSValue(time: time)]
-            imageGenerator.generateCGImagesAsynchronously(forTimes: times, completionHandler: { _, image, _, _, _ in
-                if let image = image {
-                    completion(UIImage(cgImage: image))
-                } else {
-                    completion(nil)
-                }
-            })
-        }
-    }
-}

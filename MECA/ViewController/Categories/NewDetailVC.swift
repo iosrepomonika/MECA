@@ -13,11 +13,14 @@ class NewDetailVC: UIViewController {
     var viewModel : NewDetailVM!
     var isEvent = false
     var eventID = ""
-    var ComingfromVC = ""
+    var isFromGR = false
     var Maasview = true
+    var ComingfromVC = ""
+
     @IBOutlet weak var viewImgPreview: UIView!
     @IBOutlet weak var imgPreview: UIImageView!
-    
+    private var pullControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -34,10 +37,41 @@ class NewDetailVC: UIViewController {
 
         viewImgPreview.isHidden = true
        
-        if isEvent{
-
-                viewModel.callEventInfoWebservice()
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tblDetailView.refreshControl = pullControl
+        } else {
+            tblDetailView.addSubview(pullControl)
+        }
+//        if isFromGR{
+//            viewModel.callGRDetailWebservice()
+//        }else if isEvent{
+//            viewModel.callEventInfoWebservice()
+//        }else{
+//            viewModel.callKaizenInfoWebservice { (result) in
+//                if result{
+//                    //self.tblDetailView.reloadData()
+//                }
 //            }
+//        }
+        
+        
+        if isFromGR{
+            viewModel.callGRDetailWebservice()
+        }else if isEvent{
+            //            print("Maasview ..\(Maasview)")
+            //            if Maasview {
+            //                if ComingfromVC == "Sdgs" {
+            //                    viewModel.callSdgsInfoWebservice()
+            //                }else{
+            //                    viewModel.callMaasInfoWebservice()
+            //                }
+            //
+            //            }else{
+            //                print("else Maasview ..\(Maasview)")
+            viewModel.callEventInfoWebservice()
+            //            }
             
         }else{
             
@@ -49,29 +83,51 @@ class NewDetailVC: UIViewController {
                             //self.tblDetailView.reloadData()
                         }
                     }
-                }else{
+                }
+                else if ComingfromVC == "hydrogen"{
                     print("else Maasview ..\(Maasview)")
-                    viewModel.callMaasInfoWebservice{ (result) in
+                    viewModel.callhydrogenInfoWebservice{ (result) in
                         if result{
-                            
+                            //self.tblDetailView.reloadData()
                         }
                     }
                 }
                 
+                else{
+                    print("else Maasview ..\(Maasview)")
+                    viewModel.callMaasInfoWebservice{ (result) in
+                        if result{
+                            //self.tblDetailView.reloadData()
+                        }
+                    }
+                }
+                
+                
+                
             }else {
                 viewModel.callKaizenInfoWebservice { (result) in
                     if result{
-                       
+                        //self.tblDetailView.reloadData()
                     }
                 }
             }
-
+            
         }
         
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        //Maasview = false
+    @objc private func refreshListData(_ sender: Any) {
+        
+        if isEvent{
+            viewModel.callEventInfoWebservice()
+        }else{
+            viewModel.callKaizenInfoWebservice { (result) in
+                if result{
+                    //self.tblDetailView.reloadData()
+                }
+            }
+        }
+        self.pullControl.endRefreshing() // You can stop after API Call
+
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
         {

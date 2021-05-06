@@ -6,11 +6,15 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var viewTabbar: FooterTabView!
     var viewModel : HomeVM!
-    
+    private var pullControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       setView()
+    }
+    func setView() {
         viewModel = HomeVM.init(controller: self)
         
         tblView.register(HomeTVCell.nib(), forCellReuseIdentifier: "HomeTVCell")
@@ -18,20 +22,38 @@ class HomeVC: UIViewController {
         tblView.dataSource = self
         viewTabbar.footerTabViewDelegate = self
         viewTabbar.imgHome.image = UIImage.init(named: "Home_active")
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tblView.refreshControl = pullControl
+        } else {
+            tblView.addSubview(pullControl)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated )
         viewModel.callHomeFeedWebservice()
 
     }
+    @objc private func refreshListData(_ sender: Any) {
+
+        viewModel.callHomeFeedWebservice()
+        self.pullControl.endRefreshing() // You can stop after API Call
+
+
+        }
+   
     
+}
+//MARK:- UIButton Action
+extension HomeVC{
     @IBAction func btnPlusAction(_ sender: UIButton) {
         
         let vc = FlowController().instantiateViewController(identifier: "PlusSelectCategoryVC", storyBoard: "Home")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
+
 //MARK:- Footerview Delegate
 extension HomeVC: FooterTabViewDelegate{
     func footerBarAction(strType: String) {
@@ -91,9 +113,6 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRowAt(indexPath, tableView: tblView)
-        
-        
-        
-        
+   
     }
 }

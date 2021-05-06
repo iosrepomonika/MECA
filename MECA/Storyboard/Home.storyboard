@@ -621,7 +621,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsJ-pU-8jM">
-                                        <rect key="frame" x="168" y="52" width="78" height="21"/>
+                                        <rect key="frame" x="170" y="52" width="74.5" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Vpw-WF-bzh"/>
                                         </constraints>
@@ -650,7 +650,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1929"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZc-vt-Pqw">
-                                                <rect key="frame" x="16" y="25" width="29.5" height="21"/>
+                                                <rect key="frame" x="16" y="25" width="26.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="lvY-EE-XCL"/>
                                                 </constraints>
@@ -668,7 +668,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yV-PQ-bYT">
-                                                <rect key="frame" x="16" y="121" width="68" height="21"/>
+                                                <rect key="frame" x="16" y="121" width="63.5" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="1MK-j0-thj"/>
                                                 </constraints>
@@ -677,7 +677,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeu-nY-pkg">
-                                                <rect key="frame" x="223" y="121" width="60" height="21"/>
+                                                <rect key="frame" x="223" y="121" width="58" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Dzk-L0-cHV"/>
                                                 </constraints>
@@ -831,7 +831,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgJ-1H-38M">
-                                                <rect key="frame" x="45.5" y="25" width="8" height="21"/>
+                                                <rect key="frame" x="42.5" y="25" width="8" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="8" id="5Ar-NM-pA6"/>
                                                     <constraint firstAttribute="height" constant="21" id="nOw-59-bfV"/>
@@ -841,7 +841,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1uM-1r-SuO">
-                                                <rect key="frame" x="84" y="121" width="8" height="21"/>
+                                                <rect key="frame" x="79.5" y="121" width="8" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="btb-oG-Nuk"/>
                                                     <constraint firstAttribute="width" constant="8" id="csb-Nr-TVW"/>
@@ -851,7 +851,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdt-cn-W9c">
-                                                <rect key="frame" x="283" y="121" width="8" height="21"/>
+                                                <rect key="frame" x="281" y="121" width="8" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="8" id="6gT-pt-FIj"/>
                                                     <constraint firstAttribute="height" constant="21" id="qQN-Hq-2Pn"/>
@@ -1252,7 +1252,7 @@
                                                 <cells/>
                                             </collectionView>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yse-si-byg">
-                                                <rect key="frame" x="336" y="1447" width="62" height="29"/>
+                                                <rect key="frame" x="337" y="1447" width="61" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="lCF-Oq-jEH"/>
                                                 </constraints>
@@ -1505,7 +1505,7 @@
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gk8-0i-v11">
-                                                <rect key="frame" x="336" y="1809" width="62" height="29"/>
+                                                <rect key="frame" x="337" y="1809" width="61" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="29" id="3JC-dE-b5M"/>
                                                 </constraints>
@@ -1618,8 +1618,8 @@
                                     <constraint firstAttribute="bottom" secondItem="yUT-9O-m5D" secondAttribute="bottom" id="blR-9n-xqv"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poD-7d-Ruj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="poD-7d-Ruj">
+                                <rect key="frame" x="500" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poX-H4-WGY" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
                                         <rect key="frame" x="52" y="302" width="310.5" height="292"/>
@@ -2077,7 +2077,7 @@
     </scenes>
     <designables>
         <designable name="7tr-RU-QX8">
-            <size key="intrinsicContentSize" width="50" height="30"/>
+            <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>
         <designable name="Uja-HZ-qH8">
             <size key="intrinsicContentSize" width="30" height="29"/>

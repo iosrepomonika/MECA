@@ -13,17 +13,25 @@ import AVKit
 class DetailVideoLinkTVCell: UITableViewCell {
     @IBOutlet weak var tblVIdeoLink: UITableView!
     @IBOutlet weak var tblHeightConstraint: NSLayoutConstraint!
+ 
+    @IBOutlet weak var seeMoreHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var seeMoreOutlet: UIButton!
     var arrVideoLink = [Video_links]()
   var arrKaizenVideo = [KaizenVideoLinkModel]()
-    var isFrom = false
-    var detailVC : NewDetailVC!
+  var isFrom = false
+  var detailVC : NewDetailVC!
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-
+        if GlobalValue.tabCategory == "GR"{
+            seeMoreOutlet.setTitleColor(#colorLiteral(red: 1, green: 0.1473276019, blue: 0, alpha: 1), for: .normal)
+        }else if  GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS"{
+            seeMoreOutlet.setTitleColor(#colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1), for: .normal)
+        }else{
+            seeMoreOutlet.setTitleColor(#colorLiteral(red: 0.9803921569, green: 0.6235294118, blue: 0.2039215686, alpha: 1), for: .normal)
+        }
     }
 
     static func nib() -> UINib {
@@ -42,26 +50,107 @@ class DetailVideoLinkTVCell: UITableViewCell {
                 arrVideoLink.removeAll()
             }
             arrVideoLink = dataEvent.video_links!
+            if arrVideoLink.count > 3{
+                seeMoreHeightConstraint.constant = 30
+                seeMoreOutlet.isHidden = false
+              seeMoreOutlet.addTarget(self, action: #selector(self.SeeMoreAction), for: .touchUpInside)
+        
+                tblHeightConstraint.constant = CGFloat(154 * 3)
+
+            }else{
+                seeMoreHeightConstraint.constant = 0
+                seeMoreOutlet.isHidden = true
+                tblHeightConstraint.constant = CGFloat(154 * dataEvent.video_links!.count)
+
+            }
             tblVIdeoLink.register(VideoLinkTableViewCell.nib(), forCellReuseIdentifier: "VideoLinkTableViewCell")
             tblVIdeoLink.delegate = self
             tblVIdeoLink.dataSource = self
-            tblHeightConstraint.constant = CGFloat(154*arrVideoLink.count)
+           // tblHeightConstraint.constant = CGFloat(154*arrVideoLink.count)
             tblVIdeoLink.reloadData()
+            detailVC.tblDetailView.beginUpdates()
+            detailVC.tblDetailView.endUpdates()
         }
     }
     
+    @objc func SeeMoreAction(sender: UIButton){
+        if sender.isSelected{
+            sender.isSelected = false
+            sender.setTitle("See More", for: .normal)
+            tblHeightConstraint.constant = CGFloat(154 * 3)
+            tblVIdeoLink.reloadData()
+            detailVC.tblDetailView.beginUpdates()
+            detailVC.tblDetailView.endUpdates()
+        }else {
+            sender.isSelected = true
+            sender.setTitle("Less", for: .normal)
+            if arrVideoLink.count>0{
+                tblHeightConstraint.constant = CGFloat(154 * arrVideoLink.count)
+            }else if arrKaizenVideo.count>0{
+                tblHeightConstraint.constant = CGFloat(154 * arrKaizenVideo.count)
+            }
+            tblVIdeoLink.reloadData()
+            detailVC.tblDetailView.beginUpdates()
+            detailVC.tblDetailView.endUpdates()
+
+        }
+    }
     func setKaizenData(dataKaizen:KaizenInfoDataModel) {
         isFrom = false
-        if arrVideoLink.count>0{
-            arrVideoLink.removeAll()
+        if arrKaizenVideo.count>0{
+            arrKaizenVideo.removeAll()
         }
         if dataKaizen.video_links!.count > 0{
             arrKaizenVideo = dataKaizen.video_links!
+            if arrKaizenVideo.count > 3{
+                seeMoreHeightConstraint.constant = 30
+                seeMoreOutlet.isHidden = false
+            seeMoreOutlet.addTarget(self, action: #selector(self.SeeMoreAction), for: .touchUpInside)
+                tblHeightConstraint.constant = CGFloat(154 * 3)
+
+            }else{
+                seeMoreHeightConstraint.constant = 0
+                seeMoreOutlet.isHidden = true
+                tblHeightConstraint.constant = CGFloat(154 * dataKaizen.video_links!.count)
+
+            }
             tblVIdeoLink.register(VideoLinkTableViewCell.nib(), forCellReuseIdentifier: "VideoLinkTableViewCell")
             tblVIdeoLink.delegate = self
             tblVIdeoLink.dataSource = self
-            tblHeightConstraint.constant = CGFloat(154*arrKaizenVideo.count)
+          //  tblHeightConstraint.constant = CGFloat(154*arrKaizenVideo.count)
             tblVIdeoLink.reloadData()
+            detailVC.tblDetailView.beginUpdates()
+            detailVC.tblDetailView.endUpdates()
+        }
+    }
+    func setGRData(grData:GRDetail_Data){
+        
+        if grData.video_links!.count > 0{
+            isFrom = true
+            if arrVideoLink.count>0{
+                arrVideoLink.removeAll()
+            }
+            arrVideoLink = grData.video_links!
+            if grData.video_links!.count > 0{
+                arrVideoLink = grData.video_links!
+                if arrVideoLink.count > 3{
+                    seeMoreHeightConstraint.constant = 30
+                    seeMoreOutlet.isHidden = false
+                    seeMoreOutlet.addTarget(self, action: #selector(self.SeeMoreAction), for: .touchUpInside)
+                    tblHeightConstraint.constant = CGFloat(154 * 3)
+                    
+                }else{
+                    seeMoreHeightConstraint.constant = 0
+                    seeMoreOutlet.isHidden = true
+                    tblHeightConstraint.constant = CGFloat(154 * grData.video_links!.count)
+                    
+                }
+                tblVIdeoLink.register(VideoLinkTableViewCell.nib(), forCellReuseIdentifier: "VideoLinkTableViewCell")
+                tblVIdeoLink.delegate = self
+                tblVIdeoLink.dataSource = self
+                // tblHeightConstraint.constant = CGFloat(154*arrVideoLink.count)
+                tblVIdeoLink.reloadData()
+            }
         }
     }
 }

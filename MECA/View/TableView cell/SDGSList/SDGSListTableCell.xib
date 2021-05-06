@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="tKA-7G-noK" customClass="SDGSListTableCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="347" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tKA-7G-noK" id="Xzw-5I-FtJ">
+                <rect key="frame" x="0.0" y="0.0" width="347" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9R-j4-mNV" customClass="SplitBillView" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="10" y="5" width="327" height="79"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pF-9p-iA5">
+                                <rect key="frame" x="54" y="32" width="250" height="15"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="07X-aa-ev0"/>
+                                    <constraint firstAttribute="height" constant="15" id="vLL-5S-dBG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.69803921568627447" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2pF-9p-iA5" firstAttribute="centerY" secondItem="f9R-j4-mNV" secondAttribute="centerY" id="nK0-G5-2j8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.80000000000000004"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" systemColor="systemGray3Color"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr8-DA-Zp8">
+                        <rect key="frame" x="300" y="32" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="5cV-W0-Rl4"/>
+                            <constraint firstAttribute="height" constant="25" id="egj-hD-A5I"/>
+                        </constraints>
+                        <state key="normal" image="INDUSTRY, INNOVATION AND INFRASTRUCTURE arrow"/>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trade in" translatesAutoresizingMaskIntoConstraints="NO" id="fvI-1s-hq4">
+                        <rect key="frame" x="20" y="27" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="C0q-wR-g6T"/>
+                            <constraint firstAttribute="height" constant="35" id="Wb2-kJ-Yo2"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Kr8-DA-Zp8" firstAttribute="trailing" secondItem="f9R-j4-mNV" secondAttribute="trailing" constant="-12" id="9RA-vh-80g"/>
+                    <constraint firstItem="fvI-1s-hq4" firstAttribute="centerY" secondItem="Xzw-5I-FtJ" secondAttribute="centerY" id="Agz-Km-gZx"/>
+                    <constraint firstItem="f9R-j4-mNV" firstAttribute="top" secondItem="Xzw-5I-FtJ" secondAttribute="top" constant="5" id="CYY-j7-ccJ"/>
+                    <constraint firstAttribute="trailing" secondItem="f9R-j4-mNV" secondAttribute="trailing" constant="10" id="Jin-lE-DDM"/>
+                    <constraint firstItem="fvI-1s-hq4" firstAttribute="leading" secondItem="Xzw-5I-FtJ" secondAttribute="leading" constant="20" id="Ntj-mp-Elg"/>
+                    <constraint firstItem="Kr8-DA-Zp8" firstAttribute="centerY" secondItem="f9R-j4-mNV" secondAttribute="centerY" id="T6U-h3-ngp"/>
+                    <constraint firstItem="f9R-j4-mNV" firstAttribute="centerY" secondItem="Xzw-5I-FtJ" secondAttribute="centerY" id="brz-Yj-aKJ"/>
+                    <constraint firstItem="f9R-j4-mNV" firstAttribute="centerX" secondItem="Xzw-5I-FtJ" secondAttribute="centerX" id="eoc-0W-fwl"/>
+                    <constraint firstAttribute="bottom" secondItem="f9R-j4-mNV" secondAttribute="bottom" constant="5" id="vJU-SO-DrJ"/>
+                    <constraint firstItem="2pF-9p-iA5" firstAttribute="leading" secondItem="fvI-1s-hq4" secondAttribute="trailing" constant="9" id="w0o-ak-y1E"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="QAI-ac-gNw"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <connections>
+                <outlet property="addbtn" destination="Kr8-DA-Zp8" id="4ir-YZ-CIH"/>
+                <outlet property="backView" destination="f9R-j4-mNV" id="RcF-bO-rZq"/>
+                <outlet property="iconimgView" destination="fvI-1s-hq4" id="ewf-Ln-Teh"/>
+                <outlet property="nameLbl" destination="2pF-9p-iA5" id="1od-uS-396"/>
+            </connections>
+            <point key="canvasLocation" x="-302.17391304347831" y="45.870535714285715"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="INDUSTRY, INNOVATION AND INFRASTRUCTURE arrow" width="25" height="25"/>
+        <image name="Trade in" width="70" height="70"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -30,7 +30,7 @@ class SignUpVC: UIViewController, SignUpListViewDelgate {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SignUpVM.init(controller: self)
-        
+       
         
     }
 
@@ -56,14 +56,6 @@ func distributorListData(distributor: String, distributorId: Int) {
 //MARK:- Custom Methord
 extension SignUpVC{
     func validation(){
-        
-//        if GlobalObj.isValidatePhoneNumber(value: txtPhoneNum.text!) {
-//            print("Valid Phone Number")
-//        }
-//        else {
-//            KRProgressHUD.dismiss()
-//        }
-       
         if txtFirstname.text == "" && txtLastname.text == "" && txtEmail.text == "" && txtPhoneNum.text == "" && txtPassword.text == "" && lblSelectDistributor.text == "Select Distributor" && lblSelectDivision.text == "Select Division" && txtConfirmPassword.text == ""{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter All Feilds", controller: self)
             
@@ -95,7 +87,6 @@ extension SignUpVC{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Password", controller: self)
        
         }else if !(txtPhoneNum.text!.isPhoneNumber){
-//        if !(GlobalObj.isValidatePhoneNumber(value: txtPhoneNum.text!)) {
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Valid Phone Number", controller: self)
 
 
@@ -116,7 +107,6 @@ extension SignUpVC{
 
 //MARK :- UIButton Action
 extension SignUpVC{
-    
     @IBAction func btnDivisionAction(_ sender: UIButton) {
         if lblSelectDistributor.text == "Select Distributor"{
             GlobalObj.showAlertVC(title: "Oops", message: "Please First Select Distributor", controller: self)

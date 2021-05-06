@@ -134,6 +134,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imgComment" destination="5pN-Sp-UHp" id="LLm-0P-gJf"/>
+                <outlet property="imgLikes" destination="hmA-CV-BAs" id="cgr-Di-SzD"/>
                 <outlet property="lblComment" destination="Yy9-xJ-Yfi" id="j8C-Fq-efB"/>
                 <outlet property="lblLike" destination="c85-Oz-gha" id="Fpx-Iz-h0w"/>
             </connections>
@@ -145,7 +147,7 @@
             <size key="intrinsicContentSize" width="45" height="22"/>
         </designable>
         <designable name="fSk-yQ-gWX">
-            <size key="intrinsicContentSize" width="75" height="22"/>
+            <size key="intrinsicContentSize" width="77" height="22"/>
         </designable>
     </designables>
     <resources>

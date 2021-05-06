@@ -38,10 +38,11 @@ class AddNewsViewController: UIViewController {
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
+    var viewModel : AddNewsVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel = AddNewsVM.init(controller: self)
         self.photoCollectionView.register(UINib(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
@@ -101,7 +102,10 @@ class AddNewsViewController: UIViewController {
             print("image Data is there")
         }
     }
-    
+  
+}
+//MARK: UIButton Action
+extension AddNewsViewController{
     @IBAction func onClickDismissVC(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -126,59 +130,15 @@ class AddNewsViewController: UIViewController {
     @IBAction func onClickAddData(_ sender: UIButton) {
     }
     
-    func convertAssetToImages() -> Void {
-        
-        if SelectedAssests.count != 0{
-            
-            if ImageArray.count > 0 {
-                ImageArray.removeAll()
-
-            }
-            for i in 0..<SelectedAssests.count{
-                
-                let manager = PHImageManager.default()
-                let option = PHImageRequestOptions()
-                var thumbnail = UIImage()
-                option.isSynchronous = true
-                
-               
-                manager.requestImage(for: SelectedAssests[i], targetSize: CGSize(width: screenWidth/2, height: 70), contentMode: .aspectFill, options: option, resultHandler: {(result, info)->Void in
-                    thumbnail = result!
-                    
-                })
-                
-             let data = thumbnail.jpegData(compressionQuality: 0.7)
-                let newImage = UIImage(data: data!)
-              
-                
-                self.ImageArray.append(newImage! as UIImage)
-                
-            }
-
-        }
-        
-        print("complete photo array \(self.ImageArray)")
-        setupCollectionView()
-        photoCollectionView.delegate = self
-        photoCollectionView.dataSource = self
-        photoCollectionView.reloadData()
-
-    }
-    
-
-    
 }
+//MARK: UICollectionview Delegate
 extension AddNewsViewController : UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ImageArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-
-        let cell  = photoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
-        cell.myImage.image = ImageArray[indexPath.row]
-        return cell
+        viewModel.getItemForRowAt(indexPath, collectionView: photoCollectionView)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 70, height: 70)
@@ -242,6 +202,45 @@ extension AddNewsViewController: UIImagePickerControllerDelegate, UINavigationCo
                         self.convertAssetToImages()
             // User finished selection assets.
         })
+    }
+    
+    func convertAssetToImages() -> Void {
+        
+        if SelectedAssests.count != 0{
+            
+            if ImageArray.count > 0 {
+                ImageArray.removeAll()
+
+            }
+            for i in 0..<SelectedAssests.count{
+                
+                let manager = PHImageManager.default()
+                let option = PHImageRequestOptions()
+                var thumbnail = UIImage()
+                option.isSynchronous = true
+                
+               
+                manager.requestImage(for: SelectedAssests[i], targetSize: CGSize(width: screenWidth/2, height: 70), contentMode: .aspectFill, options: option, resultHandler: {(result, info)->Void in
+                    thumbnail = result!
+                    
+                })
+                
+             let data = thumbnail.jpegData(compressionQuality: 0.7)
+                let newImage = UIImage(data: data!)
+              
+                
+                self.ImageArray.append(newImage! as UIImage)
+                
+            }
+
+        }
+        
+        print("complete photo array \(self.ImageArray)")
+        setupCollectionView()
+        photoCollectionView.delegate = self
+        photoCollectionView.dataSource = self
+        photoCollectionView.reloadData()
+
     }
     }
 

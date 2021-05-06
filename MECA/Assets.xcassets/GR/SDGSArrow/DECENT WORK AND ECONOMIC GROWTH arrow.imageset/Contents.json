@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "DECENT WORK AND ECONOMIC GROWTH arrow.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "DECENT WORK AND ECONOMIC GROWTH arrow@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "DECENT WORK AND ECONOMIC GROWTH arrow@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

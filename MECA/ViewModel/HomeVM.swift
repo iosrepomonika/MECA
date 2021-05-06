@@ -32,9 +32,7 @@ class HomeVM: BaseTableViewVM {
         let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent =  obj.whatsnew_type == "event" ? true : false
-        //Arun
         vc.Maasview = false
-        
         (actualController as! HomeVC).navigationController?.pushViewController(vc, animated: true)
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
@@ -57,12 +55,13 @@ class HomeVM: BaseTableViewVM {
             return headerView
 
 }
+    
     func callHomeFeedWebservice() {
         GlobalObj.displayLoader(true, show: true)
         APIClient.wevserviceForHomeFeed { (result) in
 
             if let respCode = result.resp_code{
-             
+                GlobalObj.displayLoader(true, show: false)
                 if respCode == 200{
                     if let arrDate = result.data{
                         if self.arrHomeFeed.count>0{

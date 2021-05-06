@@ -18,6 +18,7 @@ var isFromTab = ""
         webVIew.navigationDelegate = self
         // Do any additional setup after loading the view.
         if isFromDetailPage{
+            isFromDetailPage = false
             setURL(url: detailPageurl)
         }else{
         callMEBITFeedWebservice()

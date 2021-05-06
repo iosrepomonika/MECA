@@ -27,11 +27,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OjT-Pn-SPu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="432"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nb-MM-GbJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nb-MM-GbJ">
                                 <rect key="frame" x="16" y="260" width="382" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xZI-Bh-ph3"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -264,6 +261,7 @@
                         <constraints>
                             <constraint firstItem="8Lc-1T-k8h" firstAttribute="leading" secondItem="KHj-Kd-LCz" secondAttribute="leading" id="3W9-h7-PaA"/>
                             <constraint firstItem="5nb-MM-GbJ" firstAttribute="leading" secondItem="OjT-Pn-SPu" secondAttribute="leading" constant="16" id="40S-hV-eS2"/>
+                            <constraint firstAttribute="bottom" secondItem="Qme-g0-Oj7" secondAttribute="bottom" constant="13" id="4gv-9z-zcZ"/>
                             <constraint firstItem="yCv-DF-9UP" firstAttribute="leading" secondItem="OjT-Pn-SPu" secondAttribute="leading" constant="16" id="57F-hg-thM"/>
                             <constraint firstAttribute="trailing" secondItem="cty-xE-NRc" secondAttribute="trailing" id="G6x-zO-st2"/>
                             <constraint firstItem="yCv-DF-9UP" firstAttribute="top" secondItem="5nb-MM-GbJ" secondAttribute="bottom" constant="14" id="HMh-uY-MgF"/>
@@ -293,6 +291,10 @@
             <connections>
                 <outlet property="btnBackOutlet" destination="D9F-Y0-0mp" id="Me1-zq-gR9"/>
                 <outlet property="imgCover" destination="cty-xE-NRc" id="Q11-7O-Mvo"/>
+                <outlet property="imgDateEndDate" destination="9a7-hN-D5g" id="Pbt-HC-mwC"/>
+                <outlet property="imgDateStartDate" destination="XQ4-aO-hVX" id="Onw-uI-UNv"/>
+                <outlet property="imgTimeEndDate" destination="EvW-VU-ly1" id="SLk-NE-iG5"/>
+                <outlet property="imgTimeStartdate" destination="2Tm-mF-1lF" id="sdv-Nv-pRY"/>
                 <outlet property="lblEndDate" destination="6cK-c9-chL" id="ORI-Yn-Vvm"/>
                 <outlet property="lblEndDay" destination="z8v-4K-2v9" id="q3G-MB-N4w"/>
                 <outlet property="lblEndFromTime" destination="oEn-06-fg2" id="5ne-zf-mG8"/>
@@ -302,6 +304,8 @@
                 <outlet property="lblStartFromTime" destination="Vra-8c-c28" id="5h2-KC-ZbH"/>
                 <outlet property="lblStartToTime" destination="eTu-7T-mOd" id="Ouf-Hh-uTd"/>
                 <outlet property="lblTitle" destination="5nb-MM-GbJ" id="hZY-6b-biA"/>
+                <outlet property="viewEndDateHeightConstraint" destination="CEr-Qj-TG2" id="3Eq-Y1-NG0"/>
+                <outlet property="viewStartDateHeightConstraint" destination="4xO-Lc-ZNI" id="uvC-FK-38G"/>
             </connections>
             <point key="canvasLocation" x="15.942028985507248" y="70.982142857142847"/>
         </tableViewCell>

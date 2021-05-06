@@ -30,6 +30,8 @@ class MoreVC: UIViewController {
     }
 
 }
+
+//MARK:- Footerview Delegate
 extension MoreVC : FooterTabViewDelegate{
     func footerBarAction(strType: String) {
         if strType == "Home"{

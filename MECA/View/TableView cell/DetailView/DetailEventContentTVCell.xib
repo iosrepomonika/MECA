@@ -36,25 +36,40 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="idh-s2-inv">
-                                <rect key="frame" x="0.0" y="29" width="382" height="62"/>
+                                <rect key="frame" x="0.0" y="29" width="382" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="uaO-AT-Trb"/>
+                                    <constraint firstAttribute="height" constant="40" id="uaO-AT-Trb"/>
                                 </constraints>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWQ-1Z-yAj">
+                                <rect key="frame" x="325" y="71" width="57" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="gcY-AH-NAb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="12"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="See More">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.62352941179999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="idh-s2-inv" secondAttribute="bottom" constant="10" id="Pyo-0X-Q9w"/>
+                            <constraint firstItem="cWQ-1Z-yAj" firstAttribute="top" secondItem="idh-s2-inv" secondAttribute="bottom" constant="2" id="1WO-pi-vaH"/>
+                            <constraint firstItem="cWQ-1Z-yAj" firstAttribute="trailing" secondItem="idh-s2-inv" secondAttribute="trailing" id="R4G-kj-LyA"/>
                             <constraint firstItem="idh-s2-inv" firstAttribute="trailing" secondItem="gHg-Nx-i1Z" secondAttribute="trailing" id="aFg-c8-zUN"/>
                             <constraint firstItem="idh-s2-inv" firstAttribute="top" secondItem="gHg-Nx-i1Z" secondAttribute="bottom" constant="13" id="jS7-uE-e7g"/>
                             <constraint firstItem="gHg-Nx-i1Z" firstAttribute="leading" secondItem="h00-TQ-gpu" secondAttribute="leading" id="nlF-a9-2Jp"/>
                             <constraint firstAttribute="trailing" secondItem="gHg-Nx-i1Z" secondAttribute="trailing" id="r6f-fx-MPt"/>
                             <constraint firstItem="idh-s2-inv" firstAttribute="leading" secondItem="gHg-Nx-i1Z" secondAttribute="leading" id="rIJ-Og-8gf"/>
                             <constraint firstItem="gHg-Nx-i1Z" firstAttribute="top" secondItem="h00-TQ-gpu" secondAttribute="top" id="tUJ-RE-TKm"/>
+                            <constraint firstAttribute="bottom" secondItem="cWQ-1Z-yAj" secondAttribute="bottom" id="zRD-0V-vI3"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="h00-TQ-gpu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="7jG-xg-LH4"/>
                     <constraint firstItem="h00-TQ-gpu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="JU7-NS-mAw"/>
@@ -64,7 +79,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="Titledocument" destination="gHg-Nx-i1Z" id="VTU-HP-D2U"/>
+                <outlet property="btnSeeMoreOutlet" destination="cWQ-1Z-yAj" id="cg1-Vb-40B"/>
+                <outlet property="seeMoreHeightConstraint" destination="gcY-AH-NAb" id="Z8C-bX-hKN"/>
                 <outlet property="tblDocument" destination="idh-s2-inv" id="cEb-lE-0SI"/>
                 <outlet property="tblHeightConstraint" destination="uaO-AT-Trb" id="qJT-uK-ELx"/>
             </connections>

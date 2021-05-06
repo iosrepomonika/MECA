@@ -9,8 +9,6 @@ class func colorFromHex(rgbValue:UInt32, alpha:Double = 1.0)->UIColor{
     return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
 }
     
-    
-    
     class  func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
