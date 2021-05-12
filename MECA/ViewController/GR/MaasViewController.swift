@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class MaasViewController: UIViewController {
     
     
@@ -15,16 +15,37 @@ class MaasViewController: UIViewController {
     @IBOutlet weak var varNewCarSaleTblView : UITableView!
     @IBOutlet weak var varmaassearchbar : UISearchBar!
     var actualController:UIViewController!
+    @IBOutlet weak var viewFilter: RCustomView!
+    @IBOutlet weak var btnEventAscOutlet: UIButton!
+    @IBOutlet weak var btnEventDsc: UIButton!
+    @IBOutlet weak var btnDateAsc: UIButton!
+    @IBOutlet weak var btnDateDsc: UIButton!
+    @IBOutlet weak var imgEventACS: UIImageView!
+    @IBOutlet weak var imgEventDsc: UIImageView!
+    @IBOutlet weak var imgDateAsc: UIImageView!
+    @IBOutlet weak var imgDateDsc: UIImageView!
+    @IBOutlet weak var txtSearch: UITextField!
     var viewModel : HomeVM!
     var strComeFrom = ""
     var type  = 0
     var arrAllData =  [DataMaas]()
     var arrList = [Maas_MEBITCat]()
+    var sortingArr = [Sorting_options]()
     var param : [String:Any] = [:]
     var index = 0
     var catID = ""
     var allEvent = ""
     var categorytitle :[String] = []
+    
+    
+    //new
+    var sortKey = ""
+    var sortOrder = ""
+    var currentPage : Int = 1
+    var checkPagination = ""
+    var updatedText = ""
+    var isLoadingList : Bool = false
+    private var pullControl = UIRefreshControl()
 //    var sections:[String] = []
     //filter menu
     
@@ -55,7 +76,16 @@ class MaasViewController: UIViewController {
         varNewCarSaleTblView.delegate = self
         varNewCarSaleTblView.dataSource = self
         callWebserviceEventCategory()
-        CallWebserviceMaasList()
+        checkPagination = "get"
+        CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
+        txtSearch.delegate = self
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            varNewCarSaleTblView.refreshControl = pullControl
+        } else {
+            varNewCarSaleTblView.addSubview(pullControl)
+        }
 //        sgTextOnlyBar.selectorType = .bottomBar
 //        sgTextOnlyBar.SelectedFont = UIFont(name: "ChalkboardSE-Bold", size: 15)!
 //        sgTextOnlyBar.normalFont = UIFont(name: "ChalkboardSE-Regular", size: 15)!
@@ -67,9 +97,15 @@ class MaasViewController: UIViewController {
         setupUI()
         // Do any additional setup after loading the view.
     }
-    
+    @objc private func refreshListData(_ sender: Any) {
+        checkPagination = "get"
+        currentPage = 1
+        CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
+        self.pullControl.endRefreshing() // You can stop after API Call
+
+        }
     func setupUI()  {
-        
+        viewFilter.isHidden = true
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.itemSize = CGSize(width: 90, height: 35)
          layout.minimumInteritemSpacing = 0
@@ -78,30 +114,47 @@ class MaasViewController: UIViewController {
         MaasCategoryCollectionView!.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
         layout.scrollDirection = .horizontal
     }
+    @IBAction func btnApplyFilter(_ sender: UIButton) {
+        if sender.tag == 10{
+            viewFilter.isHidden = true
+        
+            sortKey = sortingArr[0].sortkey ?? ""
+            sortOrder = sortingArr[0].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
+
+        }else if sender.tag == 20 {
+            viewFilter.isHidden = true
+            sortKey = sortingArr[1].sortkey ?? ""
+            sortOrder = sortingArr[1].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
+
+        }else if sender.tag == 30 {
+            viewFilter.isHidden = true
+            sortKey = sortingArr[2].sortkey ?? ""
+            sortOrder = sortingArr[2].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
+
+        }else{
+            viewFilter.isHidden = true
+            sortKey = sortingArr[3].sortkey ?? ""
+            sortOrder = sortingArr[3].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
+
+        }
+    }
     func getString(array : [String]) -> String {
             let stringArray = array.map{ String($0) }
             return stringArray.joined(separator: ",")
         }
-//    @IBAction func segmentValueChange(_ sender: TZSegmentedControl) {
-//        print("selected index = \(sender.selectedSegmentIndex)")
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            print("first item")
-//            param.removeAll()
-//            arrList.removeAll()
-//             callMaaslistWebservice(adminId: 0, type: type)
-//        case 1:
-//            print("second item")
-//            arrList.removeAll()
-//             callMaaslistWebservice(adminId: 0, type: 1)
-//        case 2:
-//            print("Third item")
-//            arrList.removeAll()
-//             callMaaslistWebservice(adminId: 0, type: 2)
-//        default:
-//            print("default item")
-//        }
-//    }
+
     
     func callWebserviceEventCategory() {
         APIClient.webserviceForCategoryList { (result) in
@@ -118,6 +171,12 @@ class MaasViewController: UIViewController {
                         if arrDate.maas!.count>0{
                             self.arrList = arrDate.maas!
                         }
+                        if self.sortingArr.count>0{
+                            self.sortingArr.removeAll()
+                        }
+                        if arrDate.sorting_options!.count>0{
+                            self.sortingArr = arrDate.sorting_options!
+                        }
                     }
                     self.MaasCategoryCollectionView.reloadData()
                 }else{
@@ -132,6 +191,7 @@ class MaasViewController: UIViewController {
         
     }
     @IBAction func btnBackAction(_ sender: UIButton) {
+        viewFilter.isHidden = true
         self.navigationController?.popViewController(animated: true)
     }
 
@@ -184,7 +244,8 @@ extension MaasViewController :  UICollectionViewDelegate, UICollectionViewDataSo
             
             print("catID \(catID)")
         }
-        CallWebserviceMaasList()
+       // CallWebserviceMaasList()
+        CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: catID, keyword: updatedText)
         MaasCategoryCollectionView.reloadData()
 
         
@@ -199,6 +260,47 @@ extension MaasViewController :  UICollectionViewDelegate, UICollectionViewDataSo
         }
     
     
+}
+
+extension MaasViewController{
+    @IBAction func filterationBtnAction(_ sender: UIButton) {
+        for i in 0..<sortingArr.count {
+            let objSorting = sortingArr[i]
+            if i == 0 {
+                btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    
+                    imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+               
+                
+            }else if i == 1{
+                btnEventDsc.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+            }else if i == 2{
+                btnDateAsc.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+            }else if i == 3{
+                btnDateDsc.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+            }
+        }
+        viewFilter.isHidden = false
+    }
 }
 //MARK:- UITableview Delegate Datasource
 extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
@@ -229,36 +331,56 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func CallWebserviceMaasList() {
-        if catID == "1" {
-            param = [ "type" : catID]
-        }else if catID == "2"{
-            param = [ "type" : catID]
-        }else if type == 0 {
-            
-        }
-        
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+//            if indexPath == lastVisibleIndexPath {
+//                if indexPath.row == self.arrAllData.count-1{
+//                    self.checkPagination = "pagination"
+//                    currentPage += 1
+//                    GlobalObj.displayLoader(true, show: true)
+//                    GlobalObj.run(after: 2) {
+//                        self.CallWebserviceMaasList(page: String(self.currentPage), sortkey: self.sortKey, sortorder: self.sortOrder,catType: self.catID,keyword: self.updatedText)                    }
+//                }
+//            }
+//    }
+//}
+    func CallWebserviceMaasList(page:String, sortkey:String, sortorder:String,catType: String,keyword:String) {
+       
+        let param : [String:Any] = ["keyword":keyword,
+                                    "type":catID,
+                                    "sortkey":sortkey,
+                                    "sortorder":sortorder]
        // let param : [String:Any] = ["is_admin" : adminId,
                                   //  "type" : type]//"keyword" : "test"
         print(param)
         GlobalObj.displayLoader(true, show: true)
-        APIClient.webserviceForMaas(params: param) { (result) in
+        APIClient.webserviceForMaas(limit: "10",page: page, params: param) { (result) in
             
             if let respCode = result.resp_code{
              
                 if respCode == 200{
                     GlobalObj.displayLoader(true, show: false)
-
+                    if self.checkPagination == "get"{
+                        //self.arrAllData.removeAll()
+                    }
                     if let arrDate = result.data{
                         if self.arrAllData.count>0{
                             self.arrAllData.removeAll()
                         }
+                        if arrDate.count == 0{
+                            return
+                        }
                         for obj in arrDate {
                             self.arrAllData.append(obj)
                         }
-                        
+                        self.varNewCarSaleTblView.reloadData()
                     }
-                    self.varNewCarSaleTblView.reloadData()
+                    
+                    if self.arrAllData.count>0{
+                        self.varNewCarSaleTblView.isHidden = false
+                    }else{
+                        self.varNewCarSaleTblView.isHidden = true
+                    }
                 }else{
                     GlobalObj.displayLoader(true, show: false)
 
@@ -301,4 +423,23 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
 //        }
 //    }
 
+}
+//MARK:- Textfeild delegate
+extension MaasViewController : UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text,
+                   let textRange = Range(range, in: text) {
+            updatedText = text.replacingCharacters(in: textRange,with: string)
+            currentPage = 1
+           //GlobalObj.displayLoader(true, show: false)
+
+            if text.count > 3 {
+                checkPagination = "get"
+
+                CallWebserviceMaasList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: catID, keyword: updatedText)
+
+            }
+        }
+        return true
+    }
 }

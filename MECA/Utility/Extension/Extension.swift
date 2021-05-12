@@ -2,7 +2,7 @@
 
 import UIKit
 import AVKit
-
+import Foundation
 extension String {
     func isValidEmail() -> Bool {
         // here, `try!` will always succeed because the pattern is valid
@@ -51,7 +51,13 @@ extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
+    func roundCorners(_ corners: CACornerMask, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+           self.layer.maskedCorners = corners
+           self.layer.cornerRadius = radius
+           self.layer.borderWidth = borderWidth
+           self.layer.borderColor = borderColor.cgColor
 
+       }
 }
 
 extension UIViewController {
