@@ -11,6 +11,18 @@ class HydrogenVC: UIViewController {
     @IBOutlet weak var hydrogenBottomview: UIView!
     @IBOutlet weak var hydrogenCategoryCollectionView: UICollectionView!
     @IBOutlet weak var varhydrogenTblView : UITableView!
+    @IBOutlet weak var btnEventAscOutlet: UIButton!
+    @IBOutlet weak var btnEventDsc: UIButton!
+    @IBOutlet weak var btnDateAsc: UIButton!
+    @IBOutlet weak var btnDateDsc: UIButton!
+    @IBOutlet weak var imgEventACS: UIImageView!
+    @IBOutlet weak var imgEventDsc: UIImageView!
+    @IBOutlet weak var imgDateAsc: UIImageView!
+    @IBOutlet weak var imgDateDsc: UIImageView!
+    @IBOutlet weak var viewFilter: UIView!
+    
+    
+    private var pullControl = UIRefreshControl()
     var actualController:UIViewController!
     var viewModel : HomeVM!
     var strComeFrom = ""
@@ -22,28 +34,14 @@ class HydrogenVC: UIViewController {
     var catID = ""
     var allEvent = ""
     var categorytitle :[String] = []
-    
-    //new
-    @IBOutlet weak var viewFilter: RCustomView!
-    @IBOutlet weak var btnEventAscOutlet: UIButton!
-    @IBOutlet weak var btnEventDsc: UIButton!
-    @IBOutlet weak var btnDateAsc: UIButton!
-    @IBOutlet weak var btnDateDsc: UIButton!
-    @IBOutlet weak var imgEventACS: UIImageView!
-    @IBOutlet weak var imgEventDsc: UIImageView!
-    @IBOutlet weak var imgDateAsc: UIImageView!
-    @IBOutlet weak var imgDateDsc: UIImageView!
-    @IBOutlet weak var txtSearch: UITextField!
-    var updatedText = ""
     var sortKey = ""
     var sortOrder = ""
     var currentPage : Int = 1
     var checkPagination = ""
-    var isLoadingList : Bool = false
-    private var pullControl = UIRefreshControl()
+    var updatedText = ""
     var sortingArr = [Sorting_options]()
-//    var sections:[String] = []
-    //filter menu
+
+    var isFromCat = false
     
     @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
         categorytitle.remove(at: 0)
@@ -60,9 +58,9 @@ class HydrogenVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtSearch.delegate = self
         categorytitle.append("All")
         //callmodulecategory()
+        viewFilter.isHidden = true
         hydrogenCategoryCollectionView.register(MEBITCollectionViewCell.nib(), forCellWithReuseIdentifier: "MEBITCollectionViewCell")
         hydrogenCategoryCollectionView.delegate = self
         hydrogenCategoryCollectionView.dataSource = self
@@ -70,9 +68,8 @@ class HydrogenVC: UIViewController {
         varhydrogenTblView.delegate = self
         varhydrogenTblView.dataSource = self
         callWebserviceHydrogenCategory()
-        checkPagination = "get"
-        CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
-        setupUI()
+        CallWebserviceHydrogenList(strType: "", sortkey: sortKey, sortorder: sortOrder)
+       
         pullControl.tintColor = UIColor.gray
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -80,18 +77,19 @@ class HydrogenVC: UIViewController {
         } else {
             varhydrogenTblView.addSubview(pullControl)
         }
+
+        setupUI()
         // Do any additional setup after loading the view.
     }
     @objc private func refreshListData(_ sender: Any) {
-        checkPagination = "get"
+        self.pullControl.endRefreshing()
         currentPage = 1
-        CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
-        self.pullControl.endRefreshing() // You can stop after API Call
-
-        }
+        self.checkPagination = "get"
+        CallWebserviceHydrogenList(strType: "", sortkey: sortKey, sortorder: sortOrder)
+    }
     
     func setupUI()  {
-        viewFilter.isHidden = true
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.itemSize = CGSize(width: 90, height: 35)
          layout.minimumInteritemSpacing = 0
@@ -99,42 +97,6 @@ class HydrogenVC: UIViewController {
         hydrogenCategoryCollectionView!.collectionViewLayout = layout
         hydrogenCategoryCollectionView!.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
         layout.scrollDirection = .horizontal
-    }
-    @IBAction func btnApplyFilter(_ sender: UIButton) {
-        if sender.tag == 10{
-            viewFilter.isHidden = true
-        
-            sortKey = sortingArr[0].sortkey ?? ""
-            sortOrder = sortingArr[0].sortorder ?? ""
-            checkPagination = "get"
-            currentPage = 1
-            CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
-
-        }else if sender.tag == 20 {
-            viewFilter.isHidden = true
-            sortKey = sortingArr[1].sortkey ?? ""
-            sortOrder = sortingArr[1].sortorder ?? ""
-            checkPagination = "get"
-            currentPage = 1
-            CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
-
-        }else if sender.tag == 30 {
-            viewFilter.isHidden = true
-            sortKey = sortingArr[2].sortkey ?? ""
-            sortOrder = sortingArr[2].sortorder ?? ""
-            checkPagination = "get"
-            currentPage = 1
-            CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
-
-        }else{
-            viewFilter.isHidden = true
-            sortKey = sortingArr[3].sortkey ?? ""
-            sortOrder = sortingArr[3].sortorder ?? ""
-            checkPagination = "get"
-            currentPage = 1
-            CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: "", keyword: updatedText)
-
-        }
     }
     //hydrogen event call api
     func callWebserviceHydrogenCategory() {
@@ -144,15 +106,17 @@ class HydrogenVC: UIViewController {
              
                 if respCode == 200{
                     GlobalObj.displayLoader(true, show: false)
-                    print("\(result.data)")
+                    print("\(String(describing: result.data))")
                     if let arrDate = result.data{
                         if self.arrList.count>0{
                             self.arrList.removeAll()
                         }
+                    
                         if arrDate.hydrogen!.count>0{
                             print("\(String(describing: arrDate.hydrogen))")
                             self.arrList = arrDate.hydrogen!
                         }
+                        
                         if self.sortingArr.count>0{
                             self.sortingArr.removeAll()
                         }
@@ -172,7 +136,7 @@ class HydrogenVC: UIViewController {
         }
         
         
-
+        
         
     }
     
@@ -180,19 +144,84 @@ class HydrogenVC: UIViewController {
     
   
     @IBAction func btnBackAction(_ sender: UIButton) {
-        viewFilter.isHidden = true
         self.navigationController?.popViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
+    
+     @IBAction func btnFilterAction(_ sender: UIButton) {
+         for i in 0..<sortingArr.count {
+             let objSorting = sortingArr[i]
+             if i == 0 {
+                 btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
+                 if let img = objSorting.icon{
+                     let imgUrl = BaseURL + img
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+                     imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                     imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                 }
+
+
+             }else if i == 1{
+                 btnEventDsc.setTitle(objSorting.lable, for: .normal)
+                 if let img = objSorting.icon{
+                     let imgUrl = BaseURL + img
+                     imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                     imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                 }
+             }else if i == 2{
+                 btnDateAsc.setTitle(objSorting.lable, for: .normal)
+                 if let img = objSorting.icon{
+                     let imgUrl = BaseURL + img
+                     imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                     imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                 }
+             }else if i == 3{
+                 btnDateDsc.setTitle(objSorting.lable, for: .normal)
+                 if let img = objSorting.icon{
+                     let imgUrl = BaseURL + img
+                     imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                     imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                 }
+             }
+         }
+         viewFilter.isHidden = false
+     }
+    
+    @IBAction func btnApplyFilter(_ sender: UIButton)
+    {
+        if sender.tag == 10{
+            viewFilter.isHidden = true
+
+            sortKey = sortingArr[0].sortkey ?? ""
+            sortOrder = sortingArr[0].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
+        }else if sender.tag == 20 {
+            viewFilter.isHidden = true
+            sortKey = sortingArr[1].sortkey ?? ""
+            sortOrder = sortingArr[1].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
+
+        }else if sender.tag == 30 {
+            viewFilter.isHidden = true
+            sortKey = sortingArr[2].sortkey ?? ""
+            sortOrder = sortingArr[2].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
+
+        }else{
+            viewFilter.isHidden = true
+            sortKey = sortingArr[3].sortkey ?? ""
+            sortOrder = sortingArr[3].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
+
+        }
     }
-    */
-
 }
 //MARK:- UICollectionview Delegate Datasource
 extension HydrogenVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
@@ -235,7 +264,15 @@ extension HydrogenVC :  UICollectionViewDelegate, UICollectionViewDataSource,UIC
             
             print("catID \(catID)")
         }
-        CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: catID, keyword: updatedText)
+        self.checkPagination = "get"
+        isFromCat = true
+        if indexPath.row == 0{
+            CallWebserviceHydrogenList(strType: "", sortkey: sortKey, sortorder: sortOrder)
+
+        }else{
+            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
+
+        }
         hydrogenCategoryCollectionView.reloadData()
 
         
@@ -280,32 +317,31 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
-//            if indexPath == lastVisibleIndexPath {
-//                if indexPath.row == self.arrAllData.count-1{
-//                    self.checkPagination = "pagination"
-//                    currentPage += 1
-//                    GlobalObj.displayLoader(true, show: true)
-//                    GlobalObj.run(after: 2) {
-//                        self.CallWebserviceHydrogenList(page: String(self.currentPage), sortkey: self.sortKey, sortorder: self.sortOrder,catType: self.catID,keyword: self.updatedText)                    }
-//                }
-//            }
-//    }
-//}
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                if indexPath.row == arrAllData.count-1{
+                    self.checkPagination = "pagination"
+                    currentPage += 1
+                    GlobalObj.run(after: 2) {
+                        GlobalObj.displayLoader(true, show: true)
+                        self.CallWebserviceHydrogenList(strType: "", sortkey: self.sortKey, sortorder: self.sortOrder)                   }
+                }
+            }
+        }
+    }
     //Hydrogen api call
-    func CallWebserviceHydrogenList(page:String, sortkey:String, sortorder:String,catType: String,keyword:String) {
-        
-        let param : [String:Any] = ["keyword":keyword,
-                                    "type":catID,
-                                    "sortkey":sortkey,
-                                    "sortorder":sortorder]
-       // let param : [String:Any] = ["is_admin" : adminId,
-                                  //  "type" : type]//"keyword" : "test"
-        print(param)
+    func CallWebserviceHydrogenList(strType: String,sortkey: String, sortorder: String) {
+
+        param = [ "type" : catID,
+                  "keyword" : updatedText,
+                  "sortkey" : sortkey,
+                  "sortorder" : sortorder]
+        print("param\(param)")
+        //param["keyword": "", "type": "", "sortorder": "", "sortkey": ""]
+
         GlobalObj.displayLoader(true, show: true)
-        APIClient.webserviceForHydrogen(limit: "10",page: page, params: param) { (result) in
+        APIClient.webserviceForHydrogen(limit:"10", page: String(currentPage), params: param) { (result) in
             
             if let respCode = result.resp_code{
              
@@ -315,22 +351,26 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
                         self.arrAllData.removeAll()
                     }
                     if let arrDate = result.data{
-                        if self.arrAllData.count>0{
-                            self.arrAllData.removeAll()
+                        if self.isFromCat == false{
+                            if arrDate.count == 0 {
+                                GlobalObj.displayLoader(true, show: false)
+                                return
+                            }
+                        }else{
+                            self.isFromCat = false
                         }
-                        if arrDate.count == 0{
-                            return
-                        }
-                        
                         for obj in arrDate {
                             self.arrAllData.append(obj)
                         }
-                        
+                    }
+                    if self.arrAllData.count>0{
+                        self.varhydrogenTblView.isHidden = false
+                    }else{
+                        self.varhydrogenTblView.isHidden = true
                     }
                     self.varhydrogenTblView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
-
                 }
             }
             
@@ -338,80 +378,10 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
 
         }
         
-        
     }
-    
-    
-//    func callmodulecategory()     {
-//        GlobalObj.displayLoader(true, show: true)
-//        APIClient.webServicesForModeulecategory(params: [:]) { (response) in
-//            print(response)
-//            if let dict = response as? [String:Any]{
-//                if let categoryvalue = dict["data"] as? [String:Any]{
-//                    if let labeltxt = categoryvalue["maas"] as? [Any] {
-//                        for (_, ship) in labeltxt.enumerated() {
-//                            if let array = ship as? [String: Any] {
-//                                //If you want array of task id you can try like
-//                                let categoryname = array["lable"] as? String
-//                                print("categoryname\(categoryname!)")
-//                                self.categorytitle.append(categoryname!)
-//                            }
-//                        }
-//                        self.segControlFromNib!.sectionTitles = self.categorytitle
-////                        let strArray = self.getString(array: self.categorytitle)
-////                                print(strArray)
-////                        self.sgTextOnlyBar.buttonTitles = strArray
-//                        print("categorytitle\(self.categorytitle)")
-//                    }
-//                }
-//            }
-//
-//
-//            GlobalObj.displayLoader(true, show: false)
-//        }
-//    }
 
 }
-extension HydrogenVC{
-    @IBAction func filterationBtnAction(_ sender: UIButton) {
-        for i in 0..<sortingArr.count {
-            let objSorting = sortingArr[i]
-            if i == 0 {
-                btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    
-                    imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-               
-                
-            }else if i == 1{
-                btnEventDsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }else if i == 2{
-                btnDateAsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }else if i == 3{
-                btnDateDsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }
-        }
-        viewFilter.isHidden = false
-    }
-}
+
 //MARK:- Textfeild delegate
 extension HydrogenVC : UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -419,14 +389,8 @@ extension HydrogenVC : UITextFieldDelegate{
                    let textRange = Range(range, in: text) {
             updatedText = text.replacingCharacters(in: textRange,with: string)
             currentPage = 1
-           //GlobalObj.displayLoader(true, show: false)
-
-            if text.count > 3 {
-                checkPagination = "get"
-
-                CallWebserviceHydrogenList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder,catType: catID, keyword: updatedText)
-
-            }
+            self.checkPagination = "get"
+            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
         }
         return true
     }

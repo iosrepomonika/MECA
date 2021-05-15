@@ -18,6 +18,7 @@ class SDGSHomeVM: BaseTableViewVM {
         super.init(controller: controller)
         baseHeaderTableViewHeight = 70
     }
+
     override func getNumbersOfRows(in section: Int) -> Int {
         return arrList.count
     }
@@ -70,7 +71,7 @@ class SDGSHomeVM: BaseTableViewVM {
                                     "type" : 0]//"keyword" : "test"
         print(param)
         GlobalObj.displayLoader(true, show: true)
-        APIClient.webserviceForSDGSlistapi(limit: "10",page: String((self.actualController as! SDGSVC).currentPage), params: param) { (result) in
+        APIClient.webserviceForSDGSlistapi(limit: "10",page: "1",params: param) { (result) in
             print("whats new api response \(result)")
             if let repo = result.resp_code{
                 GlobalObj.displayLoader(true, show: false)
@@ -79,20 +80,12 @@ class SDGSHomeVM: BaseTableViewVM {
                     
                     if let arrList = result.data{
                         print(arrList)
-                        if (self.actualController as! SDGSVC).checkPagination == "get"{
+                        if arrList.count > 0  {
                             self.arrList.removeAll()
                         }
                         for obj in arrList {
                             self.arrList.append(obj)
                         }
-                        if self.arrList.count > 0{
-                            (self.actualController as! SDGSVC).SDGSTableView.isHidden = false
-                        }else{
-                            (self.actualController as! SDGSVC).SDGSTableView.isHidden = true
-
-                        }
-                        
-                        
                         
                     }
                     (self.actualController as! SDGSVC).SDGSTableView.reloadData()

@@ -183,21 +183,7 @@ extension MEBITViewController:UITableViewDelegate,UITableViewDataSource{
         viewModel.getBaseTableHeaderViewFor(section, tableView: MEBITTableView)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if GlobalValue.tabCategory == "MEBIT"{
-        let story = UIStoryboard(name: "Category", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
-        let obj = viewModel.arrMEBITFeed[indexPath.row]
-        vc.eventID = String(obj.id ?? 0)
-        vc.isEvent =  obj.whatsnew_type == "event" ? true : false
-        self.navigationController?.pushViewController(vc, animated: true)
-        }else if GlobalValue.tabCategory == "GR"{
-            let story = UIStoryboard(name: "Category", bundle:nil)
-            let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
-            let obj = viewModel.arrGRList[indexPath.row]
-            vc.eventID = String(obj.id ?? 0)
-            vc.isFromGR = true
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        viewModel.didSelectRowAt(indexPath, tableView: MEBITTableView)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if GlobalValue.tabCategory == "GR"{

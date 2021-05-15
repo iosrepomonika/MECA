@@ -615,7 +615,7 @@ class APIClient {
     }
     
     //SDGS List
-    static func webserviceForSDGSlistapi(limit:String,page: String,params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
+    static func webserviceForSDGSlistapi(limit: String,page: String, params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
@@ -623,7 +623,7 @@ class APIClient {
                      return
            }
            let url = BaseURL + SdgsList + limit + "/" + page
-          print("sdgslistapi ..\(url)")
+          print("kaizen\(url)")
            var headers = HTTPHeaders()
 
            let accessToken = userDef.string(forKey: UserDefaultKey.token)
@@ -732,7 +732,7 @@ class APIClient {
     
     //maas list
     
-    static func webserviceForMaas(limit:String,page: String,params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
+    static func webserviceForMaas(limit: String,page: String, params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
@@ -774,13 +774,14 @@ class APIClient {
        }
     //Hydrogen list
         
-        static func webserviceForHydrogen(limit:String,page: String,params:[String:Any],completion:@escaping(Hydrogenallvalue) -> Void){
+        static func webserviceForHydrogen(limit: String,page: String, params:[String:Any], completion:@escaping(Hydrogenallvalue) -> Void){
                if !NetworkReachabilityManager()!.isReachable{
                 GlobalObj.displayLoader(true, show: false)
 
                          GlobalObj.showNetworkAlert()
                          return
                }
+            //10/1
                let url = BaseURL + HydrogenList + limit + "/" + page
             print("Maas \(url)")
                var headers = HTTPHeaders()

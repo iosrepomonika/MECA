@@ -366,8 +366,11 @@ class NewDetailVM: BaseTableViewVM {
                         eventData = objDate
                         
                         GlobalObj.displayLoader(true, show: false)
+                        (actualController as! NewDetailVC).tblDetailView.isHidden = false
                         (actualController as! NewDetailVC).tblDetailView.reloadData()
                     }else{
+                        (actualController as! NewDetailVC).tblDetailView.isHidden = false
+
                         GlobalObj.displayLoader(true, show: false)
                     }
                         
@@ -388,11 +391,13 @@ class NewDetailVM: BaseTableViewVM {
                     if let objDate = result.data {
                         print(objDate)
                         self.kaizenData = objDate
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = false
                         (self.actualController as! NewDetailVC).tblDetailView.reloadData()
 
                       
                         completion(true)
                     }else{
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
                         GlobalObj.displayLoader(true, show: false)
                     }
                 }
@@ -411,14 +416,22 @@ class NewDetailVM: BaseTableViewVM {
                     if let objDate = result.data {
                         print(objDate)
                         self.GRData = objDate
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = false
                         (self.actualController as! NewDetailVC).tblDetailView.reloadData()
                         
                     }else{
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
                         GlobalObj.displayLoader(true, show: false)
                     }
+                }else{
+                    (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
 
             }else{
+                (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
+
                 GlobalObj.displayLoader(true, show: false)
             }
         }
@@ -436,13 +449,19 @@ class NewDetailVM: BaseTableViewVM {
                     if let objDate = result.data {
                         print(objDate)
                         self.kaizenData = objDate
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = false
+
                         (self.actualController as! NewDetailVC).tblDetailView.reloadData()
 
                       
                         completion(true)
                     }else{
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
                         GlobalObj.displayLoader(true, show: false)
                     }
+                }else{
+                    (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
+                    GlobalObj.displayLoader(true, show: false)
                 }
 
             }
@@ -458,13 +477,18 @@ class NewDetailVM: BaseTableViewVM {
                         if let objDate = result.data {
                             print(objDate)
                             self.kaizenData = objDate
+                            (self.actualController as! NewDetailVC).tblDetailView.isHidden = false
                             (self.actualController as! NewDetailVC).tblDetailView.reloadData()
 
                           
                             completion(true)
                         }else{
+                            (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
                             GlobalObj.displayLoader(true, show: false)
                         }
+                    }else{
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
+                        GlobalObj.displayLoader(true, show: false)
                     }
 
                 }
@@ -481,13 +505,18 @@ class NewDetailVM: BaseTableViewVM {
                         if let objDate = result.data {
                             print(objDate)
                             self.kaizenData = objDate
+                            (self.actualController as! NewDetailVC).tblDetailView.isHidden = false
                             (self.actualController as! NewDetailVC).tblDetailView.reloadData()
 
                           
                             completion(true)
                         }else{
+                            (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
                             GlobalObj.displayLoader(true, show: false)
                         }
+                    }else{
+                        (self.actualController as! NewDetailVC).tblDetailView.isHidden = true
+                        GlobalObj.displayLoader(true, show: false)
                     }
 
                 }

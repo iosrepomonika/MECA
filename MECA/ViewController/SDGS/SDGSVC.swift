@@ -16,11 +16,6 @@ class SDGSVC: UIViewController  {
     @IBOutlet weak var SDGSTableView: UITableView!
     @IBOutlet weak var footerView: BlueFooterview!
     var viewModel : SDGSHomeVM!
-    
-    //new
-    var currentPage : Int = 1
-    var checkPagination = ""
-    private var pullControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SDGSHomeVM.init(controller: self)
@@ -30,28 +25,13 @@ class SDGSVC: UIViewController  {
         footerView.blueFooterViewDelegate = self
         footerView.imgWhatsnew.image = #imageLiteral(resourceName: "Whats New active")
         footerView.imgFromDCategory.image = #imageLiteral(resourceName: "Categories_inActive")
-        viewModel.newsdgsHomeApicall()
-        // Do any additional setup after loading the view.
-        pullControl.tintColor = UIColor.gray
-        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
-        if #available(iOS 10.0, *) {
-            SDGSTableView.refreshControl = pullControl
-        } else {
-            SDGSTableView.addSubview(pullControl)
-        }
         // Do any additional setup after loading the view.
     }
     
-    @objc private func refreshListData(_ sender: Any) {
-        checkPagination = "get"
-        currentPage = 1
-        viewModel.newsdgsHomeApicall()
-        self.pullControl.endRefreshing() // You can stop after API Call
-
-        }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated )
-        
+        viewModel.newsdgsHomeApicall()
 
     }
     @IBAction func onClickDismiss(_ sender: UIButton) {
@@ -68,15 +48,7 @@ class SDGSVC: UIViewController  {
         appDel.window?.makeKeyAndVisible()
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
 extension  SDGSVC : BlueFooterViewDelegate{
@@ -130,18 +102,4 @@ extension SDGSVC:UITableViewDelegate,UITableViewDataSource{
         
         
     }
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
-//            if indexPath == lastVisibleIndexPath {
-//                if indexPath.row == viewModel.arrList.count-1{
-//                    self.checkPagination = "pagination"
-//                    currentPage += 1
-//                    GlobalObj.displayLoader(true, show: true)
-//                    GlobalObj.run(after: 2) {
-//                        self.viewModel.newsdgsHomeApicall()
-//                                            }
-//                }
-//            }
-//    }
-//}
 }

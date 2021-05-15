@@ -1,9 +1,4 @@
-//
-//  DetailImagesAndVideosCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 20/04/21.
-//
+
 
 import UIKit
 import SDWebImage
@@ -42,9 +37,6 @@ class DetailImagesAndVideosCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setUpUI()  {
-        
-       //self.imagesCollectionVIew.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
-
 
         let layoutImg: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     

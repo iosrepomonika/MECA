@@ -1,9 +1,4 @@
-//
-//  GRLinksTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 03/05/21.
-//
+
 
 import UIKit
 import SDWebImage

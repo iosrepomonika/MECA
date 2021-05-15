@@ -39,7 +39,21 @@ class MEBITHomeVM: BaseTableViewVM {
 
     }
     override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
-        
+        if GlobalValue.tabCategory == "MEBIT"{
+        let story = UIStoryboard(name: "Category", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
+        let obj = arrMEBITFeed[indexPath.row]
+        vc.eventID = String(obj.id ?? 0)
+        vc.isEvent =  obj.whatsnew_type == "event" ? true : false
+            (self.actualController as! MEBITViewController).navigationController?.pushViewController(vc, animated: true)
+        }else if GlobalValue.tabCategory == "GR"{
+            let story = UIStoryboard(name: "Category", bundle:nil)
+            let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
+            let obj = arrGRList[indexPath.row]
+            vc.eventID = String(obj.id ?? 0)
+            vc.isFromGR = true
+            (self.actualController as! MEBITViewController).navigationController?.pushViewController(vc, animated: true)
+        }
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
         return 50
@@ -74,10 +88,14 @@ class MEBITHomeVM: BaseTableViewVM {
                             self.arrMEBITFeed.append(objData)
                         }
                     }
+                    if self.arrMEBITFeed.count>0{
+                        (self.actualController as! MEBITViewController).MEBITTableView.isHidden = false
+                    }else{
+                        (self.actualController as! MEBITViewController).MEBITTableView.isHidden = true
+                    }
                     (self.actualController as! MEBITViewController).MEBITTableView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
-
                 }
             }
             

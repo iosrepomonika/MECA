@@ -1,9 +1,4 @@
-//
-//  NewDetailVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 20/04/21.
-//
+
 
 import UIKit
 
@@ -16,14 +11,18 @@ class NewDetailVC: UIViewController {
     var isFromGR = false
     var Maasview = true
     var ComingfromVC = ""
-
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBOutlet weak var viewImgPreview: UIView!
     @IBOutlet weak var imgPreview: UIImageView!
     private var pullControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        tblDetailView.isHidden = true
+
         viewModel = NewDetailVM.init(controller: self)
         
         tblDetailView.register(DetailCoverImageTVCell.nib(), forCellReuseIdentifier: viewModel.identifierCoverImgCell)

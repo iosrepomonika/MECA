@@ -17,11 +17,11 @@ class DetailEventContentTVCell: UITableViewCell {
         // Initialization code
         
         if GlobalValue.tabCategory == "GR"{
-            btnSeeMoreOutlet.setTitleColor(#colorLiteral(red: 1, green: 0.1473276019, blue: 0, alpha: 1), for: .normal)
+            btnSeeMoreOutlet.setTitleColor(UIColor.getCustomRedColor(), for: .normal)
         }else if  GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS"{
-            btnSeeMoreOutlet.setTitleColor(#colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1), for: .normal)
+            btnSeeMoreOutlet.setTitleColor(UIColor.getCustomBlueColor(), for: .normal)
         }else{
-            btnSeeMoreOutlet.setTitleColor(#colorLiteral(red: 0.9803921569, green: 0.6235294118, blue: 0.2039215686, alpha: 1), for: .normal)
+            btnSeeMoreOutlet.setTitleColor(UIColor.getCustomOrangeColor(), for: .normal)
         }
         seeMoreHeightConstraint.constant = 0
         btnSeeMoreOutlet.isHidden = true

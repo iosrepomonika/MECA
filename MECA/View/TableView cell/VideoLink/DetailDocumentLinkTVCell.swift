@@ -1,9 +1,4 @@
-//
-//  DetailDocumentLinkTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 20/04/21.
-//
+
 
 import UIKit
 

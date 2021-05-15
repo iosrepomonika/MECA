@@ -178,12 +178,7 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
                                     "type" : type,
                                     "keyword" : keyword]
         print(param)
-//        if updatedText == "" {
-//            //GlobalObj.displayLoader(true, show: true)
-//        }else{
-//            //GlobalObj.displayLoader(true, show: false)
-//
-//        }
+
         APIClient.webserviceForNewCarSale(limit: "10",page: page,params: param) { (result) in
             if let repo = result.resp_code{
                 if self.updatedText == ""{
@@ -197,6 +192,7 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
                             self.arrList.removeAll()
                         }
                         if arrListData.count == 0{
+                            GlobalObj.displayLoader(true, show: false)
                             return
                         }
                         
