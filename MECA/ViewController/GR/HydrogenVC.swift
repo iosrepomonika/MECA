@@ -310,8 +310,10 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
         let obj = arrAllData[indexPath.row]
         let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         print("String(obj.id ?? 0) Maas \(String(obj.id ?? 0))")
+        print(obj.type)
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = false
+        vc.module = "hydrogen"
         vc.ComingfromVC = "hydrogen"
         vc.Maasview = true
         self.navigationController?.pushViewController(vc, animated: true)

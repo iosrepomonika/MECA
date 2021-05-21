@@ -38,6 +38,7 @@ class SDGSHomeVM: BaseTableViewVM {
         print("String(obj.id ?? 0) sdgs \(String(obj.id ?? 0))")
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = false
+        vc.module = "SDGs"
         vc.ComingfromVC = "Sdgs"
         vc.Maasview = true
         (actualController as! SDGSVC).navigationController?.pushViewController(vc, animated: true)

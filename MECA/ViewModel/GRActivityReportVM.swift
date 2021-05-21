@@ -34,6 +34,7 @@ class GRActivityReportVM: BaseTableViewVM {
         let obj = arrGRList[indexPath.row]
         vc.eventID = String(obj.id ?? 0)
         vc.isFromGR = true
+        vc.module = "GR"
         (self.actualController as! GRActivityReportVC).navigationController?.pushViewController(vc, animated: true)
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {

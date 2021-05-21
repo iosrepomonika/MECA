@@ -27,6 +27,7 @@ struct Data_Event : Codable {
     let event_images : [Event_videos]?
     let event_videos : [Event_videos]?
 	let ownerprofile : Ownerprofile?
+    let comments_count : Int?
 	let travelinfo : String?
 
 	enum CodingKeys: String, CodingKey {
@@ -57,6 +58,7 @@ struct Data_Event : Codable {
 		case travelinfo = "travelinfo"
         case event_videos = "event_videos"
         case event_images = "event_images"
+        case comments_count = "comments_count"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -87,7 +89,7 @@ struct Data_Event : Codable {
 		travelinfo = try values.decodeIfPresent(String.self, forKey: .travelinfo)
         event_images = try values.decodeIfPresent([Event_videos].self, forKey: .event_images)
         event_videos = try values.decodeIfPresent([Event_videos].self, forKey: .event_videos)
-
+        comments_count = try values.decodeIfPresent(Int.self, forKey: .comments_count)
 	}
 
 }

@@ -158,7 +158,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Not Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-5i-Tgf">
-                                        <rect key="frame" x="157" y="439.5" width="100" height="17"/>
+                                        <rect key="frame" x="156.5" y="439.5" width="101.5" height="17"/>
                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -226,7 +226,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYY-Tn-C1k">
-                                        <rect key="frame" x="159.5" y="439.5" width="95.5" height="17"/>
+                                        <rect key="frame" x="158.5" y="439.5" width="97" height="17"/>
                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -364,22 +364,63 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9dP-Qo-ezu">
-                                        <rect key="frame" x="0.0" y="112" width="414" height="784"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9dP-Qo-ezu">
+                                        <rect key="frame" x="0.0" y="112" width="414" height="694"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="992-YB-55c" id="bqC-3o-qIl"/>
                                             <outlet property="delegate" destination="992-YB-55c" id="n3C-mv-PDq"/>
                                         </connections>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJe-vv-7vW">
+                                        <rect key="frame" x="0.0" y="806" width="414" height="90"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E0q-tb-Z5K" customClass="IQTextView" customModule="IQKeyboardManagerSwift">
+                                                <rect key="frame" x="15" y="10" width="324" height="50"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="rTc-Ac-oBn"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Write a comment..."/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qg-3T-FMQ">
+                                                <rect key="frame" x="349" y="10" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="dEx-K2-qev"/>
+                                                    <constraint firstAttribute="width" constant="50" id="hRJ-i6-L9i"/>
+                                                </constraints>
+                                                <state key="normal" image="orange_comment"/>
+                                                <connections>
+                                                    <action selector="btnSendCommentAction:" destination="992-YB-55c" eventType="touchUpInside" id="BTi-fz-Vnm"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="9Qg-3T-FMQ" firstAttribute="leading" secondItem="E0q-tb-Z5K" secondAttribute="trailing" constant="10" id="dgG-5o-rKk"/>
+                                            <constraint firstItem="9Qg-3T-FMQ" firstAttribute="centerY" secondItem="E0q-tb-Z5K" secondAttribute="centerY" id="ifM-Rr-Khd"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Qg-3T-FMQ" secondAttribute="trailing" constant="15" id="jTu-8r-z7h"/>
+                                            <constraint firstItem="E0q-tb-Z5K" firstAttribute="top" secondItem="CJe-vv-7vW" secondAttribute="top" constant="10" id="nIp-Ki-TqU"/>
+                                            <constraint firstItem="E0q-tb-Z5K" firstAttribute="leading" secondItem="CJe-vv-7vW" secondAttribute="leading" constant="15" id="wgF-5t-H7Q"/>
+                                            <constraint firstAttribute="height" constant="90" id="xUV-br-iAu"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="9dP-Qo-ezu" secondAttribute="bottom" id="3dC-KA-MuY"/>
+                                    <constraint firstAttribute="bottom" secondItem="CJe-vv-7vW" secondAttribute="bottom" id="KzO-YC-jcf"/>
                                     <constraint firstItem="9Fs-wY-TPx" firstAttribute="top" secondItem="hh9-ew-b4l" secondAttribute="top" constant="-80" id="Mn1-tt-OK6"/>
                                     <constraint firstItem="9Fs-wY-TPx" firstAttribute="leading" secondItem="hh9-ew-b4l" secondAttribute="leading" id="MqI-yh-p3C"/>
+                                    <constraint firstItem="CJe-vv-7vW" firstAttribute="leading" secondItem="hh9-ew-b4l" secondAttribute="leading" id="OlI-cD-mxg"/>
                                     <constraint firstItem="9dP-Qo-ezu" firstAttribute="top" secondItem="9Fs-wY-TPx" secondAttribute="bottom" constant="10" id="awY-Zn-XZU"/>
+                                    <constraint firstItem="CJe-vv-7vW" firstAttribute="top" secondItem="9dP-Qo-ezu" secondAttribute="bottom" id="gk6-xR-r7g"/>
                                     <constraint firstItem="9dP-Qo-ezu" firstAttribute="leading" secondItem="hh9-ew-b4l" secondAttribute="leading" id="jwW-7t-vdY"/>
+                                    <constraint firstAttribute="trailing" secondItem="CJe-vv-7vW" secondAttribute="trailing" id="qnR-yw-CDJ"/>
                                     <constraint firstAttribute="trailing" secondItem="9dP-Qo-ezu" secondAttribute="trailing" id="qnz-ZR-zAx"/>
                                     <constraint firstAttribute="trailing" secondItem="9Fs-wY-TPx" secondAttribute="trailing" id="ykt-7S-J7X"/>
                                 </constraints>
@@ -395,8 +436,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnOutletSendComment" destination="9Qg-3T-FMQ" id="NxB-2C-EIm"/>
                         <outlet property="lblHeader" destination="R3V-pb-Tae" id="w5h-Pj-KhU"/>
                         <outlet property="tblList" destination="9dP-Qo-ezu" id="iND-6Q-I61"/>
+                        <outlet property="txtViewSendComment" destination="E0q-tb-Z5K" id="eWk-QH-Hdy"/>
+                        <outlet property="viewSendComment" destination="CJe-vv-7vW" id="MbJ-ZW-3AZ"/>
+                        <outlet property="viewSendCommentHeightConstraint" destination="xUV-br-iAu" id="e4z-go-kcp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L1-E8-sJS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -595,7 +640,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Distributor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BB-49-3QT">
-                                                                <rect key="frame" x="16" y="27.5" width="160" height="26.5"/>
+                                                                <rect key="frame" x="16" y="27.5" width="168.5" height="26.5"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -610,7 +655,7 @@
                                                                                 <rect key="frame" x="2" y="2" width="369" height="130"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGV-nb-4eR">
-                                                                                        <rect key="frame" x="15" y="54.5" width="119" height="21"/>
+                                                                                        <rect key="frame" x="15" y="54.5" width="123.5" height="21.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -700,7 +745,7 @@
                                                                                                 <rect key="frame" x="3" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oY-rm-aNn">
-                                                                                                        <rect key="frame" x="15" y="27" width="64" height="21"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="69" height="21.5"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -785,7 +830,7 @@
                                                                                                 <rect key="frame" x="20" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-4o-Esw">
-                                                                                                        <rect key="frame" x="15" y="27" width="85" height="21"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="93" height="21.5"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -1087,7 +1132,7 @@
                                                                         <rect key="frame" x="3" y="3" width="100" height="144"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vG-j9-fQg">
-                                                                                <rect key="frame" x="0.0" y="46.5" width="100" height="51.5"/>
+                                                                                <rect key="frame" x="0.0" y="45.5" width="100" height="53"/>
                                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1153,7 +1198,7 @@
                                                                         <rect key="frame" x="10" y="3" width="100" height="144"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After  Sales" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15n-Se-zRS">
-                                                                                <rect key="frame" x="0.0" y="46.5" width="100" height="51.5"/>
+                                                                                <rect key="frame" x="0.0" y="45.5" width="100" height="53"/>
                                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1219,7 +1264,7 @@
                                                                         <rect key="frame" x="15" y="3" width="100" height="144"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krW-KN-3aZ">
-                                                                                <rect key="frame" x="0.0" y="59" width="100" height="26"/>
+                                                                                <rect key="frame" x="0.0" y="59" width="100" height="26.5"/>
                                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1275,7 +1320,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is MEBIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3a-1e-5pb">
-                                                                        <rect key="frame" x="131.5" y="23.5" width="119.5" height="21"/>
+                                                                        <rect key="frame" x="129" y="23.5" width="124" height="21.5"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -1306,7 +1351,7 @@
                                                                 <rect key="frame" x="0.0" y="83" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poF-iz-JmJ">
-                                                                        <rect key="frame" x="123" y="23.5" width="136.5" height="21"/>
+                                                                        <rect key="frame" x="118.5" y="23.5" width="145" height="21.5"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -1337,7 +1382,7 @@
                                                                 <rect key="frame" x="0.0" y="166" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEBIT Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zft-Eg-cnr">
-                                                                        <rect key="frame" x="134.5" y="23.5" width="113.5" height="21"/>
+                                                                        <rect key="frame" x="132.5" y="23.5" width="117.5" height="21.5"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -1368,7 +1413,7 @@
                                                                 <rect key="frame" x="0.0" y="249" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bit Foundation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s15-ln-wbI">
-                                                                        <rect key="frame" x="132" y="23.5" width="118.5" height="21"/>
+                                                                        <rect key="frame" x="128.5" y="23.5" width="125" height="21.5"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -1399,7 +1444,7 @@
                                                                 <rect key="frame" x="0.0" y="332" width="382" height="68"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organisation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-HI-gEQ">
-                                                                        <rect key="frame" x="140" y="23.5" width="102" height="21"/>
+                                                                        <rect key="frame" x="135.5" y="23.5" width="111" height="21.5"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -1514,7 +1559,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Not Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl2-Sf-30e">
-                                        <rect key="frame" x="157" y="439.5" width="100" height="17"/>
+                                        <rect key="frame" x="156.5" y="439.5" width="101.5" height="17"/>
                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1567,7 +1612,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tT-kJ-afj">
-                                                <rect key="frame" x="154" y="151.5" width="106" height="19"/>
+                                                <rect key="frame" x="151.5" y="151.5" width="111.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1788,7 +1833,7 @@
                                         <rect key="frame" x="0.0" y="102" width="414" height="794"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUB-gz-Wgj">
-                                                <rect key="frame" x="159.5" y="389" width="95.5" height="16.5"/>
+                                                <rect key="frame" x="158.5" y="388.5" width="97" height="17"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1884,7 +1929,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEBIT Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbd-Ly-t7I">
-                                                <rect key="frame" x="156.5" y="139.5" width="101" height="19"/>
+                                                <rect key="frame" x="154" y="139.5" width="106" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2834,7 +2879,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8m-5S-rds">
-                                                <rect key="frame" x="154" y="151.5" width="106" height="19"/>
+                                                <rect key="frame" x="151.5" y="151.5" width="111.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3384,6 +3429,7 @@
         <image name="filter" width="18" height="18"/>
         <image name="filterBlue" width="20" height="20"/>
         <image name="mecalogo_header" width="150" height="50"/>
+        <image name="orange_comment" width="86.333335876464844" height="95"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

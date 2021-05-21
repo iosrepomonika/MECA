@@ -11,6 +11,8 @@ class NewDetailVC: UIViewController {
     var isFromGR = false
     var Maasview = true
     var ComingfromVC = ""
+    var module = ""
+    
     @IBAction func btnBackAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -35,7 +37,7 @@ class NewDetailVC: UIViewController {
         tblDetailView.register(DetailCommentLikeTVCell.nib(), forCellReuseIdentifier: viewModel.identifierCommentLikeCell)
 
         viewImgPreview.isHidden = true
-       
+       print(module)
         pullControl.tintColor = UIColor.gray
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -43,35 +45,15 @@ class NewDetailVC: UIViewController {
         } else {
             tblDetailView.addSubview(pullControl)
         }
-//        if isFromGR{
-//            viewModel.callGRDetailWebservice()
-//        }else if isEvent{
-//            viewModel.callEventInfoWebservice()
-//        }else{
-//            viewModel.callKaizenInfoWebservice { (result) in
-//                if result{
-//                    //self.tblDetailView.reloadData()
-//                }
-//            }
-//        }
-        
+
+        viewModel.callWebserviceCategory()
         
         if isFromGR{
             viewModel.callGRDetailWebservice()
         }else if isEvent{
-            //            print("Maasview ..\(Maasview)")
-            //            if Maasview {
-            //                if ComingfromVC == "Sdgs" {
-            //                    viewModel.callSdgsInfoWebservice()
-            //                }else{
-            //                    viewModel.callMaasInfoWebservice()
-            //                }
-            //
-            //            }else{
-            //                print("else Maasview ..\(Maasview)")
-            viewModel.callEventInfoWebservice()
-            //            }
             
+            viewModel.callEventInfoWebservice()
+        
         }else{
             
             print("Maasview ..\(Maasview)")

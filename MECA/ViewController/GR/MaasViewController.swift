@@ -300,6 +300,7 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = false
        // vc.ComingfromVC = "Maas"
+        vc.module = "Maas"
         vc.Maasview = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

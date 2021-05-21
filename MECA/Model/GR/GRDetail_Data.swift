@@ -35,6 +35,7 @@ struct GRDetail_Data : Codable {
 	let user : Int?
 	let video_links : [Video_links]?
 	let written_by : Int?
+    let comments_count : Int?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -60,6 +61,7 @@ struct GRDetail_Data : Codable {
 		case user = "user"
 		case video_links = "video_links"
 		case written_by = "written_by"
+        case comments_count = "comments_count"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -86,6 +88,7 @@ struct GRDetail_Data : Codable {
 		user = try values.decodeIfPresent(Int.self, forKey: .user)
 		video_links = try values.decodeIfPresent([Video_links].self, forKey: .video_links)
 		written_by = try values.decodeIfPresent(Int.self, forKey: .written_by)
+        comments_count = try values.decodeIfPresent(Int.self, forKey: .comments_count)
 	}
 
 }

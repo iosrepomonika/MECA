@@ -111,6 +111,7 @@ extension SDGSListvc:UITableViewDelegate,UITableViewDataSource{
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = false
         vc.ComingfromVC = "Sdgs"
+        vc.module = "Sdgs"
         vc.Maasview = true
         self.navigationController?.pushViewController(vc, animated: true)
     }

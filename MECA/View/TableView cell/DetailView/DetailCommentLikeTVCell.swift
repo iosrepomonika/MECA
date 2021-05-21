@@ -8,7 +8,11 @@ class DetailCommentLikeTVCell: UITableViewCell {
     @IBOutlet weak var lblLike: UILabel!
     @IBOutlet weak var imgLikes: UIImageView!
     @IBOutlet weak var imgComment: UIImageView!
-
+    @IBOutlet weak var btnOutletLike: RCustomButton!
+    @IBOutlet weak var btnOutletComment: RCustomButton!
+    @IBOutlet weak var btnLikeCountOutlet: UIButton!
+    @IBOutlet weak var btnCommentCountOutlet: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if GlobalValue.tabCategory == "GR" {
@@ -40,8 +44,10 @@ class DetailCommentLikeTVCell: UITableViewCell {
     }
     func setEventData(dataEvent:Data_Event) {
         let likes = String(dataEvent.likes ?? 0) + " Likes"
+        let comments = String(dataEvent.comments_count ?? 0) + " Comments"
 
         lblLike.text = likes
+        lblComment.text = comments
         
         
     }
@@ -49,9 +55,14 @@ class DetailCommentLikeTVCell: UITableViewCell {
     func setKaizenData(dataKaizen:KaizenInfoDataModel) {
         
         let likes = String(dataKaizen.likes ?? 0) + " Likes"
-
+        let comments = String(dataKaizen.comments_count ?? 0) + " Comments"
         lblLike.text = likes
-        
+        lblComment.text = comments
         
     }
+    func setGRData(grData:GRDetail_Data){
+        let likes = String(grData.likes ?? 0) + " Likes"
+        let comments = String(grData.comments_count ?? 0) + " Comments"
+        lblLike.text = likes
+        lblComment.text = comments    }
 }

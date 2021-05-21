@@ -815,6 +815,77 @@ class APIClient {
                        }
                    }
            }
+    
+    
+    //Like post
+     static func webServiceForLikePost(params:[String:Any],completion:@escaping(Any) -> Void){
+         if !NetworkReachabilityManager()!.isReachable{
+             GlobalObj.displayLoader(true, show: false)
+             GlobalObj.showNetworkAlert()
+             return
+         }
+         let url = BaseURL + likeUpdate
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+
+         AF.request(url, method: .post, parameters: params, headers: headers)
+             .responseJSON { response in
+ //                completion(response)
+                 switch response.result{
+                 case .success( _):
+                     completion(response.value!)
+                 case .failure(let error):
+                     print(error)
+                     GlobalObj.displayLoader(true, show: false)
+
+                 }
+             }
+     }
+    
+    
+    //Comment List
+    
+    static func wevserviceForCommentList(module:String, item:String, completion:@escaping(CommentListModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + CommentList + module + "/" + item
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print(response)
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: CommentListModel = try JSONDecoder().decode(CommentListModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+    }
 }
 
 

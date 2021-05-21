@@ -112,7 +112,7 @@ class CategoryCommonViewController: UIViewController {
     var isAddLink = ""
     var videoLinkArr = [[String:Any]]()
     var docLinkArr = [[String:Any]]()
-
+    var module = 0
     
     let typePickerData = [String](arrayLiteral: "New Car Sales", "After Sales", "Trade In", "BIT Foundation")
 
@@ -695,7 +695,11 @@ extension CategoryCommonViewController{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
             
         }else{
-            viewModel.callWebserviceForAdddEvent()
+            if module == 0{
+                viewModel.callWebserviceForAdddEvent()
+            }else{
+                viewModel.callWebserviceForAddModuleItem(module: String(module))
+            }
         }
     }
 }

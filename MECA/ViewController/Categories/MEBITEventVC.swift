@@ -365,6 +365,8 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
         let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = true
+        vc.module = "Event"
+
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

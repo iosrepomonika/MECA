@@ -125,6 +125,115 @@ extension CreateKaizenVM{
         })
 print("error")
     }
+    
+    
+    func callWebserviceForAddModuleItem(module:String){
+    var strType = ""
+        if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "New Car Sales"{
+            strType = "1"
+        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "After Sales"{
+            strType = "2"
+        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "Trade In"{
+            strType = "3"
+        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "BIT Foundation"{
+            strType = "4"
+        }
+        
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        GlobalObj.displayLoader(true, show: true)
+
+        let url = BaseURL + AddModuleItem
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+
+        headers = ["Authorization":"Bearer \(accessToken ?? "")"    ]
+
+        let parameters: [String: Any] = [
+            "video_links" : (actualController as! CategoryCommonViewController).videoLinkArr,
+            "document_links" : (actualController as! CategoryCommonViewController).docLinkArr,
+        ]
+       
+        AF.upload(multipartFormData: { (multipartFormData) in
+           
+
+            for (key, value) in parameters {
+                
+                if let jsonData = try? JSONSerialization.data(withJSONObject: value, options:[]) {
+//                    multipartFormData.append(jsonData, withName: key as String)
+                    let data = (String(data: jsonData, encoding: String.Encoding.utf8) ?? "") as String
+                    let somedata = data.data(using: String.Encoding.utf8)
+                    multipartFormData.append(somedata ?? Data(), withName: key as String)
+
+                }
+            }
+                               
+            multipartFormData.append((self.actualController as! CategoryCommonViewController).titleInputTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"title")
+
+            multipartFormData.append((self.actualController as! CategoryCommonViewController).descriptionTextView.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"description")
+         
+            multipartFormData.append(strType.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"type")
+         
+            multipartFormData.append((self.actualController as! CategoryCommonViewController).startDateTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"start_date")
+            
+            multipartFormData.append((self.actualController as! CategoryCommonViewController).endDateTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"end_date")
+            multipartFormData.append(module.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"module")
+
+            
+            for i in 0..<(self.actualController as! CategoryCommonViewController).arrimages.count{
+                let name = "event_images[\(i)]"
+                let img = (self.actualController as! CategoryCommonViewController).arrimages[i]
+                multipartFormData.append(img, withName: name , fileName: "file.jpeg", mimeType: "image/jpeg")
+
+            }
+            
+      
+
+
+            for i in 0..<(self.actualController as! CategoryCommonViewController).arrvideos.count{
+                let name = "event_videos[\(i)]"
+                let img = (self.actualController as! CategoryCommonViewController).arrvideos[i]
+                let timestamp = NSDate().timeIntervalSince1970
+                multipartFormData.append(img, withName: name , fileName: "\(timestamp).mp4", mimeType: "\(timestamp)/mp4")
+                                
+            }
+            
+            for img in (self.actualController as! CategoryCommonViewController).arrCoverimage{
+                
+                multipartFormData.append(img, withName: "newcover" , fileName: "file.jpeg", mimeType: "image/jpeg")
+                                
+            }
+
+        }, to: url, method: .post,headers:headers).responseJSON(completionHandler: { (response) in
+            print(response.value as Any)
+            GlobalObj.displayLoader(true, show: false)
+
+            if let objData = response.value as? [String:Any]{
+                let msg = objData["message"] as! String
+                let resp_code = objData["resp_code"] as! Int
+                if resp_code == 200 {
+                    (self.actualController as! CategoryCommonViewController).showToast(message: msg)
+
+                    (self.actualController as! CategoryCommonViewController).navigationController?.popViewController(animated: true)
+                }
+//            if msg == "Kaizen Added successfully"{
+//                (self.actualController as! CategoryCommonViewController).navigationController?.popViewController(animated: true)
+//            }
+            }else{
+            print(response.error as Any)
+                GlobalObj.displayLoader(true, show: false)
+
+                (self.actualController as! CategoryCommonViewController).showToast(message: response.error.debugDescription)
+            }
+        })
+print("error")
+    }
 }
 
 // MARK: UIPickerView Delegation

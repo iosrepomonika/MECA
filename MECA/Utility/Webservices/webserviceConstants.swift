@@ -31,3 +31,10 @@ let MaasList = "mobile/user/maas/list/"
 let SdgsList = "mobile/user/sdgs/list/"
 let MaasInfo = "mobile/user/maas/"
 let SdgsInfo = "mobile/user/sdgs/"
+let likeUpdate = "mobile/user/module/item/like/update"
+let CommentList = "/mobile/user/comments/"
+let AddModuleItem = "mobile/user/create/module/item"
+let AddComment = "mobile/user/comment/item"
+
+
+
